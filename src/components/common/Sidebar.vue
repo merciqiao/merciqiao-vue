@@ -33,12 +33,22 @@
                     {
                         icon: 'el-icon-setting',
                         index: 'index',
-                        title: '系统首页'
+                        title: '系统首页',
                     },
                     {
                         icon: 'el-icon-tickets',
                         index: 'table',
-                        title: '基础表格'
+                        title: '基础模块',
+                        subs: [
+                            {
+                                index: 'searchinput',
+                                title: '查询输入自适应'
+                            },
+                            {
+                                index: 'searchinput',
+                                title: '版权永远在底部'
+                            }
+                        ]
                     },
                     {
                         icon: 'el-icon-message',
