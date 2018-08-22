@@ -1,4 +1,5 @@
 <template >
+        <!-- 查询区----start -->
         <el-form :label-position="labelPosition" :label-width="labelWidth" :inline="false" :model="formInline" class="demo-form-inline">
             <div class="container">
                 <div class="input_item">
@@ -46,6 +47,7 @@
                 </div>
             </div>
         </el-form>
+         <!-- 查询区----end -->
 </template>
 <style lang="scss">
 $input_item_width:300px; //输入项宽度

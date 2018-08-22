@@ -9,6 +9,8 @@
     footer{
         border-top:1px solid #ddd;
         .footer_content{
+            width: 300px;
+            margin: 0 auto;
             text-align: center;
             line-height: 60px;
             height: 60px;

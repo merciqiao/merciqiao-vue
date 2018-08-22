@@ -42,11 +42,11 @@
                         subs: [
                             {
                                 index: 'searchinput',
-                                title: '查询输入自适应'
+                                title: '查询输入页'
                             },
                             {
                                 index: 'searchinput',
-                                title: '版权永远在底部'
+                                title: '版权底部页'
                             }
                         ]
                     },
