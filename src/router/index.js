@@ -22,12 +22,26 @@ const router = new Router({
       }
     },
     {
-        path: '/searchinput',
-        component: resolve => require(['@/components/searchinput/searchinput.vue'], resolve),
-        meta: {
-          title: '查询输入页'
-        }
+      path: '/searchinput',
+      component: resolve => require(['@/components/searchinput/searchinput.vue'], resolve),
+      meta: {
+        title: '查询输入页'
       }
+    },
+    {
+      path: '/tabpage',
+      component: resolve => require(['@/components/tabpage/tabpage.vue'], resolve),
+      meta: {
+        title: '标签选项卡'
+      }
+    },
+    {
+      path: '/tablepage',
+      component: resolve => require(['@/components/tablepage/tablepage.vue'], resolve),
+      meta: {
+        title: '综合表格页'
+      }
+    }
     ]
   }
   ],

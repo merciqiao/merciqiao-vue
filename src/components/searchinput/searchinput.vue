@@ -1,7 +1,8 @@
 <template >
-        <!-- 查询区----start -->
+    <!-- 查询区----start -->
+    <div class="container">
         <el-form :label-position="labelPosition" :label-width="labelWidth" :inline="false" :model="formInline" class="demo-form-inline">
-            <div class="container">
+            <div class="container_item">
                 <div class="input_item">
                     <el-form-item label="审批人">
                         <el-input v-model="formInline.user" placeholder="审批人"></el-input>
@@ -47,21 +48,21 @@
                 </div>
             </div>
         </el-form>
-         <!-- 查询区----end -->
+    </div>
+    <!-- 查询区----end -->
 </template>
 <style lang="scss">
 $input_item_width:300px; //输入项宽度
 $input_item_lable:80px; //lable宽度,跟实体中相同
-.container {
+.container_item {
     display: flex;
     flex-flow: row wrap;
-}
-
-.input_item {
-    flex: 0 0 $input_item_width; // float: left;//用float或者flex布局
-    width: $input_item_width;
-    input {
-        width: $input_item_width - $input_item_lable;
+    .input_item {
+        flex: 0 0 $input_item_width; // float: left;//用float或者flex布局
+        width: $input_item_width;
+        input {
+            width: $input_item_width - $input_item_lable;
+        }
     }
 }
 </style>

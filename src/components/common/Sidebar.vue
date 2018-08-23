@@ -45,8 +45,12 @@
                                 title: '查询输入页'
                             },
                             {
-                                index: 'searchinput',
-                                title: '版权底部页'
+                                index: 'tabpage',
+                                title: '标签选项卡'
+                            },
+                             {
+                                index: 'tablepage',
+                                title: '综合表格页'
                             }
                         ]
                     },
