@@ -15,6 +15,7 @@ const router = new Router({
       title: '自述文件'
     },
     children: [{
+      name:'index',
       path: '/index',
       component: resolve => require(['@/components/index.vue'], resolve),
       meta: {
@@ -22,6 +23,7 @@ const router = new Router({
       }
     },
     {
+      name:'searchinput',
       path: '/searchinput',
       component: resolve => require(['@/components/searchinput/searchinput.vue'], resolve),
       meta: {
@@ -29,6 +31,7 @@ const router = new Router({
       }
     },
     {
+      name:'tabpage',
       path: '/tabpage',
       component: resolve => require(['@/components/tabpage/tabpage.vue'], resolve),
       meta: {
@@ -36,10 +39,20 @@ const router = new Router({
       }
     },
     {
+      name: '/tablepage',
       path: '/tablepage',
       component: resolve => require(['@/components/tablepage/tablepage.vue'], resolve),
       meta: {
         title: '综合表格页'
+      }
+    }
+    ,
+    {
+      name: '/formpage',
+      path: '/formpage',
+      component: resolve => require(['@/components/formpage/formpage.vue'], resolve),
+      meta: {
+        title: '表单页'
       }
     }
     ]

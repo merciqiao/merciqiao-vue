@@ -51,6 +51,10 @@
                              {
                                 index: 'tablepage',
                                 title: '综合表格页'
+                            },
+                             {
+                                index: 'formpage',
+                                title: '表单页'
                             }
                         ]
                     },

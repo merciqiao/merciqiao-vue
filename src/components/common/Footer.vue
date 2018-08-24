@@ -8,6 +8,7 @@
 <style lang="scss">
     footer{
         border-top:1px solid #ddd;
+        flex: 0 0 auto;
         .footer_content{
             width: 300px;
             margin: 0 auto;

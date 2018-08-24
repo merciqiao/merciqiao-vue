@@ -29,6 +29,7 @@
 <script>
 import vSearchinput from '../searchinput/searchinput.vue';
 export default {
+    name: 'tabpage',
     components: {
         vSearchinput
     },

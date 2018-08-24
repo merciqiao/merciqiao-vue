@@ -19,6 +19,7 @@
                 </el-dropdown-menu>
             </el-dropdown>
         </div>
+        
     </div>
 </template>
 
@@ -64,7 +65,8 @@
                 !isExist && this.tagsList.push({
                     title: route.meta.title,
                     path: route.fullPath,
-                    name: route.matched[1].components.default.name
+                    // name: route.matched[1].components.default.name
+                    name: route.name
                 })
                 bus.$emit('tags', this.tagsList);
             },
@@ -98,6 +100,7 @@
         overflow: hidden;
         background: #fff;
         padding-right: 120px;
+        flex: 0 0 auto;
     }
 
     .tags ul {
