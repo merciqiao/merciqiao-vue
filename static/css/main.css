@@ -74,6 +74,9 @@ a {
 .mgb20 {
     margin-bottom: 20px;
 }
+.mgb15 {
+    margin-bottom: 15px;
+}
 
 .move-enter-active,
 .move-leave-active {
