@@ -33,12 +33,12 @@
         <!-- 查询区----end -->
         <!-- 操作区----start -->
         <el-row class="mgb15">
-            <el-button size="small" round type="primary">新增</el-button>
-            <el-button size="small" round type="danger">批量删除</el-button>
+            <el-button size="small" round type="primary" @click="dialogAddVisible = true">新增</el-button>
+            <el-button size="small" round type="danger" @click="deleteMany">批量删除</el-button>
         </el-row>
         <!-- 操作区----end -->
         <!-- 表格---start -->
-        <el-table :data="tableData" border stripe style="width: 100%">
+        <el-table :data="tableData" border stripe style="width: 100%" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="55">
             </el-table-column>
 
@@ -61,15 +61,30 @@
 
         <!-- 编辑弹框---start -->
         <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
-            <el-form :model="form">
-                <el-form-item label="活动名称" :label-width="formLabelWidth">
-                    <el-input v-model="form.name" auto-complete="off"></el-input>
+            <el-form :label-position="labelPosition" :label-width="labelWidth" :inline="true" :model="form1" class="demo-form-inline">
+                <el-form-item label="审批人">
+                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
                 </el-form-item>
-                <el-form-item label="活动区域" :label-width="formLabelWidth">
-                    <el-select v-model="form.region" placeholder="请选择活动区域">
+                <el-form-item label="活动区域">
+                    <el-select v-model="form1.region" placeholder="活动区域">
                         <el-option label="区域一" value="shanghai"></el-option>
                         <el-option label="区域二" value="beijing"></el-option>
                     </el-select>
+                </el-form-item>
+                <el-form-item label="审批人">
+                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                </el-form-item>
+                <el-form-item label="审批人">
+                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                </el-form-item>
+                <el-form-item label="审批人">
+                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                </el-form-item>
+                <el-form-item label="审批人">
+                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                </el-form-item>
+                <el-form-item label="审批人">
+                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
                 </el-form-item>
             </el-form>
 
@@ -80,6 +95,43 @@
         </el-dialog>
 
         <!-- 编辑弹框---end -->
+
+        <!-- 新增弹框---start -->
+        <el-dialog title="新增记录" :visible.sync="dialogAddVisible">
+             <el-form :label-position="labelPosition" :label-width="labelWidth" :inline="true" :model="form1" class="demo-form-inline">
+                <el-form-item label="审批人">
+                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                </el-form-item>
+                <el-form-item label="活动区域">
+                    <el-select v-model="form1.region" placeholder="活动区域">
+                        <el-option label="区域一" value="shanghai"></el-option>
+                        <el-option label="区域二" value="beijing"></el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="审批人">
+                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                </el-form-item>
+                <el-form-item label="审批人">
+                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                </el-form-item>
+                <el-form-item label="审批人">
+                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                </el-form-item>
+                <el-form-item label="审批人">
+                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                </el-form-item>
+                <el-form-item label="审批人">
+                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                </el-form-item>
+            </el-form>
+
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="dialogAddVisible = false">取 消</el-button>
+                <el-button type="primary" @click="dialogAddVisible = false">确 定</el-button>
+            </div>
+        </el-dialog>
+
+        <!-- 新增弹框---end -->
     </div>
 </template>
 
@@ -139,9 +191,21 @@ export default {
                 desc: ''
             },
             dialogFormVisible: false,
-            formLabelWidth: '120px'
-
-
+            dialogAddVisible:false,
+            formLabelWidth: '120px',
+            form1: {
+                //表单对象
+                name: "",
+                amount: "",
+                region: "",
+                date1: "",
+                date2: "",
+                delivery: false,
+                type: [],
+                resource: "",
+                desc: ""
+            },
+            multipleSelection: []
         };
     },
     methods: {
@@ -189,7 +253,20 @@ export default {
         },
         onSubmit() {
             console.log('submit!');
-        }
+        },
+      handleSelectionChange(val) {
+        this.multipleSelection = val;
+         this.$message({
+                message: '选中的项是:'+JSON.stringify(this.multipleSelection),
+                type: "success"
+            });
+      },
+      deleteMany(){
+          this.$message({
+                message: '删除的项是:'+JSON.stringify(this.multipleSelection),
+                type: "success"
+            });
+      }
     }
 };
 </script>
