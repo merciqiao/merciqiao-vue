@@ -61,30 +61,24 @@
 
         <!-- 编辑弹框---start -->
         <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
-            <el-form :label-position="labelPosition" :label-width="labelWidth" :inline="true" :model="form1" class="demo-form-inline">
-                <el-form-item label="审批人">
-                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+            <el-form :label-position="labelPosition" :label-width="labelWidth" :inline="true" :model="formEdit" class="demo-form-inline">
+                <el-form-item label="姓名">
+                    <el-input v-model="formEdit.name" placeholder="姓名"></el-input>
                 </el-form-item>
-                <el-form-item label="活动区域">
-                    <el-select v-model="form1.region" placeholder="活动区域">
-                        <el-option label="区域一" value="shanghai"></el-option>
-                        <el-option label="区域二" value="beijing"></el-option>
-                    </el-select>
+                <el-form-item label="地址">
+                    <el-input v-model="formEdit.address" placeholder="地址"></el-input>
                 </el-form-item>
-                <el-form-item label="审批人">
-                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                <el-form-item label="日期">
+                    <el-date-picker type="date" format="yyyy 年 MM 月 dd 日" value-format="yyyy-MM-dd" placeholder="日期" v-model="formEdit.date" style="width: 100%;"></el-date-picker>
                 </el-form-item>
                 <el-form-item label="审批人">
-                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                    <el-input v-model="formEdit.other" placeholder="审批人"></el-input>
                 </el-form-item>
                 <el-form-item label="审批人">
-                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                    <el-input v-model="formEdit.other" placeholder="审批人"></el-input>
                 </el-form-item>
                 <el-form-item label="审批人">
-                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
-                </el-form-item>
-                <el-form-item label="审批人">
-                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                    <el-input v-model="formEdit.other" placeholder="审批人"></el-input>
                 </el-form-item>
             </el-form>
 
@@ -98,36 +92,30 @@
 
         <!-- 新增弹框---start -->
         <el-dialog title="新增记录" :visible.sync="dialogAddVisible">
-             <el-form :label-position="labelPosition" :label-width="labelWidth" :inline="true" :model="form1" class="demo-form-inline">
-                <el-form-item label="审批人">
-                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+            <el-form :label-position="labelPosition" :label-width="labelWidth" :inline="true" :model="formAdd" class="demo-form-inline">
+                <el-form-item label="姓名">
+                    <el-input v-model="formAdd.name" placeholder="姓名"></el-input>
                 </el-form-item>
-                <el-form-item label="活动区域">
-                    <el-select v-model="form1.region" placeholder="活动区域">
-                        <el-option label="区域一" value="shanghai"></el-option>
-                        <el-option label="区域二" value="beijing"></el-option>
-                    </el-select>
+                <el-form-item label="地址">
+                    <el-input v-model="formAdd.address" placeholder="地址"></el-input>
                 </el-form-item>
-                <el-form-item label="审批人">
-                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                <el-form-item label="日期">
+                    <el-date-picker type="date" format="yyyy 年 MM 月 dd 日" value-format="yyyy-MM-dd" placeholder="日期" v-model="formAdd.date" style="width: 100%;"></el-date-picker>
                 </el-form-item>
                 <el-form-item label="审批人">
-                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                    <el-input v-model="formAdd.other" placeholder="审批人"></el-input>
                 </el-form-item>
                 <el-form-item label="审批人">
-                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                    <el-input v-model="formAdd.other" placeholder="审批人"></el-input>
                 </el-form-item>
                 <el-form-item label="审批人">
-                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
-                </el-form-item>
-                <el-form-item label="审批人">
-                    <el-input v-model="form1.user" placeholder="审批人"></el-input>
+                    <el-input v-model="formAdd.other" placeholder="审批人"></el-input>
                 </el-form-item>
             </el-form>
 
             <div slot="footer" class="dialog-footer">
                 <el-button @click="dialogAddVisible = false">取 消</el-button>
-                <el-button type="primary" @click="dialogAddVisible = false">确 定</el-button>
+                <el-button type="primary" @click="save">确 定</el-button>
             </div>
         </el-dialog>
 
@@ -153,22 +141,25 @@ export default {
                 pageTotal: 80
             },
             tableData: [
-                {
+                {   id:"1",
                     date: "2016-05-02",
                     name: "李紫婷",
                     address: "上海市普陀区金沙江路 1518 弄"
                 },
                 {
+                     id:"2",
                     date: "2016-05-04",
                     name: "杨超越",
                     address: "上海市普陀区金沙江路 1517 弄"
                 },
                 {
+                     id:"3",
                     date: "2016-05-01",
                     name: "赖小七",
                     address: "上海市普陀区金沙江路 1519 弄"
                 },
                 {
+                     id:"4",
                     date: "2016-05-03",
                     name: "张紫宁",
                     address: "上海市普陀区金沙江路 1516 弄"
@@ -191,19 +182,21 @@ export default {
                 desc: ''
             },
             dialogFormVisible: false,
-            dialogAddVisible:false,
+            dialogAddVisible: false,
             formLabelWidth: '120px',
-            form1: {
+            formAdd: {
                 //表单对象
                 name: "",
-                amount: "",
-                region: "",
-                date1: "",
-                date2: "",
-                delivery: false,
-                type: [],
-                resource: "",
-                desc: ""
+                address: "",
+                date: "",
+                other: ""
+            },
+            formEdit: {
+                //表单对象
+                name: "",
+                address: "",
+                date: "",
+                other: ""
             },
             multipleSelection: []
         };
@@ -215,6 +208,7 @@ export default {
                 message: msg,
                 type: "success"
             });
+            this.formEdit=rowData;
             this.dialogFormVisible = true;
         },
         handleDelete(index, rowData) {
@@ -224,6 +218,7 @@ export default {
                 cancelButtonText: '取消',
                 type: 'warning'
             }).then(() => {
+                this.tableData.splice(index, 1);
                 this.$message({
                     type: 'success',
                     message: '删除成功!' + msg
@@ -254,19 +249,25 @@ export default {
         onSubmit() {
             console.log('submit!');
         },
-      handleSelectionChange(val) {
-        this.multipleSelection = val;
-         this.$message({
-                message: '选中的项是:'+JSON.stringify(this.multipleSelection),
+        handleSelectionChange(val) {
+            this.multipleSelection = val;
+            this.$message({
+                message: '选中的项是:' + JSON.stringify(this.multipleSelection),
                 type: "success"
             });
-      },
-      deleteMany(){
-          this.$message({
-                message: '删除的项是:'+JSON.stringify(this.multipleSelection),
+        },
+        deleteMany() {
+            var ids= this.multipleSelection.map(item => item.id).join();
+            this.$message({
+                message: '删除的项是:' + JSON.stringify(this.multipleSelection),
                 type: "success"
             });
-      }
+        },
+        save() {
+            let param = Object.assign({}, this.formAdd);
+            this.tableData.push(param);
+            this.dialogAddVisible = false;
+        }
     }
 };
 </script>
