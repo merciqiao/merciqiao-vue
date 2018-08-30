@@ -15,7 +15,7 @@ const router = new Router({
       title: '自述文件'
     },
     children: [{
-      name:'index',
+      name: 'index',
       path: '/index',
       component: resolve => require(['@/components/index.vue'], resolve),
       meta: {
@@ -23,7 +23,7 @@ const router = new Router({
       }
     },
     {
-      name:'searchinput',
+      name: 'searchinput',
       path: '/searchinput',
       component: resolve => require(['@/components/searchinput/searchinput.vue'], resolve),
       meta: {
@@ -31,7 +31,7 @@ const router = new Router({
       }
     },
     {
-      name:'tabpage',
+      name: 'tabpage',
       path: '/tabpage',
       component: resolve => require(['@/components/tabpage/tabpage.vue'], resolve),
       meta: {
@@ -39,7 +39,7 @@ const router = new Router({
       }
     },
     {
-      name: '/tablepage',
+      name: 'tablepage',
       path: '/tablepage',
       component: resolve => require(['@/components/tablepage/tablepage.vue'], resolve),
       meta: {
@@ -48,11 +48,20 @@ const router = new Router({
     }
     ,
     {
-      name: '/formpage',
+      name: 'formpage',
       path: '/formpage',
       component: resolve => require(['@/components/formpage/formpage.vue'], resolve),
       meta: {
         title: '表单页'
+      }
+    }
+    ,
+    {
+      name: 'treepage',
+      path: '/treepage',
+      component: resolve => require(['@/components/treepage/treepage.vue'], resolve),
+      meta: {
+        title: '树组件页'
       }
     }
     ]

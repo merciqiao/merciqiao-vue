@@ -55,6 +55,10 @@
                              {
                                 index: 'formpage',
                                 title: '表单页'
+                            },
+                             {
+                                index: 'treepage',
+                                title: '树组件页'
                             }
                         ]
                     },

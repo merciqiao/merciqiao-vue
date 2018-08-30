@@ -60,7 +60,7 @@
         <!-- 表格---end -->
 
         <!-- 编辑弹框---start -->
-        <el-dialog title="收货地址" :visible.sync="dialogFormVisible">
+        <el-dialog title="收货地址" :visible.sync="dialogFormVisible" width="700px">
             <el-form :label-position="labelPosition" :label-width="labelWidth" :inline="true" :model="formEdit" class="demo-form-inline">
                 <el-form-item label="姓名">
                     <el-input v-model="formEdit.name" placeholder="姓名"></el-input>
@@ -91,7 +91,7 @@
         <!-- 编辑弹框---end -->
 
         <!-- 新增弹框---start -->
-        <el-dialog title="新增记录" :visible.sync="dialogAddVisible">
+        <el-dialog title="新增记录" :visible.sync="dialogAddVisible" width="700px">
             <el-form :label-position="labelPosition" :label-width="labelWidth" :inline="true" :model="formAdd" class="demo-form-inline">
                 <el-form-item label="姓名">
                     <el-input v-model="formAdd.name" placeholder="姓名"></el-input>
