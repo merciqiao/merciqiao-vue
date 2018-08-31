@@ -73,6 +73,18 @@ const router = new Router({
         }
       }
       ]
+    },
+    {
+      path: '/404',
+      component: resolve => require(['../components/common/404.vue'], resolve)
+    },
+    {
+      path: '/403',
+      component: resolve => require(['../components/common/403.vue'], resolve)
+    },
+    {
+      path: '*',
+      redirect: '/404'
     }
   ],
   mode: 'history'
