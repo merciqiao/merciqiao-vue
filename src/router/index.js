@@ -71,6 +71,42 @@ const router = new Router({
         meta: {
           title: '树组件页'
         }
+      },
+      {
+        name: 'OrganizationTree',
+        path: '/organizationTree',
+        component: resolve => require(['@/components/admin/OrganizationTree.vue'], resolve),
+        meta: { title: '机构管理' }
+      },
+      {
+        name: 'SysUser',
+        path: '/sysUser',
+        component: resolve => require(['@/components/admin/SysUser.vue'], resolve),
+        meta: { title: '用户管理' }
+      },
+      {
+        name: 'SysAcl',
+        path: '/sysAcl',
+        component: resolve => require(['@/components/admin/SysAcl.vue'], resolve),
+        meta: { title: '角色资源管理' }
+      },
+      {
+        name: 'SysMenu',
+        path: '/sysMenu',
+        component: resolve => require(['@/components/admin/SysMenu.vue'], resolve),
+        meta: { title: '菜单管理' }
+      },
+      {
+        name: 'SysResource',
+        path: '/sysResource',
+        component: resolve => require(['@/components/admin/SysResource.vue'], resolve),
+        meta: { title: '资源管理' }
+      },
+      {
+        name: 'SysRole',
+        path: '/sysRole',
+        component: resolve => require(['@/components/admin/SysRole.vue'], resolve),
+        meta: { title: '角色管理' }
       }
       ]
     },

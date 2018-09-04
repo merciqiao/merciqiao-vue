@@ -110,7 +110,7 @@
                     <el-input v-model="form1.user" placeholder="审批人"></el-input>
                 </el-form-item>
                 <el-form-item label="" style="display:block;text-align: center;">
-                    <el-button type="primary" @click="onSubmit">查询</el-button>
+                    <el-button type="primary" @click="onSubmit3">查询</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -243,6 +243,12 @@ export default {
           console.log("error submit!!");
           return false;
         }
+      });
+    },
+    onSubmit3() {
+      this.$message({
+        type: "success",
+        message: "表单提交成功"
       });
     }
   }

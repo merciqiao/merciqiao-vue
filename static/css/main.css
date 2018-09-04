@@ -77,6 +77,12 @@ a {
 .mgb15 {
     margin-bottom: 15px;
 }
+.mgt10 {
+    margin-top: 10px;
+}
+.mgt20 {
+    margin-top: 20px;
+}
 
 .move-enter-active,
 .move-leave-active {
@@ -170,4 +176,16 @@ a {
 
 .v-note-wrapper .v-note-panel {
     min-height: 500px;
+}
+
+.clearfix:after{
+    content:" ";
+    display:block;
+    height:0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix{
+    overflow: hidden;
+    _zoom:1;
 }

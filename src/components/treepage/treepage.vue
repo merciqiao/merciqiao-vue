@@ -73,7 +73,7 @@ export default {
             console.log(data);
         },
         remove(node, data) {
-
+            debugger;
             const parent = node.parent
             const children = parent.data.children || parent.data;
             const index = children.findIndex(d => d.id === data.id);

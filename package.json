@@ -12,7 +12,7 @@
   "dependencies": {
     "ajv": "^6.5.3",
     "axios": "^0.18.0",
-    "element-ui": "^2.4.6",
+    "element-ui": "^2.4.5",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
