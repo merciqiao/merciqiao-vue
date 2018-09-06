@@ -69,6 +69,7 @@
   <script>
   let id = 1000;
   export default {
+    name: 'OrganizationTree',
     data() {
       return {
         //组织结构数据

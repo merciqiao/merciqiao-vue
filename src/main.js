@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui';
 import axios from 'axios'
+import 'babel-polyfill'
+
 import 'element-ui/lib/theme-chalk/index.css';
 import '../static/css/theme-green/index.css';
 

@@ -474,6 +474,7 @@
  </template>
  <script>
 export default {
+  name: 'SysUser',
   data() {
     return {
       //搜索区域参数
