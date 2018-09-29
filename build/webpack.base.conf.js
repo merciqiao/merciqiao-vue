@@ -15,6 +15,12 @@ module.exports = {
   entry: {
     app: ['babel-polyfill', './src/main.js']//兼容ie11
   },
+  externals: {
+  'vue': 'Vue',
+  'vue-router': 'VueRouter',
+  'axios': 'axios',
+  'element-ui': 'ElementUI'
+},
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
