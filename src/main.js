@@ -7,8 +7,9 @@ import router from './router'
 // import axios from 'axios'
 import 'babel-polyfill'
 
-import 'element-ui/lib/theme-chalk/index.css';
-import '../static/css/theme-green/index.css';
+// import 'element-ui/lib/theme-chalk/index.css';
+// import '../static/css/theme-green/index.css';
+
 
 Vue.prototype.$ajax=axios
 Vue.config.productionTip = false
