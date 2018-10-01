@@ -8,7 +8,7 @@
             <div class="container"><!-- 页面内容区begin -->
         <div class="custom-tree-container">  
               <div class="block">   
-                  <el-tree   :data="treeData" :props="defaultProps"   node-key="id"    :expand-on-click-node="false" >   
+                  <el-tree   :data="treeData" :props="defaultProps"   node-key="id" v-loading="listLoading"    :expand-on-click-node="false" >   
                           <span class="custom-tree-node" slot-scope="{ node, data }">
                               <span>{{node.label}}                           
                             <i class="el-icon-plus" @click="() => append(node,'1')"></i>
