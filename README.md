@@ -19,6 +19,8 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
+****个人说明****
 效果网址:101ycy.com,没错我是村民!
-QQ交流群：73110051
+我已经提供了公网的接口,但是经济比较差,云服务器买的2G内存的- -!,跑微服务总是挂掉...
+后端接口服务git: https://github.com/merciqiao/merciqiao-manage-system ,这个微服务项目提供了此web的接口
+QQ交流群：73110051,有问题随时问我
