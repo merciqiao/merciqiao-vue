@@ -6,14 +6,18 @@
                     <h2 class="title">后台管理系统</h2>
                 </el-form-item>
                 <el-form-item>
-                    <el-input v-model="formLogin.username" placeholder="账号"></el-input>
+                    <el-input v-model="formLogin.loginName" placeholder="账号"></el-input>
                 </el-form-item>
                 <el-form-item>
                     <el-input v-model="formLogin.password" placeholder="密码"></el-input>
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="login">登陆</el-button>
+                    <span v-show="this.errorInfo.isShowError" class='error'>
+                        {{this.errorInfo.text}}
+                    </span>
                 </el-form-item>
+
             </el-form>
         </div>
 
@@ -45,26 +49,72 @@ $input_width:300px;
             width: $input_width;
         }
         .el-form {
-            margin:30px 80px auto 80px;
+            margin: 30px 80px auto 80px;
+            .error {
+                display: block;
+                text-align: center;
+                color: red;
+            }
         }
     }
 }
 </style>
 
 <script>
+import apis from '../apis/apis';
 export default {
     name: 'login',
     data() {
         return {
             formLogin: {   //表单对象
-                username: '',
-                password: ''
+                loginName: 'admin',
+                password: '123456'
+            },
+            errorInfo: {
+                text: '登陆失败,请重试',
+                isShowError: false //显示错误提示
             }
+
         }
+    },
+    mounted() {
+        document.onkeydown = (event) => {
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if (e && e.keyCode == 13) { // enter 键
+                this.login();
+            }
+        };
     },
     methods: {
         login() {
-            this.$router.push({ path: "/index" });
+            //调用后端登陆接口
+            apis.shiroApi.loginIn(this.formLogin)
+                .then((data) => {
+                    console.log('success:', data);
+                    if (data && data.data) {
+                        var json = data.data;
+                        if (json.status == 'SUCCESS') {
+                            debugger;
+                            this.$common.setSessionStorage('token', json.data.userInfo.token);
+                            this.$common.setSessionStorage('username',json.data.userInfo.userName);
+                            //存入菜单
+                            this.$store.dispatch("add_Menus",json.data.sysMenuVoList);
+
+
+                            this.$router.push({ path: "/index" });
+                        }
+                        else if (json.message) {
+                            this.errorInfo.text = json.message;
+                        }
+                    }
+                    this.errorInfo.isShowError = true;
+                })
+                .catch((err) => {
+                    console.log('error:', err);
+                    this.errorInfo.isShowError = true;
+                    this.errorInfo.text = '系统接口异常';
+                });
+
         }
     }
 }

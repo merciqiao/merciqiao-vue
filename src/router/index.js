@@ -107,7 +107,13 @@ const router = new VueRouter({
         path: '/sysRole',
         component: resolve => require(['@/components/admin/SysRole.vue'], resolve),
         meta: { title: '角色管理' }
-      }
+      },
+       {
+        name: 'sysRoleMap',
+        path: '/sysRoleMap',
+        component: resolve => require(['@/components/Admin/SysRoleMap.vue'], resolve),
+        meta: { title: '角色权限管理' }
+    }
       ]
     },
     {
