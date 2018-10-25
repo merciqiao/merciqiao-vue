@@ -9,4 +9,10 @@ const store = new Vuex.Store({
     modules: modules,
     plugins: [vuexLocal.plugin]
 })
+//刷新加载的方法
+const refresh=function(){
+    //页面刷新重新加载路由
+    store.dispatch('add_Routes_Fresh');
+}
+refresh();
 export default store;

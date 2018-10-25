@@ -94,13 +94,13 @@ export default {
                     if (data && data.data) {
                         var json = data.data;
                         if (json.status == 'SUCCESS') {
-                            debugger;
                             this.$common.setSessionStorage('token', json.data.userInfo.token);
                             this.$common.setSessionStorage('username',json.data.userInfo.userName);
-                            //存入菜单
+                            //存入菜单,渲染菜单
                             this.$store.dispatch("add_Menus",json.data.sysMenuVoList);
 
-
+                             //动态设置路由
+                            this.$store.dispatch("add_Routes", json.data.sysMenuVoList);
                             this.$router.push({ path: "/index" });
                         }
                         else if (json.message) {

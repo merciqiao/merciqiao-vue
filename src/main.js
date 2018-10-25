@@ -26,7 +26,6 @@ Vue.config.productionTip = false
 Vue.use(util);
 Vue.use(Vuex);
 
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -35,3 +34,4 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+

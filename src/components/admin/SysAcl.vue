@@ -133,7 +133,7 @@ export default {
             }).then(
                 function(resultData) {
                     _this.treeData = resultData.data.data;
-                    console.log(JSON.stringify(_this.treeData));
+                    // console.log(JSON.stringify(_this.treeData));
 
                 },
                 function(resultData) {
