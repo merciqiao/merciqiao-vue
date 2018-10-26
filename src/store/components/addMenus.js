@@ -8,7 +8,7 @@ const addMenus = {
   },
   mutations: {
     add_Menus(state, param) {
-        if(param&&param.length>0){
+        if(param){
             var menuList=[];
              _addMenu(menuList,param);
              state.menuList=menuList; 

@@ -12,6 +12,7 @@ const addRoutes = {
   },
   mutations: {
     add_Routes(state, routeParam) {
+      debugger;
       let routeList = [];
       let routeHideList=[];
       ConvertRoutes(routeList, routeHideList,routeParam); // 将后台的路由数据components转化成组件
