@@ -1,8 +1,9 @@
 <template>
   <footer>
       <div class="footer_content">
-          ©2018 merciqiao
+          ©2018 merciqiao qq群:73110051(无广告)
       </div>
+      
   </footer>
 </template>
 <style lang="scss">
@@ -16,6 +17,9 @@
             line-height: 60px;
             height: 60px;
             color:#606266;
+            .qq{
+                font-size: 9px;
+            }
         }
     }
 </style>
