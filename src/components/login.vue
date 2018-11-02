@@ -103,12 +103,21 @@ export default {
                              //动态设置路由
                             this.$store.dispatch("add_Routes", json.data.sysMenuVoList);
                             this.$router.push({ path: "/index" });
+                            
+                            var loginLog={
+                                ip:returnCitySN["cip"],
+                                city:returnCitySN["cname"]
+                            };
+                            
+                            apis.shiroApi.loginLog(loginLog);
+                            return;
                         }
                         else if (json.message) {
                             this.errorInfo.text = json.message;
                         }
                     }
                     this.errorInfo.isShowError = true;
+                    this.$store.dispatch("loginLog",loginLog);
                 })
                 .catch((err) => {
                     console.log('error:', err);

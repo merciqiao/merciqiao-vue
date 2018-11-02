@@ -30,5 +30,11 @@ export default {
             city:city                
         };
         return Axios.post('/api/loginlog-api/save', param);
+    },
+    /**
+     * 还原数据
+     */ 
+    rollBackTables: function () {
+        return Axios.post('/api/loginlog-api/rollBackTables');
     }
 }
