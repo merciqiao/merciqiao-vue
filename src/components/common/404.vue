@@ -6,7 +6,7 @@
         <div class="error-qq">或者点数据恢复</div>
         <div class="error-handle">
             <router-link to="/login">
-                <el-button type="primary" size="large">返回首页</el-button>
+                <el-button type="primary" size="large">返回登陆页</el-button>
             </router-link>
             <el-button class="error-btn" type="danger" size="large" @click="rollBackTables">数据恢复</el-button>
             <el-button class="error-btn" type="primary" size="large" @click="goBack">返回上一页</el-button>
