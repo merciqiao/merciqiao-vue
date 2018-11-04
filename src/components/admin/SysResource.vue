@@ -36,10 +36,10 @@
             </el-select>
 				</el-form-item>		
            <el-form-item label="权限标识" prop="permission">
-					<el-input v-model="addForm.permission" auto-complete="off"></el-input>
+					<el-input v-model="addForm.permission" auto-complete="off" placeholder="路由path为'/index'则配index"></el-input>
 				</el-form-item>
         <el-form-item label="URL地址" prop="resoureUrl">
-					<el-input v-model="addForm.resoureUrl" auto-complete="off"></el-input>
+					<el-input v-model="addForm.resoureUrl" auto-complete="off" placeholder='可为空'></el-input>
 				</el-form-item>        
 			</el-form>
 			<div slot="footer" class="dialog-footer">

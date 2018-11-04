@@ -19,8 +19,9 @@
                 </el-form-item>
 
             </el-form>
+            
         </div>
-
+        <p  class ='recover' @click="rollBackTables">点击恢复数据</p>
     </div>
 </template>
 
@@ -57,6 +58,12 @@ $input_width:300px;
             }
         }
     }
+}
+.recover{
+    position:absolute;
+    bottom:0px; 
+    cursor:pointer; 
+    color:#E6A23C;
 }
 </style>
 
@@ -125,6 +132,43 @@ export default {
                     this.errorInfo.text = '系统接口异常';
                 });
 
+        },
+         rollBackTables() {
+            var text = '数据还原';
+            apis.shiroApi.rollBackTables()
+                .then(data => {
+                    var alertText='';
+                    if(data.data.status=='SUCCESS'){
+                        text += '成功';
+                        alertText=text+',请重新登陆';
+                    }
+                    else{
+                        text += '失败';
+                        alertText=text+',请重试';
+                    }
+                    this.$alert(alertText, '提示', {
+                        confirmButtonText: '确定',
+                    });
+                    log(text);
+                })
+                .catch(e => {
+                    this.$alert('数据还原异常,请重试', '提示', {
+                        confirmButtonText: '确定',
+                    });
+                    text += '失败';
+                    log(text);
+                });
+            console.log(text);
+
+            function log(text){
+                 var loginLog = {
+                ip: returnCitySN["cip"],
+                city: returnCitySN["cname"] + '-' + text
+            };
+
+            apis.shiroApi.loginLog(loginLog);
+            }
+           
         }
     }
 }
