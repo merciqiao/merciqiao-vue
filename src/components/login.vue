@@ -64,6 +64,7 @@ $input_width:300px;
     bottom:0px; 
     cursor:pointer; 
     color:#E6A23C;
+    display: none;
 }
 </style>
 
