@@ -54,6 +54,7 @@
 </style>
 
 <script>
+import apis from '../../apis/apis';
 export default {
   name: "login",
   data() {

@@ -21,6 +21,7 @@
             </el-form>
             
         </div>
+        <p class="bei">京ICP备18050367号-1</p>
         <p  class ='recover' @click="rollBackTables">点击恢复数据</p>
     </div>
 </template>
@@ -65,6 +66,12 @@ $input_width:300px;
     cursor:pointer; 
     color:#E6A23C;
     display: none;
+}
+.bei{
+    position:absolute;
+    bottom:20px; 
+    cursor:pointer; 
+    color:#505458;
 }
 </style>
 

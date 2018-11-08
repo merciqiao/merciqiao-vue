@@ -1,7 +1,7 @@
 <template>
   <footer>
       <div class="footer_content">
-          ©2018 merciqiao qq群:73110051(无广告)
+          京ICP备18050367号-1 qq群:73110051(无广告)
       </div>
       
   </footer>
@@ -11,7 +11,7 @@
         border-top:1px solid #ddd;
         flex: 0 0 auto;
         .footer_content{
-            width: 300px;
+            width: 340px;
             margin: 0 auto;
             text-align: center;
             line-height: 60px;
