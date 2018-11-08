@@ -17,7 +17,7 @@ const router = new VueRouter({
       }
     },
     {
-      path: '/mayi',
+      path: '/tree',
       component: resolve => require(['@/components/mayi/tree.vue'], resolve),
       meta: {
         title: '蚂蚁种树'
@@ -41,21 +41,27 @@ const router = new VueRouter({
 
 //全局路由守卫
 router.beforeEach((to, from, next) => {
-debugger
-  console.log('跳转到:',to.fullPath);
-  var token=sessionStorage.getItem('token');
-  //如果没登录,都导向登录页
-  if(!token){
-    if(to.path!=='/login'){
-      next({path:'/login'})
+  debugger
+  console.log('跳转到:', to.fullPath);
+  if (to.path == '/tree') {
+    next();
+  }
+  else {
+    var token = sessionStorage.getItem('token');
+    //如果没登录,都导向登录页
+    if (!token) {
+      if (to.path !== '/login') {
+        next({ path: '/login' })
+      }
+      else {
+        next();
+      }
     }
-    else{
+    else {
       next();
     }
   }
-  else{
-    next();
-  }
+
 })
 
 export default router
