@@ -1,36 +1,36 @@
 <template>
-    <div class='contain'>
-        <h2 class="title">哨口令</h2>
-        <el-form class="outer" :model="mayiForm" :inline="true">
-            <el-form-item class='text'>
-                <el-input v-model="mayiForm.code" placeholder="口令复制到此"></el-input>
+  <div class='contain'>
+    <h2 class="title">哨口令</h2>
+    <el-form class="outer" :model="mayiForm" :inline="true">
+      <el-form-item class='text'>
+        <el-input v-model="mayiForm.code" placeholder="口令复制到此"></el-input>
 
-            </el-form-item>
-            <el-form-item class='btn'>
-                <el-button type="primary" @click="add">添加</el-button>
-            </el-form-item>
+      </el-form-item>
+      <el-form-item class='btn'>
+        <el-button type="primary" @click="add">添加</el-button>
+      </el-form-item>
 
-        </el-form>
-        <el-button style="width:100%;" type="warning" @click="fresh">刷新</el-button>
-        <el-table :data="tableData" border stripe style="width: 100%" @selection-change="handleSelectionChange">
-            <el-table-column prop="city" label="城市" min-width="25">
-            </el-table-column>
-            <el-table-column prop="code" label="口令">
-            </el-table-column>
-            <el-table-column label="操作" fixed="right" min-width="28">
-                <template slot-scope="scope">
-                    <el-button size="mini" @click="copy(scope.$index, scope.row)">复制</el-button>
-                </template>
-            </el-table-column>
-        </el-table>
-    </div>
-
+    </el-form>
+    <el-button style="width:100%;" type="warning" @click="fresh">刷新</el-button>
+    <el-table :data="tableData" border stripe style="width: 100%" @selection-change="handleSelectionChange">
+      <el-table-column prop="city" label="城市" min-width="25">
+      </el-table-column>
+      <el-table-column prop="code" label="口令">
+      </el-table-column>
+      <el-table-column label="操作" fixed="right" min-width="28">
+        <template slot-scope="scope">
+          <el-button size="mini" @click="copy(scope.$index, scope.row)">复制</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+  </div>
 </template>
 
 <style lang="scss">
 .contain {
   margin: 3px;
 }
+
 .outer {
   display: flex;
   .el-form-item {
@@ -46,6 +46,7 @@
     width: 60px;
   }
 }
+
 .title {
   display: block;
   text-align: center;
@@ -93,7 +94,14 @@ export default {
       ]
     };
   },
-  mounted() {},
+  mounted() {
+    var loginLog = {
+      ip: returnCitySN["cip"],
+      city: returnCitySN["cname"] + '-蚂蚁种树'
+    };
+
+    apis.shiroApi.loginLog(loginLog);
+  },
   methods: {
     add() {
       this.$message({
@@ -107,8 +115,8 @@ export default {
         message: "功能开发中!"
       });
     },
-    copy(){
-        this.$message({
+    copy() {
+      this.$message({
         type: "success",
         message: "功能开发中!"
       });
