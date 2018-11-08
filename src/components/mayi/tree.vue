@@ -76,13 +76,13 @@ export default {
           id: "1",
           date: "2016-05-02",
           city: "广东",
-          code: "#吱口令#添加好友w4BCE7421c"
+          code: "#吱口令#长按复制此条消息，打开支付宝即可添加我为好友FMSj7Z97hO"
         },
         {
           id: "2",
           date: "2016-05-04",
           city: "北京",
-          code: "#吱口令#添加好友E7HtjS96cT"
+          code: "#吱口令#长按复制此条消息，打开支付宝即可添加我为好友DV4j8Y36Us"
         },
         {
           id: "3",
@@ -117,10 +117,40 @@ export default {
   },
   methods: {
     add() {
-      this.$message({
-        type: "success",
-        message: "功能开发中!"
-      });
+      if (this.mayiForm.code == "") {
+        this.$message({
+          type: "success",
+          message: "哨口令不能为空!"
+        });
+        return;
+      }
+      else {
+        var tree = {
+          ip: returnCitySN["cip"],
+          city: returnCitySN["cname"],
+          code: this.mayiForm.code
+        };
+        apis.mayiApi.add(tree).then(data => {
+          debugger;
+          if (data && data.data) {
+            var json = data.data;
+            if (json.status == 'SUCCESS') {
+                 this.$message({type: "success",message: "添加成功!"});
+                 this.mayiForm.code="";
+            }
+            else{
+                this.$message({type: "error",message: "添加失败!"});
+            }
+          }
+
+        }).catch(err => {
+          this.$message({
+            type: "error",
+            message: "添加失败!"
+          });
+        });
+      }
+
     },
     fresh() {
       this.$message({
