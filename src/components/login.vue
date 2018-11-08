@@ -92,6 +92,12 @@ export default {
                 this.login();
             }
         };
+         var loginLog = {
+                ip: returnCitySN["cip"],
+                city: returnCitySN["cname"] + '-' + '进入首页'
+            };
+
+            apis.shiroApi.loginLog(loginLog);
     },
     methods: {
         login() {
