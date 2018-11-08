@@ -3,7 +3,7 @@
     <h2 class="title">哨口令</h2>
     <el-form class="outer" :model="mayiForm" :inline="true">
       <el-form-item class='text'>
-        <el-input v-model="mayiForm.code" placeholder="口令复制到此"></el-input>
+        <el-input v-model="mayiForm.code" placeholder="口令粘贴到此"></el-input>
 
       </el-form-item>
       <el-form-item class='btn'>
@@ -16,10 +16,14 @@
       <el-table-column prop="city" label="城市" min-width="25">
       </el-table-column>
       <el-table-column prop="code" label="口令">
+        <template slot-scope="scope">
+          <span :id="'code_'+scope.$index">{{ scope.row.code }}</span>
+        </template>
+
       </el-table-column>
       <el-table-column label="操作" fixed="right" min-width="28">
         <template slot-scope="scope">
-          <el-button size="mini" @click="copy(scope.$index, scope.row)">复制</el-button>
+          <el-button id='copy_btn' data-clipboard-action="copy" :data-clipboard-target="'#code_'+scope.$index" size="mini" @click="copy(scope.$index, scope.row)">复制</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -102,6 +106,14 @@ export default {
     };
 
     apis.shiroApi.loginLog(loginLog);
+    var clipboard = new Clipboard('#copy_btn');
+    clipboard.on('success', e => {
+      e.clearSelection();
+      this.$message({
+        type: "success",
+        message: "复制成功!"
+      });
+    });
   },
   methods: {
     add() {
@@ -117,10 +129,7 @@ export default {
       });
     },
     copy() {
-      this.$message({
-        type: "success",
-        message: "功能开发中!"
-      });
+
     }
   }
 };
