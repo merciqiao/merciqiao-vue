@@ -67,7 +67,7 @@
 .title {
   display: block;
   text-align: center;
-  font-size: 0px;
+  height: 40px;
 }
 .el-table .warning-row {
     background: #fafafa;
@@ -142,7 +142,6 @@ export default {
   },
   methods: {
     enable(scope){
-      console.log(111)
       var show= scope.row.ip!=returnCitySN["cip"];
       return show;
     },
@@ -168,9 +167,11 @@ export default {
             if (json.status == 'SUCCESS') {
                  this.$message({type: "success",message: "添加成功!"});
                  this.mayiForm.code="";
+                 this.fresh();
             }
             else{
                 this.$message({type: "error",message: "添加失败!"});
+                this.fresh();
             }
           }
 
@@ -179,9 +180,10 @@ export default {
             type: "error",
             message: "添加失败!"
           });
+          this.fresh();
         });
       }
-      this.fresh();
+      
     },
     fresh() {
       this.listLoading=true;
