@@ -41,7 +41,7 @@ const router = new VueRouter({
 
 //全局路由守卫
 router.beforeEach((to, from, next) => {
-  debugger
+  //debugger
   console.log('跳转到:', to.fullPath);
   if (to.path == '/tree') {
     next();

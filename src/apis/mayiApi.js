@@ -10,5 +10,20 @@ export default {
             code:code           
         };
         return Axios.post('/api/mayi-api/add', param);
+    },
+    copy({ip,addid}){
+        var param={
+            ip:ip,
+            addid:addid
+        }
+        return Axios.post('/api/mayirecord-api/add', param);
+    },
+    getList({ip,currentPage,pageSize}){
+        var param={
+            ip:ip,
+            currentPage:currentPage,
+            pageSize:pageSize
+        };
+        return Axios.post('/api/mayi-api/queryList', param);
     }
 }
