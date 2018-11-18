@@ -198,7 +198,7 @@ export default {
          if (data && data.data) {
             var json = data.data;
             if (json.status == 'SUCCESS') {
-                var list=json.dataList;
+                var list=json.data;
                 this.tableData=list;
                 this.$message({type: "success",message: "刷新成功!"});
             }

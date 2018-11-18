@@ -119,8 +119,14 @@ const dynamicRouter = [
   {
     name: 'sysRoleMap',
     path: '/sysRoleMap',
-    component: resolve => require(['@/components/Admin/SysRoleMap.vue'], resolve),
+    component: resolve => require(['@/components/admin/SysRoleMap.vue'], resolve),
     meta: { title: '角色权限管理' }
+  },
+  {
+    name: 'msg',
+    path: '/msg',
+    component: resolve => require(['@/components/message/msg.vue'], resolve),
+    meta: { title: '建议留言' }
   }
 ]
 export { lazy }
