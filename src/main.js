@@ -13,6 +13,7 @@ import 'babel-polyfill'
 import util from './common/util'
 import Vuex from 'vuex'
 import store from './store'
+window.moment=require('moment')
 
 
 // import 'element-ui/lib/theme-chalk/index.css';
