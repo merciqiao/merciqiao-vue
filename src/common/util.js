@@ -35,15 +35,10 @@ exports.install = function (Vue,options){
     }
     ,
     Common.timestampToTime =function(row, column) {
-
-        var date = new Date(row.createtime) //时间戳为10位需*1000，时间戳为13位的话不需乘1000
-        var Y = date.getFullYear() + '-'
-        var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-'
-        var D = date.getDate() + ' '
-        var h = date.getHours() + ':'
-        var m = date.getMinutes() + ':'
-        var s = date.getSeconds()
-        return Y+M+D+h+m+s
-        console.log(timestampToTime (1533293827000))
+          var date = row[column.property];
+          if (date == undefined) {
+             return "";
+          }
+          return moment(date).format("YYYY-MM-DD HH:mm:ss");
     }
 }
