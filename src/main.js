@@ -5,7 +5,7 @@
 // import axios from 'axios'
 
 
-
+import '../theme/index.css'
 import App from './App'
 import router from './router'
 
