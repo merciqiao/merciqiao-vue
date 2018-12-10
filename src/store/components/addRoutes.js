@@ -12,7 +12,17 @@ const addRoutes = {
   },
   mutations: {
     add_Routes(state, routeParam) {
+      debugger;
       let routeList = [];
+      //添加默认路由,新用户登陆可以显示首页
+      routeList.push( {
+            name: 'index',
+            path: '/index',
+            component: resolve => require(['@/components/index.vue'], resolve),
+            meta: {
+              title: '系统首页'
+            }
+      });
       let routeHideList=[];
       ConvertRoutes(routeList, routeHideList,routeParam); // 将后台的路由数据components转化成组件
       var rootRoute= [{
@@ -33,9 +43,9 @@ const addRoutes = {
       console.log('输出路由:',JSON.stringify(rootRoute));
     },
     add_Routes_Fresh(state){
-       if(state.routeParam&&state.routeParam.length>0){
+       //if(state.routeParam&&state.routeParam.length>0){
         this.commit('add_Routes', state.routeParam)
-      }
+      //}
     }
   },
   actions: {
