@@ -23,6 +23,6 @@ npm run build --report
 
 我已经提供了公网的接口,但是经济比较差,云服务器买的2G内存的- -!,跑微服务总是挂掉...
 
-后端接口服务git: https://github.com/merciqiao/merciqiao-manage-system (single-service2是单体应用版),这个微服务项目提供了此web的接口
+后端接口服务git: https://github.com/merciqiao/merciqiao-manage-system (single-service-removeredis是单体应用版),这个微服务项目提供了此web的接口
 
 QQ交流群：73110051,有问题随时问我
