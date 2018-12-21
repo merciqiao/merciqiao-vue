@@ -127,6 +127,14 @@ const dynamicRouter = [
     path: '/msg',
     component: resolve => require(['@/components/message/msg.vue'], resolve),
     meta: { title: '建议留言' }
+  },
+  {
+    name: 'messageboard',
+    path: '/messageboard',
+    component: resolve => require(['@/components/tablepage/messageboard.vue'], resolve),
+    meta: {
+      title: '综合表格页'
+    }
   }
 ]
 export { lazy }

@@ -179,7 +179,7 @@ export default {
       },
       labelPosition: "right", //lable对齐方式
       labelWidth: "80px", //lable宽度
-      rules: {
+      rules:  {
         name: [
           { required: true, message: "请输入活动名称", trigger: "blur" },
           { min: 3, max: 5, message: "长度在 3 到 5 个字符", trigger: "blur" }

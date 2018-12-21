@@ -12,7 +12,6 @@ const addRoutes = {
   },
   mutations: {
     add_Routes(state, routeParam) {
-      debugger;
       let routeList = [];
       //添加默认路由,新用户登陆可以显示首页
       routeList.push( {
