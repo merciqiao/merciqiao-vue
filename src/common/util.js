@@ -2,7 +2,9 @@
  * 公共方法
  */
 exports.install = function (Vue,options){
+    var _this=Vue.prototype;
     var Common=Vue.prototype.$common={};
+    
     /**
      * 写入sessionStorage
      */
@@ -40,5 +42,20 @@ exports.install = function (Vue,options){
              return "";
           }
           return moment(date).format("YYYY-MM-DD HH:mm:ss");
+    },
+    Common.isSuccess =function(data,callback) {
+        if (data && data.data) {   
+            var json = data.data;
+            if (json.status == 'SUCCESS') {
+                _this.$message({message: '执行成功',type: "success"});
+                callback(json);
+            }
+            else if (json.message) {
+                _this.$message({message: json.message,type: "error"});
+            }
+        }
+        else{
+            _this.$message({message: '执行异常，请重试',type: "error"});
+        }
     }
 }

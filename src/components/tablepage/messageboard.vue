@@ -1,38 +1,45 @@
 <template>
     <div class="container">
         <!-- 查询区----start -->
-        <el-form :label-position="labelPosition" :label-width="labelWidth" :inline="true" :model="formSearch" class="demo-form-inline">
-            <el-form-item label="昵称">
-                <el-input v-model="formSearch.user" placeholder="模糊匹配"></el-input>
+        <el-form :label-position="labelPosition" :label-width="labelWidth" :inline="true" ref="formSearch" :model="formSearch" class="demo-form-inline">
+            <el-form-item label="昵称" prop="name">
+                <el-input v-model="formSearch.name" placeholder="模糊匹配"></el-input>
             </el-form-item>
-            <el-form-item label="城市">
-                <el-input v-model="formSearch.user" placeholder="城市"></el-input>
+            <el-form-item label="城市" prop="city">
+                <el-input v-model="formSearch.city" placeholder="城市"></el-input>
             </el-form-item>
-            <el-form-item label="类别">
-                <el-select v-model="formSearch.region" placeholder="活动区域">
+            <el-form-item label="类别" prop="type">
+                <el-select v-model="formSearch.type" placeholder="活动区域">
                     <el-option label="留言" value="1"></el-option>
                     <el-option label="建议" value="2"></el-option>
                     <el-option label="BUG" value="3"></el-option>
                 </el-select>
             </el-form-item>
             
-            <el-form-item label="年龄">
-                <el-input type="number" v-model="formSearch.user" placeholder="年龄"></el-input>
+            <el-form-item label="年龄" prop="age">
+                <el-input type="number" v-model="formSearch.age" placeholder="年龄"></el-input>
             </el-form-item>
-            <el-form-item label="性别">
-                <el-select v-model="formSearch.region" placeholder="性别">
-                    <el-option label="男" value="1"></el-option>
-                    <el-option label="女" value="2"></el-option>
+            <el-form-item label="性别" prop="gender">
+                <el-select v-model="formSearch.gender" placeholder="性别">
+                    <el-option label="男" value=1></el-option>
+                    <el-option label="女" value=2></el-option>
                 </el-select>
             </el-form-item>
-            <el-form-item label="qq号">
-                <el-input v-model="formSearch.user" placeholder="qq号"></el-input>
+            <el-form-item label="qq号" prop="qq">
+                <el-input v-model="formSearch.qq" placeholder="qq号"></el-input>
             </el-form-item>
-            <el-form-item label="创建时间">
-                <el-input v-model="formSearch.user" placeholder="创建时间"></el-input>
+            <el-form-item label="创建时间" prop="createtime">
+                <el-date-picker
+                    v-model="formSearch.createtime"
+                    type="daterange"
+                    range-separator="至"
+                    start-placeholder="开始日期"
+                    end-placeholder="结束日期">
+                </el-date-picker>
             </el-form-item>
-            <el-form-item label=" ">
+            <el-form-item label=" " style="margin-left:50px;">
                 <el-button type="primary" @click="onSearch">查询</el-button>
+                <el-button type="warning" plain @click="onReset">重置</el-button>
             </el-form-item>
         </el-form>
         <!-- 查询区----end -->
@@ -59,16 +66,18 @@
             </el-table-column>
             <el-table-column prop="gender" label="性别" width="200">
                  <template slot-scope="scope">
-                    <span>{{ scope.row.gender==0?'男':'女' }}</span>
+                    <span>{{ scope.row.gender==1?'男':'女' }}</span>
                 </template>
             </el-table-column>
             <el-table-column prop="createtime" label="创建日期" :formatter="this.$common.timestampToTime" width="200" sortable>
             </el-table-column>
+             <el-table-column prop="updatetime" label="更新日期" :formatter="this.$common.timestampToTime" width="200" sortable>
+            </el-table-column>
             <el-table-column label="操作" fixed="right" min-width="180">
                 <template slot-scope="scope">
-                    <el-button size="mini" type="primary" @click="handleDetail(scope.$index, scope.row)">详情</el-button>
+                    <el-button size="mini" plain type="primary" @click="handleDetail(scope.$index, scope.row)">详情</el-button>
                     <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-                    <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                    <el-button size="mini" plain type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -78,7 +87,7 @@
 
         <!-- 编辑弹框---start -->
         <el-dialog :title="formEditTitle" :visible.sync="dialogEidtVisible" width="700px">
-            <el-form :label-position="labelPosition" :label-width="labelWidth" :disabled="formEditDisabled" :inline="true" :model="formEdit" class="demo-form-inline">
+            <el-form :label-position="labelPosition" :label-width="labelWidth" :rules="rulesEdit" :disabled="formEditDisabled" :inline="true" ref="formEdit" :model="formEdit" class="demo-form-inline">
                  <el-form-item label="姓名" prop="name">
                     <el-input v-model="formEdit.name" placeholder="姓名" ></el-input>
                 </el-form-item>
@@ -87,9 +96,9 @@
                 </el-form-item>
                  <el-form-item label="类别" prop="type">
                     <el-select v-model="formEdit.type" placeholder="类别">
-                        <el-option label="留言" value=1></el-option>
-                        <el-option label="建议" value=2></el-option>
-                        <el-option label="BUG" value=3></el-option>
+                        <el-option label="留言" value="1"></el-option>
+                        <el-option label="建议" value="2"></el-option>
+                        <el-option label="BUG" value="3"></el-option>
                     </el-select>
                 </el-form-item>
                  <el-form-item label="年龄" prop="age">
@@ -108,7 +117,7 @@
 
             <div slot="footer" class="dialog-footer">
                 <el-button @click="dialogEidtVisible = false">取 消</el-button>
-                <el-button v-if="!formEditDisabled" type="primary" @click="dialogEidtVisible = false">确 定</el-button>
+                <el-button v-if="!formEditDisabled" type="primary" @click="update">确 定</el-button>
             </div>
         </el-dialog>
 
@@ -125,13 +134,13 @@
                 </el-form-item>
                  <el-form-item label="类别" prop="type">
                     <el-select v-model="formAdd.type" placeholder="类别">
-                        <el-option label="留言" value=1></el-option>
-                        <el-option label="建议" value=2></el-option>
-                        <el-option label="BUG" value=3></el-option>
+                        <el-option label="留言" value="1"></el-option>
+                        <el-option label="建议" value="2"></el-option>
+                        <el-option label="BUG" value="3"></el-option>
                     </el-select>
                 </el-form-item>
                  <el-form-item label="年龄" prop="age">
-                    <el-input  v-model="formAdd.age" placeholder="年龄" ></el-input>
+                    <el-input type="number" v-model="formAdd.age" placeholder="年龄" ></el-input>
                 </el-form-item>
                  <el-form-item label="性别" prop="gender">
                     <el-select v-model="formAdd.gender" placeholder="性别" >
@@ -176,17 +185,19 @@ export default {
             formSearch: { //表单查询
                 name: '',
                 city:'',
-                type:1,
+                type:null,
                 age:'',
-                gender:1,
-                qq: ''
+                gender:null,
+                qq: '',
+                startdate:null,
+                enddate:null
             },
              formAdd: { //表单添加
                 name: '',
                 city:'',
                 type:null,
                 age:'',
-                gender:null,
+                gender:'',
                 qq: ''
             },
             rulesAdd:  {
@@ -200,12 +211,23 @@ export default {
                 gender: [{ required: true, message: "请选择性别", trigger: "change" }]
             },
             formEdit: { //表单编辑
+                id:null,
                 name: '',
                 city:'',
-                type:1,
+                type:'',
                 age:'',
-                gender:1,
+                gender:null,
                 qq: ''
+            },
+             rulesEdit:  {
+                name: [
+                    { required: true, message: "请输入姓名", trigger: "blur" },
+                    { min: 2, max: 4, message: "长度在 2 到 4 个字符", trigger: "blur" }
+                ],
+                city:[{ required: true, message: "请输入城市", trigger: "blur" }]
+                ,
+                type: [{ required: true, message: "请选择类别", trigger: "change" }],
+                gender: [{ required: true, message: "请选择性别", trigger: "change" }]
             },
             formEditTitle:'编辑',//编辑和查看标题
             formEditDisabled:false,//编辑弹窗是否可编辑
@@ -268,6 +290,11 @@ export default {
          */
         onSearch(){
             this.listLoading=true;
+        
+            if(this.formSearch.createtime){
+                this.formSearch.startdate=this.formSearch.createtime[0];
+                this.formSearch.enddate=this.formSearch.createtime[1];
+            }
             let param = Object.assign({}, this.formSearch,this.pageInfo);
             apis.msgApi.getList(param)
             .then((data)=>{
@@ -280,13 +307,13 @@ export default {
                             this.tableData=json.data;
                         }
                         else if (json.message) {
-                            alert(json.message);
+                            this.$message({message: json.message,type: "error"});
                         }
                 }
             })
             .catch((err)=>{
                 this.listLoading=false;
-                alert('查询异常，请重试');
+                this.$message({message: '查询异常，请重试',type: "error"});
             });
         },
         /**
@@ -317,22 +344,111 @@ export default {
                 
             });
         },
+         /**
+         * 更新
+         */
+        update() {
+            this.$refs["formEdit"].validate(valid => {
+                if(valid){
+                    let param = Object.assign({}, this.formEdit);
+                    apis.msgApi.update(param)
+                    .then((data)=>{
+                        if(data&&data.data){
+                            var json=data.data;
+                             if(json&&json.status=='SUCCESS'){
+                                this.$message({message: '执行成功',type: "success"});
+                                this.dialogEidtVisible = false;
+                                this.onSearch();
+                                return;
+                            }
+                        }
+                       this.$message({message: '执行失败，请重试',type: "error"});
+                    })
+                    .catch((err)=>{
+                        this.$message({message: '执行失败，请重试',type: "error"});
+                    });
+                }
+                
+                
+            });
+        },
+         /**
+         * 删除
+         */
+        handleDelete(index, rowData) {
+            var id=rowData.id;
+            this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                    apis.msgApi.delete({id:id})
+                    .then((data)=>{
+                        this.$common.isSuccess(data,()=>{
+                            debugger;
+                            this.onSearch();
+                        });
+                    })
+                    .catch((err)=>{
+                        debugger;
+                        this.$message({message: '执行失败，请重试',type: "error"});
+                    });
+                
+            }).catch(() => {
+                this.$message({type: 'info',message: '已取消删除'});
+            });
+
+        },
+        /**
+         * 批量删除
+         */
+        deleteMany() {
+            var ids= this.multipleSelection.map(item => item.id);
+            this.$confirm('此操作将批量永久删除文件, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                        apis.msgApi.deleteBatch({ids:ids})
+                        .then((data)=>{
+                            this.$common.isSuccess(data,()=>{
+                                debugger;
+                                this.onSearch();
+                            });
+                        })
+                        .catch((err)=>{
+                            debugger;
+                            this.$message({message: '执行失败，请重试',type: "error"});
+                        });
+                    
+                }).catch(() => {
+                    this.$message({type: 'info',message: '已取消删除'});
+                });
+
+        },
+        onReset(){
+            this.$refs['formSearch'].resetFields();
+        },
         /**
          * 打开编辑弹窗
          */
         handleEdit(index, rowData) {
             //var msg = "索引是:" + index + ",行内容是:" + JSON.stringify(rowData);
             //this.$message({message: msg,type: "success"});
+            this.formEditTitle='编辑';
             this.formEditDisabled=false;
             this.formEdit=rowData;
+            this.formEdit.gender+='';//必须转换成字符串才能回显
             this.dialogEidtVisible = true;
         },
         /**
          * 打开详情页
          */
         handleDetail(index,rowData){
+            this.formEditTitle='详情';
             this.formEditDisabled=true;
             this.formEdit=rowData;
+            this.formEdit.gender+='';
             this.dialogEidtVisible = true;
         },
         /**
@@ -347,10 +463,7 @@ export default {
          */
         handleSizeChange(val) {
             this.pageInfo.pageSize = val;
-            this.$message({
-                message: '第' + this.pageInfo.currentPage + '页，' + 'size:' + this.pageInfo.pageSize,
-                type: "success"
-            });
+            this.onSearch();
         },
         /**
          * 分页切换
@@ -359,47 +472,18 @@ export default {
             this.pageInfo.currentPage = val;
             this.onSearch();
         },
-       
-        handleSelectionChange(val) {
-            this.multipleSelection = val;
-            this.$message({
-                message: '选中的项是:' + JSON.stringify(this.multipleSelection),
-                type: "success"
-            });
-        },
         /**
-         * 批量删除
+         * 点击选择
          */
-        deleteMany() {
-            var ids= this.multipleSelection.map(item => item.id).join();
-            this.$message({
-                message: '删除的项是:' + JSON.stringify(this.multipleSelection),
-                type: "success"
-            });
-        },
-         /**
-         * 删除
-         */
-        handleDelete(index, rowData) {
-            var msg = "索引是:" + index + ",行内容是:" + JSON.stringify(rowData);
-            this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
-                confirmButtonText: '确定',
-                cancelButtonText: '取消',
-                type: 'warning'
-            }).then(() => {
-                this.tableData.splice(index, 1);
-                this.$message({
-                    type: 'success',
-                    message: '删除成功!' + msg
-                });
-            }).catch(() => {
-                this.$message({
-                    type: 'info',
-                    message: '已取消删除'
-                });
-            });
-
+        handleSelectionChange(val) {
+            // this.multipleSelection = val;
+            // this.$message({
+            //     message: '选中的项是:' + JSON.stringify(this.multipleSelection),
+            //     type: "success"
+            // });
         }
+        
+        
     }
 };
 </script>
