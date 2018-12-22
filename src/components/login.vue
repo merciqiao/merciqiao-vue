@@ -117,7 +117,7 @@ export default {
                         if (json.status == 'SUCCESS') {
                             this.$common.setSessionStorage('token', json.data.userInfo.token);
                             this.$common.setSessionStorage('username',json.data.userInfo.userName);
-                        
+                            this.$common.setSessionStorage('lev',json.data.sysRoleVoList);
                             //存入菜单,渲染菜单
                             this.$store.dispatch("add_Menus",json.data.sysMenuVoList);
 

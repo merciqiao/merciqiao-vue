@@ -20,14 +20,12 @@ exports.install = function (Vue,options){
     /**
      * 读取sessionStorage
      */
-    Common.getSessionStorage=function(key,objData){
+    Common.getSessionStorage=function(key,isObj){
         var data= sessionStorage.getItem(key);
-        if(typeof data=='string'){
-            return data;
-        }
-        else{
+        if(isObj){
             return JSON.parse(data);
         }
+        return data;
     },
      /**
      * 移除sessionStorage
