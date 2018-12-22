@@ -38,6 +38,9 @@
                         <a href="https://github.com/merciqiao/merciqiao-vue" target="_blank">
                             <el-dropdown-item>项目仓库</el-dropdown-item>
                         </a>
+                        <a href="/zanzhu" target="_blank">
+                            <el-dropdown-item style="color:orange;">赞助作者</el-dropdown-item>
+                        </a>
                         <el-dropdown-item divided  command="loginout">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>

@@ -34,5 +34,30 @@
      <br>
      2.新增了完整的增删改查页
      <br>
+     3.增加了免费扫红包，扫一下就能支持我
+     <div class="hongbao_zanzhu">
+      服务快到期了~
+       <img class='hongbao' src="static/img/hongbao.png">
+     </div>
+     
   </div>
 </template>
+<style>
+  .hongbao_zanzhu{
+    display: block;
+    position:fixed;
+    text-align: center;
+    bottom: 336px;
+    width:230px;
+    right: 0;
+    font-size: 23px;
+    color: #505458;
+  }
+  .hongbao{
+    position:fixed;
+    bottom: 0;
+    right: 0;
+    height:330px;
+    width:230px;
+  }
+</style>

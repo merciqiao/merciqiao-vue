@@ -209,7 +209,7 @@ export default {
               this.tableData = list;
               this.$message({ type: "success", message: "刷新成功!" });
             } else {
-              this.$message({ type: "error", message: "刷新失败请重试!" });
+              this.$message({ type: "error", message:json.message });
             }
           }
         })

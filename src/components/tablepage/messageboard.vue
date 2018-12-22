@@ -404,6 +404,11 @@ export default {
          */
         deleteMany() {
             var ids= this.multipleSelection.map(item => item.id);
+            if(ids.length==0){
+                 this.$message({message: '请选择要删除的项',type: "warn"});
+                return;
+            }
+            debugger;
             this.$confirm('此操作将批量永久删除文件, 是否继续?', '提示', {
                     confirmButtonText: '确定',
                     cancelButtonText: '取消',
@@ -476,7 +481,7 @@ export default {
          * 点击选择
          */
         handleSelectionChange(val) {
-            // this.multipleSelection = val;
+            this.multipleSelection = val;
             // this.$message({
             //     message: '选中的项是:' + JSON.stringify(this.multipleSelection),
             //     type: "success"

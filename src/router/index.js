@@ -24,6 +24,10 @@ const router = new VueRouter({
       }
     },
     {
+      path: '/zanzhu',
+      component: resolve => require(['../components/zanzhu.vue'], resolve)
+    },
+    {
       path: '/404',
       component: resolve => require(['../components/common/404.vue'], resolve)
     },
