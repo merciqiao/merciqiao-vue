@@ -53,27 +53,27 @@
         <el-table :data="tableData" v-loading="listLoading"  border stripe style="width: 100%" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="60">
             </el-table-column>
-            <el-table-column prop="name" label="昵称" width="200" align="center" sortable>
+            <el-table-column prop="name" label="昵称" width="150" align="center" sortable>
             </el-table-column>
-            <el-table-column prop="city" label="城市" align="center" width="200">
+            <el-table-column prop="city" label="城市" align="center" width="150">
             </el-table-column>
-            <el-table-column prop="type" label="类别" align="center" width="200">
-                 <template slot-scope="scope" align="center" width="200">
+            <el-table-column prop="type" label="类别" align="center" width="150">
+                 <template slot-scope="scope" align="center" width="150">
                     <span>{{ scope.row.type |convertType}}</span>
                 </template>
             </el-table-column>
-             <el-table-column prop="age" label="年龄" align="center" width="200">
+             <el-table-column prop="age" label="年龄" align="center" width="100">
             </el-table-column>
-            <el-table-column prop="gender" label="性别" width="200">
+            <el-table-column prop="gender" label="性别" align="center" width="100">
                  <template slot-scope="scope">
                     <span>{{ scope.row.gender==1?'男':'女' }}</span>
                 </template>
             </el-table-column>
-            <el-table-column prop="createtime" label="创建日期" :formatter="this.$common.timestampToTime" width="200" sortable>
+            <el-table-column prop="createtime" label="创建日期" :formatter="this.$common.timestampToTime" width="180" sortable>
             </el-table-column>
-             <el-table-column prop="updatetime" label="更新日期" :formatter="this.$common.timestampToTime" width="200" sortable>
+             <el-table-column prop="updatetime" label="更新日期" :formatter="this.$common.timestampToTime" width="180" sortable>
             </el-table-column>
-            <el-table-column label="操作" fixed="right" min-width="180">
+            <el-table-column label="操作" fixed="right" min-width="230">
                 <template slot-scope="scope">
                     <el-button size="mini" plain type="primary" @click="handleDetail(scope.$index, scope.row)">详情</el-button>
                     <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
