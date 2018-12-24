@@ -54,6 +54,9 @@
             <el-table-column type="selection" width="60">
             </el-table-column>
             <el-table-column prop="name" label="昵称" width="150" align="center" sortable>
+                 <template slot-scope="scope">
+                    <a href="#" style="color: #00D1B2" @click="openDetail(scope.row)">{{ scope.row.name}}</a>
+                </template>
             </el-table-column>
             <el-table-column prop="city" label="城市" align="center" width="150">
             </el-table-column>
@@ -486,6 +489,12 @@ export default {
             //     message: '选中的项是:' + JSON.stringify(this.multipleSelection),
             //     type: "success"
             // });
+        },
+        /**
+         * 打开详情页
+         */
+        openDetail(row){
+            this.$common.OpenNewPage(this,'detail',row);
         }
         
         

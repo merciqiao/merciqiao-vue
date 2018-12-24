@@ -6,6 +6,20 @@ exports.install = function (Vue,options){
     var Common=Vue.prototype.$common={};
     
     /**
+     * 在新页面打开
+     * @param {*} $this
+     * @param {*} routeName
+     * @param {*} param 参数对象，对象格式
+     */
+    Common.OpenNewPage=function($this,routeName,param){
+        let routeData=$this.$router.resolve({
+            name:routeName,
+            query:param
+        });
+        debugger;
+        window.open(routeData.href,'_blank');
+    }
+    /**
      * 写入sessionStorage
      */
     Common.setSessionStorage=function(key,objData){
