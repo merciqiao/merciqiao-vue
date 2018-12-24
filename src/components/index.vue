@@ -36,8 +36,8 @@
      <br>
      3.增加了免费扫红包，扫一下就能支持我
      <div class="hongbao_zanzhu">
-      服务快到期了~
-       <img class='hongbao' src="static/img/hongbao.png">
+      扫码支持一下~
+      <img class='hongbao' src="static/img/hongbao.png">
      </div>
      
   </div>
