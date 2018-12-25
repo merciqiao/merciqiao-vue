@@ -11,12 +11,11 @@ exports.install = function (Vue,options){
      * @param {*} routeName
      * @param {*} param 参数对象，对象格式
      */
-    Common.OpenNewPage=function($this,routeName,param){
+    Common.OpenNewPage=function($this,routePath,param){
         let routeData=$this.$router.resolve({
-            name:routeName,
+            path:routePath,
             query:param
         });
-        debugger;
         window.open(routeData.href,'_blank');
     }
     /**

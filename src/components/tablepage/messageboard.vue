@@ -55,7 +55,7 @@
             </el-table-column>
             <el-table-column prop="name" label="昵称" width="150" align="center" sortable>
                  <template slot-scope="scope">
-                    <a href="#" style="color: #00D1B2" @click="openDetail(scope.row)">{{ scope.row.name}}</a>
+                    <a href="" style="color: #00D1B2" @click="openDetail(scope.row)">{{ scope.row.name}}</a>
                 </template>
             </el-table-column>
             <el-table-column prop="city" label="城市" align="center" width="150">

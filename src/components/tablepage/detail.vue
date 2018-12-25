@@ -15,11 +15,11 @@ export default {
     name: 'detail',
     data() {
         return {
-            personInfo:this.$route.query.personInfo,
+            personInfo:this.$route.query,
         }
     },
     mounted(){
-        
+
     },
     methods: {
 
