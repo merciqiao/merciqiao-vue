@@ -135,6 +135,11 @@ const dynamicRouter = [
     meta: {
       title: '综合表格页'
     }
+  },
+  {
+    name:'detail',
+    path: '/detail',
+    component: resolve => require(['@/components/tablepage/detail.vue'], resolve)
   }
 ]
 export { lazy }
