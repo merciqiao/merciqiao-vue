@@ -35,11 +35,28 @@
      2.新增了完整的增删改查页
      <br>
      3.增加了免费扫红包，扫一下就能支持我
+     <br>
+      ------------------
+     <br>
+     2018-12-25 (白银级)
+     <br>
+     更新：
+     <br>
+     1.增加了新页面打开并传参demo,适用于从列表打开详情页
+
+
+
+
+
+
+
+
+     <!-- 扫码 start -->
      <div class="hongbao_zanzhu">
       扫码支持一下~
       <img class='hongbao' src="static/img/hongbao.png">
      </div>
-     
+     <!-- 扫码 end -->
   </div>
 </template>
 <style>
