@@ -123,7 +123,7 @@ export default {
 
                              //动态设置路由
                             this.$store.dispatch("add_Routes", json.data.sysMenuVoList);
-                            this.$router.push({ path: "/index" });
+                            this.$router.replace({ path: "/index" });
                             
                             var loginLog={
                                 ip:returnCitySN["cip"],
