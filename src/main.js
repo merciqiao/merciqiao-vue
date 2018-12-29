@@ -13,6 +13,7 @@ import 'babel-polyfill'
 import util from './common/util'
 import Vuex from 'vuex'
 import store from './store'
+import CKEditor from '@ckeditor/ckeditor5-vue';
 window.moment=require('moment')
 
 
@@ -26,6 +27,8 @@ Vue.config.productionTip = false
 // Vue.use(ElementUI);
 Vue.use(util);
 Vue.use(Vuex);
+Vue.use(CKEditor);
+
 
 /* eslint-disable no-new */
 new Vue({
