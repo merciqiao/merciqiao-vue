@@ -139,7 +139,14 @@ const dynamicRouter = [
   {
     name:'detail',
     path: '/detail',
-    component: resolve => require(['@/components/tablepage/detail.vue'], resolve)
+    component: resolve => require(['@/components/tablepage/detail.vue'], resolve),
+    meta:{title:'详情页'}
+  }, 
+  {
+    name:'ckeditor',
+    path: '/ckeditor',
+    component: resolve => require(['@/components/ckeditor/index.vue'], resolve),
+    meta:{title:'文本编辑器'}
   }
 ]
 export { lazy }

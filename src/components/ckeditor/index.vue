@@ -7,12 +7,18 @@
         <!-- 编辑器容器 start -->
         <div class="document-editor__editable-container">
             <div class="document-editor__editable">
-                <p>The initial editor data.</p>
+                <p>CSDN同款富文本编辑器，支持将截图直接粘贴进来</p>
             </div>
         </div>
         <!-- 编辑器容器 end -->
     </div>
 </template>
+<style>
+.document-editor__editable{
+    
+    min-height: 400px;
+}
+</style>
 
 <script>
 
@@ -34,7 +40,7 @@ export default {
                 CKEditor.create(document.querySelector('.document-editor__editable'), {
                     ckfinder: {
                         // Upload the images to the server using the CKFinder QuickUpload command.
-                        uploadUrl: 'http://localhost:8070/img-api/upload'
+                        uploadUrl: '/api/img-api/upload'
                     }
                 })
                 .then(editor => {
