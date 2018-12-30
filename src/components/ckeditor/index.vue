@@ -22,8 +22,8 @@
 
 <script>
 
-// import CKEditor from '@ckeditor/ckeditor5-build-classic';//经典模式
-import CKEditor from '@ckeditor/ckeditor5-build-decoupled-document';//文档模式
+// import DecoupledEditor from '@ckeditor/ckeditor5-build-classic';//经典模式
+// import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';//文档模式
 
 export default {
     data() {
@@ -37,7 +37,7 @@ export default {
     methods: {
         //初始化容器
         initCKEditor() {
-                CKEditor.create(document.querySelector('.document-editor__editable'), {
+                DecoupledEditor.create(document.querySelector('.document-editor__editable'), {
                     ckfinder: {
                         // Upload the images to the server using the CKFinder QuickUpload command.
                         uploadUrl: '/api/img-api/upload'
