@@ -28,6 +28,10 @@ const router = new VueRouter({
       component: resolve => require(['../components/zanzhu.vue'], resolve)
     },
     {
+      path: '/flex',
+      component: resolve => require(['../components/flex/index.vue'], resolve)
+    },
+    {
       path: '/404',
       component: resolve => require(['../components/common/404.vue'], resolve)
     },

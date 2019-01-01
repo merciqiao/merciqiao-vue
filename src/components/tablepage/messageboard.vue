@@ -181,7 +181,7 @@ export default {
         return {
             listLoading : false,//
             pageInfo: { //分页
-                currentPage: 0,
+                currentPage: 1,
                 pageSize: 5,
                 pageTotal: 80
             },
