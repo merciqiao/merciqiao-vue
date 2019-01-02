@@ -89,7 +89,7 @@
         <!-- 表格---end -->
 
         <!-- 编辑弹框---start -->
-        <el-dialog  :title="formEditTitle" :visible.sync="dialogEidtVisible" width="700px" @close="closeDialog('formEdit')">
+        <el-dialog  :title="formEditTitle" :visible.sync="dialogEdittVisible" width="700px" @close="closeDialog('formEdit')">
             <el-form :label-position="labelPosition" :label-width="labelWidth" :rules="rulesEdit" :disabled="formEditDisabled" :inline="true" ref="formEdit" :model="formEdit" class="demo-form-inline">
                  <el-form-item label="姓名" prop="name">
                     <el-input v-model="formEdit.name" placeholder="姓名" ></el-input>
@@ -119,7 +119,7 @@
             </el-form>
 
             <div slot="footer" class="dialog-footer">
-                <el-button @click="dialogEidtVisible = false">取 消</el-button>
+                <el-button @click="dialogEdittVisible = false">取 消</el-button>
                 <el-button v-if="!formEditDisabled" type="primary" @click="handleSave">确 定</el-button>
             </div>
         </el-dialog>
@@ -179,7 +179,7 @@ export default {
             },
             formEditTitle:'编辑',//新增，编辑和查看标题
             formEditDisabled:false,//编辑弹窗是否可编辑
-            dialogEidtVisible: false,  //编辑弹框显示
+            dialogEdittVisible: false,  //编辑弹框显示
             dialogType:'',//弹框类型：add,edit,show
             tableData: [  //表单列表
                 {   id:"1",
@@ -294,7 +294,7 @@ export default {
                             var json=data.data;
                              if(json&&json.status=='SUCCESS'){
                                 this.$message({message: '执行成功',type: "success"});
-                                this.dialogEditVisible = false;
+                                this.dialogEdittVisible = false;
                                 this.onSearch();
                                 return;
                             }
@@ -322,7 +322,7 @@ export default {
                             var json=data.data;
                              if(json&&json.status=='SUCCESS'){
                                 this.$message({message: '执行成功',type: "success"});
-                                this.dialogEidtVisible = false;
+                                this.dialogEdittVisible = false;
                                 this.onSearch();
                                 return;
                             }
@@ -403,7 +403,7 @@ export default {
          * 打开编辑弹窗
          */
         handleAdd() {
-            this.dialogEidtVisible = true;
+            this.dialogEdittVisible = true;
             this.$nextTick(()=>{
                 this.dialogType='add';
                 this.formEditTitle='新增';
@@ -418,7 +418,7 @@ export default {
         handleEdit(index, rowData) {
             //var msg = "索引是:" + index + ",行内容是:" + JSON.stringify(rowData);
             //this.$message({message: msg,type: "success"});
-            this.dialogEidtVisible = true;//等dom渲染完，读取data中初始值，然后再复制，这样重置的是data中初始值
+            this.dialogEdittVisible = true;//等dom渲染完，读取data中初始值，然后再复制，这样重置的是data中初始值
             this.$nextTick(()=>{
                 this.dialogType='edit';
                 this.formEditTitle='编辑';
@@ -431,7 +431,7 @@ export default {
          * 打开详情页
          */
         handleDetail(index,rowData){
-            this.dialogEidtVisible = true;
+            this.dialogEdittVisible = true;
             this.$nextTick(()=>{
                  this.dialogType='show';
                 this.formEditTitle='详情';
