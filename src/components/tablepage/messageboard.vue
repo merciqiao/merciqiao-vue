@@ -89,7 +89,7 @@
         <!-- 表格---end -->
 
         <!-- 编辑弹框---start -->
-        <el-dialog :title="formEditTitle" :visible.sync="dialogEidtVisible" width="700px" @close="closeDialog('formEdit')">
+        <el-dialog  :title="formEditTitle" :visible.sync="dialogEidtVisible" width="700px" @close="closeDialog('formEdit')">
             <el-form :label-position="labelPosition" :label-width="labelWidth" :rules="rulesEdit" :disabled="formEditDisabled" :inline="true" ref="formEdit" :model="formEdit" class="demo-form-inline">
                  <el-form-item label="姓名" prop="name">
                     <el-input v-model="formEdit.name" placeholder="姓名" ></el-input>
@@ -403,10 +403,14 @@ export default {
          * 打开编辑弹窗
          */
         handleAdd() {
-            this.dialogType='add';
-            this.formEditTitle='新增';
-            this.formEditDisabled=false;
             this.dialogEidtVisible = true;
+            this.$nextTick(()=>{
+                this.dialogType='add';
+                this.formEditTitle='新增';
+                this.formEditDisabled=false;
+            });
+           
+            
         },
         /**
          * 打开编辑弹窗
@@ -414,29 +418,33 @@ export default {
         handleEdit(index, rowData) {
             //var msg = "索引是:" + index + ",行内容是:" + JSON.stringify(rowData);
             //this.$message({message: msg,type: "success"});
-            this.dialogType='edit';
-            this.formEditTitle='编辑';
-            this.formEditDisabled=false;
-            this.formEdit= Object.assign({}, rowData);
-            this.formEdit.gender+='';//必须转换成字符串才能回显
-            this.dialogEidtVisible = true;
+            this.dialogEidtVisible = true;//等dom渲染完，读取data中初始值，然后再复制，这样重置的是data中初始值
+            this.$nextTick(()=>{
+                this.dialogType='edit';
+                this.formEditTitle='编辑';
+                this.formEditDisabled=false;
+                this.formEdit= Object.assign({}, rowData);
+                this.formEdit.gender+='';//必须转换成字符串才能回显
+            });  
         },
         /**
          * 打开详情页
          */
         handleDetail(index,rowData){
-            this.dialogType='show';
-            this.formEditTitle='详情';
-            this.formEditDisabled=true;
-            this.formEdit= Object.assign({}, rowData) ;
-            this.formEdit.gender+='';
             this.dialogEidtVisible = true;
+            this.$nextTick(()=>{
+                 this.dialogType='show';
+                this.formEditTitle='详情';
+                this.formEditDisabled=true;
+                this.formEdit= Object.assign({}, rowData) ;
+                this.formEdit.gender+='';
+            });
+           
         },
         /**
          * 关闭弹框，数据重置
          */
         closeDialog(formName){
-            // 点击取消 数据重置
             this.$refs[formName].resetFields();
         },
         /**
