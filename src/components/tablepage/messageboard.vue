@@ -287,7 +287,7 @@ export default {
         save() {
             this.$refs["formEdit"].validate(valid => {
                 if(valid){
-                    let param = Object.assign({}, this.formAdd);
+                    let param = Object.assign({}, this.formEdit);
                     apis.msgApi.add(param)
                     .then((data)=>{
                         if(data&&data.data){
