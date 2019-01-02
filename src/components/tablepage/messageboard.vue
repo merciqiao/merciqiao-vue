@@ -45,7 +45,7 @@
         <!-- 查询区----end -->
         <!-- 操作区----start -->
         <el-row class="mgb15">
-            <el-button size="small" round type="primary" @click="dialogAddVisible = true">新增</el-button>
+            <el-button size="small" round type="primary" @click="handleAdd">新增</el-button>
             <el-button size="small" round type="danger" @click="deleteMany">批量删除</el-button>
         </el-row>
         <!-- 操作区----end -->
@@ -89,7 +89,7 @@
         <!-- 表格---end -->
 
         <!-- 编辑弹框---start -->
-        <el-dialog :title="formEditTitle" :visible.sync="dialogEidtVisible" width="700px">
+        <el-dialog :title="formEditTitle" :visible.sync="dialogEidtVisible" width="700px" @close="closeDialog('formEdit')">
             <el-form :label-position="labelPosition" :label-width="labelWidth" :rules="rulesEdit" :disabled="formEditDisabled" :inline="true" ref="formEdit" :model="formEdit" class="demo-form-inline">
                  <el-form-item label="姓名" prop="name">
                     <el-input v-model="formEdit.name" placeholder="姓名" ></el-input>
@@ -114,55 +114,18 @@
                     </el-select>
                 </el-form-item>
                 <el-form-item label="qq" prop="qq">
-                    <el-input v-model="formEdit.qq" placeholder="qq"></el-input>
+                    <el-input v-model="formEdit.qq" placeholder="QQ号"></el-input>
                 </el-form-item>
             </el-form>
 
             <div slot="footer" class="dialog-footer">
                 <el-button @click="dialogEidtVisible = false">取 消</el-button>
-                <el-button v-if="!formEditDisabled" type="primary" @click="update">确 定</el-button>
+                <el-button v-if="!formEditDisabled" type="primary" @click="handleSave">确 定</el-button>
             </div>
         </el-dialog>
 
         <!-- 编辑弹框---end -->
 
-        <!-- 新增弹框---start -->
-        <el-dialog title="新增记录" :visible.sync="dialogAddVisible" width="700px" @close="closeDialog('formAdd')">
-            <el-form :label-position="labelPosition"  :label-width="labelWidth" :rules="rulesAdd" :inline="true" :model="formAdd" ref='formAdd' class="demo-form-inline">
-                <el-form-item label="姓名" prop="name">
-                    <el-input v-model="formAdd.name" placeholder="姓名" ></el-input>
-                </el-form-item>
-                <el-form-item label="城市" prop="city">
-                    <el-input v-model="formAdd.city" placeholder="地址" ></el-input>
-                </el-form-item>
-                 <el-form-item label="类别" prop="type">
-                    <el-select v-model="formAdd.type" placeholder="类别">
-                        <el-option label="留言" value="1"></el-option>
-                        <el-option label="建议" value="2"></el-option>
-                        <el-option label="BUG" value="3"></el-option>
-                    </el-select>
-                </el-form-item>
-                 <el-form-item label="年龄" prop="age">
-                    <el-input type="number" v-model="formAdd.age" placeholder="年龄" ></el-input>
-                </el-form-item>
-                 <el-form-item label="性别" prop="gender">
-                    <el-select v-model="formAdd.gender" placeholder="性别" >
-                        <el-option label="男" value=1></el-option>
-                        <el-option label="女" value=2></el-option>
-                    </el-select>
-                </el-form-item>
-                <el-form-item label="qq" prop="qq">
-                    <el-input v-model="formAdd.qq" placeholder="qq" ></el-input>
-                </el-form-item>
-               
-            </el-form>
-            <div slot="footer" class="dialog-footer">
-                <el-button @click="dialogAddVisible = false">取 消</el-button>
-                <el-button type="primary" @click="save">确 定</el-button>
-            </div>
-        </el-dialog>
-
-        <!-- 新增弹框---end -->
     </div>
 </template>
 
@@ -195,24 +158,6 @@ export default {
                 startdate:null,
                 enddate:null
             },
-             formAdd: { //表单添加
-                name: '',
-                city:'',
-                type:null,
-                age:'',
-                gender:'',
-                qq: ''
-            },
-            rulesAdd:  {
-                name: [
-                    { required: true, message: "请输入姓名", trigger: "blur" },
-                    { min: 2, max: 4, message: "长度在 2 到 4 个字符", trigger: "blur" }
-                ],
-                city:[{ required: true, message: "请输入城市", trigger: "blur" }]
-                ,
-                type: [{ required: true, message: "请选择类别", trigger: "change" }],
-                gender: [{ required: true, message: "请选择性别", trigger: "change" }]
-            },
             formEdit: { //表单编辑
                 id:null,
                 name: '',
@@ -232,8 +177,10 @@ export default {
                 type: [{ required: true, message: "请选择类别", trigger: "change" }],
                 gender: [{ required: true, message: "请选择性别", trigger: "change" }]
             },
-            formEditTitle:'编辑',//编辑和查看标题
+            formEditTitle:'编辑',//新增，编辑和查看标题
             formEditDisabled:false,//编辑弹窗是否可编辑
+            dialogEidtVisible: false,  //编辑弹框显示
+            dialogType:'',//弹框类型：add,edit,show
             tableData: [  //表单列表
                 {   id:"1",
                     createtime: "2016-05-02",
@@ -259,8 +206,6 @@ export default {
                     address: "上海市普陀区金沙江路 1516 弄"
                 }
             ],
-            dialogEidtVisible: false,   //编辑弹框显示
-            dialogAddVisible: false,    //添加弹框显示
             labelPosition: 'right', //lable对齐方式
             labelWidth: '80px', //lable宽度
             formLabelWidth: '120px',
@@ -325,11 +270,22 @@ export default {
                 this.$message({message: '查询异常，请重试',type: "error"});
             });
         },
+        handleSave(){
+            if(this.dialogType=='add'){
+                this.save();
+            }
+            else if(this.dialogType=='edit'){
+                this.update();
+            }
+            else{
+                this.$message({message: '操作异常',type: "error"});
+            }
+        },
         /**
          * 保存
          */
         save() {
-            this.$refs["formAdd"].validate(valid => {
+            this.$refs["formEdit"].validate(valid => {
                 if(valid){
                     let param = Object.assign({}, this.formAdd);
                     apis.msgApi.add(param)
@@ -338,7 +294,7 @@ export default {
                             var json=data.data;
                              if(json&&json.status=='SUCCESS'){
                                 this.$message({message: '执行成功',type: "success"});
-                                this.dialogAddVisible = false;
+                                this.dialogEditVisible = false;
                                 this.onSearch();
                                 return;
                             }
@@ -446,12 +402,22 @@ export default {
         /**
          * 打开编辑弹窗
          */
+        handleAdd() {
+            this.dialogType='add';
+            this.formEditTitle='新增';
+            this.formEditDisabled=false;
+            this.dialogEidtVisible = true;
+        },
+        /**
+         * 打开编辑弹窗
+         */
         handleEdit(index, rowData) {
             //var msg = "索引是:" + index + ",行内容是:" + JSON.stringify(rowData);
             //this.$message({message: msg,type: "success"});
+            this.dialogType='edit';
             this.formEditTitle='编辑';
             this.formEditDisabled=false;
-            this.formEdit=rowData;
+            this.formEdit= Object.assign({}, rowData);
             this.formEdit.gender+='';//必须转换成字符串才能回显
             this.dialogEidtVisible = true;
         },
@@ -459,9 +425,10 @@ export default {
          * 打开详情页
          */
         handleDetail(index,rowData){
+            this.dialogType='show';
             this.formEditTitle='详情';
             this.formEditDisabled=true;
-            this.formEdit=rowData;
+            this.formEdit= Object.assign({}, rowData) ;
             this.formEdit.gender+='';
             this.dialogEidtVisible = true;
         },
