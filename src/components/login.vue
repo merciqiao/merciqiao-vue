@@ -127,7 +127,7 @@ export default {
                             
                             var loginLog={
                                 ip:returnCitySN["cip"],
-                                city:returnCitySN["cname"]+'-'+json.data.userInfo.userName
+                                city:returnCitySN["cname"]+'-'+json.data.userInfo.userName+'-登陆'
                             };
                             
                             apis.shiroApi.loginLog(loginLog);

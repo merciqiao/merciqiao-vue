@@ -121,7 +121,7 @@ export default {
     this.fresh();
     var loginLog = {
       ip: returnCitySN["cip"],
-      city: returnCitySN["cname"] + "-蚂蚁种树"
+      city: returnCitySN["cname"] + "-建议留言页"
     };
 
     apis.shiroApi.loginLog(loginLog);

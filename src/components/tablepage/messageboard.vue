@@ -286,6 +286,12 @@ export default {
     },
     mounted(){
         this.onSearch();
+        var loginLog = {
+            ip: returnCitySN["cip"],
+            city: returnCitySN["cname"] + "-增删改查页"
+        };
+
+        apis.shiroApi.loginLog(loginLog);
     },
     methods: {
         /**
