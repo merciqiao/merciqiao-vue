@@ -2,9 +2,9 @@
     <div class="sidebar">
         <el-menu class="sidebar-el-menu" :default-active="onRoutes" :collapse="collapse" background-color="#324157"
             text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened router>
-           <template v-for="item in menuList">
+           <template v-for="(item,i) in menuList">
                 <template v-if="item.subs&&item.subs.length">
-                    <el-submenu :index="item.index" :key="item.index">
+                    <el-submenu :index="item.index" :key="i">
                         <template slot="title">
                             <i :class="item.icon"></i><span slot="title">{{ item.title }}</span>
                         </template>
