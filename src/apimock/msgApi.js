@@ -22,7 +22,6 @@ var mockObj={
         Mock.mock('/api/msg-api/queryList', 'post', this.getList);
     },
     getList:({body})=>{
-        debugger;
         var param=JSON.parse(body);
         var pageSize=param.pageSize;
         var currentPage=param.currentPage;

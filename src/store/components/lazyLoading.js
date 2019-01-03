@@ -133,7 +133,15 @@ const dynamicRouter = [
     path: '/messageboard',
     component: resolve => require(['@/components/tablepage/messageboard.vue'], resolve),
     meta: {
-      title: '综合表格页'
+      title: '增删改查'
+    }
+  },
+  {
+    name: 'messageboard2',
+    path: '/messageboard2',
+    component: resolve => require(['@/components/tablepage/messageboard2.vue'], resolve),
+    meta: {
+      title: '增删改查二'
     }
   },
   {

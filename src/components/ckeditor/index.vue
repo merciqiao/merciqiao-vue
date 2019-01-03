@@ -26,6 +26,7 @@
 // import DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';//文档模式
 
 export default {
+    name:"ckeditor",
     data() {
         return {
             EditorObj: null,//编辑器实例
