@@ -4,18 +4,19 @@ import Axios from "axios";
  * 提供msg相关接口
  */
 export default {
-    add:function({name,city,type,age,gender,qq}){
+    add:function({name,city,type,age,gender,qq,text}){
          var param={
             name:name,
             city:city,
             type:type,
             age:age,
             gender:gender,
+            text:text,
             qq:qq
         };
         return Axios.post('/api/msg-api/add', param);
     },
-    update:function({id,name,city,type,age,gender,qq}){
+    update:function({id,name,city,type,age,gender,qq,text}){
         var param={
             id:id,
            name:name,
@@ -23,6 +24,7 @@ export default {
            type:type,
            age:age,
            gender:gender,
+           text:text,
            qq:qq
        };
        return Axios.post('/api/msg-api/update', param);

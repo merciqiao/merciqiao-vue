@@ -118,6 +118,23 @@
                     <el-form-item label="qq" prop="qq">
                         <el-input v-model="formEdit.qq" placeholder="QQ号"></el-input>
                     </el-form-item>
+                    <el-form-item class="_editor">
+                        <!-- 留言编辑器---start -->
+                        <div  class="document-editor" >
+                                <!-- 工具栏容器 start -->
+                                <div v-show="!formEditDisabled" class="document-editor__toolbar"></div>
+                                <!-- 工具栏容器 end -->
+
+                                <!-- 编辑器容器 start -->
+                                <div class="document-editor__editable-container">
+                                    <div class="document-editor__editable">
+                                        <p>CSDN同款富文本编辑器，支持将截图直接粘贴进来</p>
+                                    </div>
+                                </div>
+                                <!-- 编辑器容器 end -->
+                        </div>
+                        <!-- 留言编辑器---end -->
+                    </el-form-item>
                 </el-form>
 
                 <div slot="footer" class="dialog-footer">
@@ -125,6 +142,8 @@
                     <el-button v-if="!formEditDisabled" type="primary" @click="handleSave">{{editBtnText}}</el-button>
                 </div>
             <!-- 编辑弹框---end -->
+
+            
         </div>
         
 
@@ -134,9 +153,32 @@
 <style lang="scss">
 // 设置输入框的宽度
 .messageboard2{
-    .el-form-item__content {
+    .el-input {
         width: 220px;
     }
+    ._editor{
+        width:100%;
+        .el-form-item__content{
+            width:100%;
+            .document-editor{
+                border:1px solid #c4c4c4;
+                .document-editor__toolbar{
+                    border:0;
+                    border-bottom:1px solid #c4c4c4;
+                    .ck-toolbar{
+                        border:0;
+                    }
+                }
+                .document-editor__editable{
+                    min-height: 400px;
+                    border:0;
+                }
+            }
+            
+        }
+        
+    }
+   
 }
 
 </style>
@@ -170,7 +212,8 @@ export default {
                 type:'',
                 age:'',
                 gender:null,
-                qq: ''
+                qq: '',
+                text:''
             },
              rulesEdit:  {
                 name: [
@@ -216,7 +259,8 @@ export default {
             multipleSelection: [],
             isTableShow:true,//表格显示
             isEditShow:false,//编辑区显示
-            editBtnText:''//编辑按钮文本
+            editBtnText:'',//编辑按钮文本
+            EditorObj: null,//编辑器实例
         };
     },
     computed:{
@@ -238,11 +282,11 @@ export default {
     },
     mounted(){
         this.onSearch();
+        this.initCKEditor()
         var loginLog = {
             ip: returnCitySN["cip"],
-            city: returnCitySN["cname"] + "-增删改查页"
+            city: returnCitySN["cname"] + "-增删改查页二"
         };
-
         apis.shiroApi.loginLog(loginLog);
     },
     methods: {
@@ -277,6 +321,9 @@ export default {
                 this.$message({message: '查询异常，请重试',type: "error"});
             });
         },
+        /**
+         * 点击保存按钮
+         */
         handleSave(){
             if(this.dialogType=='add'){
                 this.save();
@@ -295,6 +342,7 @@ export default {
             this.$refs["formEdit"].validate(valid => {
                 if(valid){
                     let param = Object.assign({}, this.formEdit);
+                    param.text=this.EditorObj.getData();
                     apis.msgApi.add(param)
                     .then((data)=>{
                         if(data&&data.data){
@@ -323,6 +371,7 @@ export default {
             this.$refs["formEdit"].validate(valid => {
                 if(valid){
                     let param = Object.assign({}, this.formEdit);
+                    param.text=this.EditorObj.getData();
                     apis.msgApi.update(param)
                     .then((data)=>{
                         if(data&&data.data){
@@ -407,7 +456,7 @@ export default {
             this.$refs['formSearch'].resetFields();
         },
         /**
-         * 打开编辑弹窗
+         * 打开新增页
          */
         handleAdd() {
             this.openEdit();
@@ -416,10 +465,12 @@ export default {
                 this.formEditTitle='新增';
                 this.editBtnText='保存';
                 this.formEditDisabled=false;
+                this.EditorObj.isReadOnly=false;
+                this.EditorObj.setData('CSDN同款富文本编辑器，支持将截图直接粘贴进来');
             });
         },
         /**
-         * 打开编辑弹窗
+         * 打开编辑页
          */
         handleEdit(index, rowData) {
             this.openEdit();
@@ -430,6 +481,8 @@ export default {
                 this.formEditDisabled=false;
                 this.formEdit= Object.assign({}, rowData);
                 this.formEdit.gender+='';//必须转换成字符串才能回显
+                this.EditorObj.setData(this.formEdit.text==null?'':this.formEdit.text);
+                this.EditorObj.isReadOnly=false;
             });
             
         },
@@ -444,6 +497,9 @@ export default {
                 this.formEditDisabled=true;
                 this.formEdit= Object.assign({}, rowData) ;
                 this.formEdit.gender+='';
+                this.EditorObj.setData(this.formEdit.text==null?'':this.formEdit.text);
+                
+                this.EditorObj.isReadOnly=true;
             });
         },
         /**
@@ -482,6 +538,9 @@ export default {
         openEdit(){
             this.isTableShow=false;
             this.isEditShow = true;
+            // this.$nextTick(()=>{
+            //     this.initCKEditor()
+            // });
         },
          /** 
          * 关闭编辑页
@@ -491,6 +550,25 @@ export default {
             this.isTableShow=true;
             this.isEditShow = false;
             
+        },
+         //初始化容器
+        initCKEditor() {
+            DecoupledEditor.create(document.querySelector('.document-editor__editable'), {
+                ckfinder: {
+                    // Upload the images to the server using the CKFinder QuickUpload command.
+                    uploadUrl: '/api/img-api/upload'
+                }
+            })
+            .then(editor => {
+                    const toolbarContainer = document.querySelector('.document-editor__toolbar');
+                    toolbarContainer.appendChild(editor.ui.view.toolbar.element);//添加工具栏
+                    this.EditorObj = editor;
+                    console.log('初始化富编辑器');
+            })
+            .catch(err => {
+                    console.error(err);
+                    console.log('初始化富编辑器失败');
+            });
         }
         
         
