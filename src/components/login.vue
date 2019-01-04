@@ -94,8 +94,9 @@ export default {
     },
     mounted() {
         document.onkeydown = (event) => {
+            var router=this.$route.path;
             var e = event || window.event || arguments.callee.caller.arguments[0];
-            if (e && e.keyCode == 13) { // enter 键
+            if (e && e.keyCode == 13&&this.$route.path=='/login') { // enter 键 
                 this.login();
             }
         };
