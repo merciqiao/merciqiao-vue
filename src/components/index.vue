@@ -1,8 +1,8 @@
 <template>
   <div>
      公告：本地服务接口已经提供，从github下载的源码可直接运行！
-
      <br>
+     mockjs版本:101ycy.com:6005
      <br>
      内容持续更新中...
      <br>
