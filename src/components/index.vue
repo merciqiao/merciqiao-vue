@@ -1,13 +1,19 @@
 <template>
   <div>
-     公告：最近我要用服务器学docker,服务内存不够,所以暂时关了提供给你们本地的接口
+     公告：
      <br>
-     mockjs版本:101ycy.com:6005
+     如果本地接口报错,请从git中下载最新代码即可运行
+     <br>
+     git:https://github.com/merciqiao/merciqiao-vue.git
+     <br>
      <br>
      内容持续更新中...
      <br>
      ------------------
-
+     <br>
+     2019-1-18 18:19:58
+     <br>
+     不依赖后端接口版:101ycy.com:6005
 
 
 
