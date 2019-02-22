@@ -2,6 +2,8 @@
   <div>
      公告：
      <br>
+     新年快乐~
+     <br>
      如果本地接口报错,请从git中下载最新代码即可运行
      <br>
      git:https://github.com/merciqiao/merciqiao-vue.git

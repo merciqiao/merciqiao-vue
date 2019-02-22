@@ -145,6 +145,14 @@ const dynamicRouter = [
     }
   },
   {
+    name: 'transition',
+    path: '/transition',
+    component: resolve => require(['@/components/flex/transition.vue'], resolve),
+    meta: {
+      title: '左导航切换效果'
+    }
+  },
+  {
     name:'detail',
     path: '/detail',
     component: resolve => require(['@/components/tablepage/detail.vue'], resolve),
