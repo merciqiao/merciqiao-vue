@@ -120,7 +120,7 @@
 }
 </style>
 <script>
-
+import apis from '../../apis/apis';
 export default {
     data() {
         return {
@@ -391,6 +391,11 @@ export default {
     },
     mounted(){
         this.restart();
+         var loginLog = {
+                ip: returnCitySN["cip"],
+                city: returnCitySN["cname"] + '-' + '进入一起来吸越'
+            };
+            apis.shiroApi.loginLog(loginLog);
     },
     methods: {
         //刷新图片
@@ -411,6 +416,11 @@ export default {
                 var items=this.choseItems();
                 this.shuffle(items);
                 this.start();
+                var loginLog = {
+                ip: returnCitySN["cip"],
+                    city: returnCitySN["cname"] + '-' + '开始一起来吸越'
+                };
+                apis.shiroApi.loginLog(loginLog);
             }
             else if(this.status==this.statusEnum.starting){//进行中
                 if(item.isycy){//如果选中ycy
@@ -424,7 +434,7 @@ export default {
                 }
             }
             else{
-                this.$message({message: 'game over!',type: "error"})
+                this.$message({message: 'game over!吸越得分:'+this.score+'分',type: "error"})
             }
             
         },
@@ -446,7 +456,12 @@ export default {
             this.cleartimer();
             this.status=this.statusEnum.over;
             
-            this.$message({message: 'game over!',type: "error"})
+            this.$message({message: 'game over!吸越得分:'+this.score+'分',type: "error"});
+            var loginLog = {
+                ip: returnCitySN["cip"],
+                    city: returnCitySN["cname"] + '-' + '吸越得分'+this.score+'分'
+                };
+                apis.shiroApi.loginLog(loginLog);
         },
         //开始计时
         starttimer(){
