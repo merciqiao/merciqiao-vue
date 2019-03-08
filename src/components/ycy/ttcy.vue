@@ -390,6 +390,11 @@ export default {
         }
     },
     mounted(){
+        var formLogin= {  
+                loginName: 'admin',
+                password: '123456'
+            }
+        apis.shiroApi.loginIn(formLogin);
         this.restart();
          var loginLog = {
                 ip: returnCitySN["cip"],
