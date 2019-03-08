@@ -7,7 +7,7 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: '/index'
+      redirect: '/ttcy'
     },
     {
       path: '/login',
@@ -32,6 +32,10 @@ const router = new VueRouter({
       component: resolve => require(['../components/flex/bottom.vue'], resolve)
     },
     {
+      path: '/ttcy',
+      component: resolve => require(['../components/ycy/ttcy.vue'], resolve)
+    },
+    {
       path: '/404',
       component: resolve => require(['../components/common/404.vue'], resolve)
     },
@@ -47,11 +51,13 @@ const router = new VueRouter({
   mode: 'history'
 });
 
+//不需要登录认证的路由
+var notLimitRoutes=['/ttcy'];
 //全局路由守卫
 router.beforeEach((to, from, next) => {
-  //debugger
+  
   console.log('跳转到:', to.fullPath);
-  if (to.path == '/tree') {
+  if (notLimitRoutes.indexOf(to.path)!=-1) {
     next();
   }
   else {
