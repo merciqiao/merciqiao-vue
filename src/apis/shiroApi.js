@@ -60,6 +60,15 @@ export default {
         return Axios.post('/api/ycyscore-api/queryRank', param);
     },
      /**
+     * 查询个人分数
+     */ 
+    queryScore: function ({ip}) {
+        var param={
+            ip:ip,             
+        };
+        return Axios.post('/api/ycyscore-api/queryScore', param);
+    },
+     /**
      * 查询总排名
      */ 
     queryRankList: function ({currentPage,pageSize}) {

@@ -707,15 +707,15 @@ export default {
             } 
         },
         freshLev(){
-             apis.shiroApi.queryRank({ip:returnCitySN["cip"]})
+             apis.shiroApi.queryScore({ip:returnCitySN["cip"]})
             .then((data)=>{
                 // console.log(JSON.stringify(data) );
                 if (data && data.data) {
                         var json = data.data;
                         if (json.status == 'SUCCESS') {
                             
-                            var myRank=json.data;
-                            this.lev=this.$common.getYcyLev(myRank);
+                            var score=json.data;
+                            this.lev=this.$common.getYcyLev(score);
                         }
                         else if (json.message) {
                             this.$message({message: json.message,type: "error"});

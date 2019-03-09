@@ -10,7 +10,7 @@
                             <a @click="goBack">返回</a>
                         </div>
                         <div class="rank">
-                            <div>我的排名:{{myRank}}</div>
+                            <div>我的排名:{{myRank}}({{myScore}}分)</div>
                             <div>打榜总数:{{allCount}}</div>
                         </div>
                         
@@ -248,7 +248,8 @@ export default {
 
 
             },
-            myRank:0,
+            myRank:0,//我的排名
+            myScore:0,//我的分数
             allCount:0,
         }
     },
@@ -314,6 +315,25 @@ export default {
                         if (json.status == 'SUCCESS') {
                             
                             this.myRank=json.data;
+                        }
+                        else if (json.message) {
+                            this.$message({message: json.message,type: "error"});
+                        }
+                }
+            })
+            .catch((err)=>{
+                this.listLoading=false;
+                this.$message({message: '查询异常，请重试',type: "error"});
+            });
+             apis.shiroApi.queryScore({ip:returnCitySN["cip"]})
+            .then((data)=>{
+                // console.log(JSON.stringify(data) );
+                if (data && data.data) {
+                        var json = data.data;
+                        if (json.status == 'SUCCESS') {
+                            
+                            var score=json.data;
+                            this.myScore=score;
                         }
                         else if (json.message) {
                             this.$message({message: json.message,type: "error"});
