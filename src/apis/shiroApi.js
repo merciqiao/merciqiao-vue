@@ -24,10 +24,12 @@ export default {
     /**
      * 记录登陆日志
      */ 
-    loginLog: function ({ip,city}) {
+    loginLog: function ({ip,city,type}) {
         var param={
             ip:ip,
-            city:city                
+            city:city,
+            type:type,
+
         };
         return Axios.post('/api/loginlog-api/save', param);
     },
@@ -36,5 +38,35 @@ export default {
      */ 
     rollBackTables: function () {
         return Axios.post('/api/loginlog-api/rollBackTables');
-    }
+    },
+     /**
+     * 记录吸越分数
+     */ 
+    addYcyScore: function ({ip,city,score}) {
+        var param={
+            ip:ip,
+            city:city,
+            score:score                
+        };
+        return Axios.post('/api/ycyscore-api/add', param);
+    },
+     /**
+     * 查询个人排名
+     */ 
+    queryRank: function ({ip}) {
+        var param={
+            ip:ip,             
+        };
+        return Axios.post('/api/ycyscore-api/queryRank', param);
+    },
+     /**
+     * 查询总排名
+     */ 
+    queryRankList: function ({currentPage,pageSize}) {
+        var param={
+            currentPage:currentPage,
+            pageSize:pageSize            
+        };
+        return Axios.post('/api/ycyscore-api/queryList', param);
+    },
 }

@@ -36,6 +36,10 @@ const router = new VueRouter({
       component: resolve => require(['../components/ycy/ttcy.vue'], resolve)
     },
     {
+      path: '/bangdan',
+      component: resolve => require(['../components/ycy/bangdan.vue'], resolve)
+    },
+    {
       path: '/404',
       component: resolve => require(['../components/common/404.vue'], resolve)
     },
@@ -52,7 +56,7 @@ const router = new VueRouter({
 });
 
 //不需要登录认证的路由
-var notLimitRoutes=['/ttcy'];
+var notLimitRoutes=['/ttcy','/bangdan'];
 //全局路由守卫
 router.beforeEach((to, from, next) => {
   

@@ -195,3 +195,14 @@ a {
 .w100{
     width:100%;
 }
+
+/* 字数过长显示... */
+.line-limit-length {
+
+    overflow: hidden;
+    
+    text-overflow: ellipsis;
+    
+    white-space: nowrap; 
+    
+}

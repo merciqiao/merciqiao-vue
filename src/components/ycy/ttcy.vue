@@ -10,6 +10,20 @@
             </div> -->
         <div class="outer">
                 <div class="center_box">
+                    <div class="nav">
+                        <div class="lev">V1萌新</div>
+                        
+                             <!-- <div class="logo_img">
+                                <img style="width:100%;height:100%;" src="static/img/bangdan.jpg">
+                             </div> -->
+                        
+                       
+                        <div class="bangdan" @click="bangdan">
+                            
+                            吸越榜
+                            
+                            </div>
+                    </div>
                     <div class="title">大家一起来吸越</div><br/>
                     
                     <div >
@@ -17,7 +31,7 @@
                     </div><br/>
                     <div>吸越分数:<b style="color:green;">{{score}}</b>分 <span class="over" v-if="this.status==this.statusEnum.over">(已结束)</span></div>
                     <div>倒计时:<b style="color:blue">{{time}}</b>秒</div><br/>
-                    <transition-group name="list-complete" tag="div" class="game_box">
+                    <transition-group class="game_box" name="list-complete" tag="div" >
                     
                     <div v-for="(item) in items" :key="item.index" class="list-complete-item item">
                         <!-- <img class="img" src="static/img/img.jpg" alt=""> -->
@@ -65,19 +79,44 @@
 ._ttcy {
 
     .outer {
-        border: 1px solid red;
+        // border: 1px solid red;
         height: 100vh;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;//垂直居中
         .center_box{
+             width:300px;
+            //  border:1px solid green;
              display: flex;
              flex-flow: column wrap; //横向排列,换行
              align-items: center;
+             .nav{
+                width:inherit;
+                display: flex;
+                flex-flow: row  nowrap;
+                justify-content:space-between;
+                .logo_img{
+                        height:16px;
+                        width:16px;
+                        display: inline-block;
+                    }
+                .lev{
+                    
+                }
+                .bangdan{
+                    color:plum;
+                    text-shadow: 2px 2px 2px  rgba(252, 2, 2, 0.1);
+                    
+                }
+            }
+            .title{
+                // font-weight: 100;
+                // text-shadow: -1px 1px 0 rgba(0,0,0,.1);
+            }
             .game_box {
                 // border: 1px solid green;
-                width: 300px;
+                // width: 300px;
                 display: flex;
                 flex-flow: row wrap; //横向排列,换行
                 justify-content: center;
@@ -95,10 +134,8 @@
             .over{
                 color:red;
             }
-            .title{
-                // font-weight: 100;
-                // text-shadow: -1px 1px 0 rgba(0,0,0,.1);
-            }
+            
+            
         }
     }
 }
@@ -395,11 +432,12 @@ export default {
                 loginName: 'admin',
                 password: '123456'
             }
-        apis.shiroApi.loginIn(formLogin);
+        //apis.shiroApi.loginIn(formLogin);
         this.restart();
          var loginLog = {
                 ip: returnCitySN["cip"],
-                city: returnCitySN["cname"] + '-' + '进入一起来吸越'
+                city: returnCitySN["cname"],
+                type:'进入一起来吸越'
             };
             apis.shiroApi.loginLog(loginLog);
     },
@@ -426,8 +464,9 @@ export default {
                 this.shuffle(items);
                 this.start();
                 var loginLog = {
-                ip: returnCitySN["cip"],
-                    city: returnCitySN["cname"] + '-' + '开始一起来吸越'
+                    ip: returnCitySN["cip"],
+                    city: returnCitySN["cname"],
+                    type:'开始一起来吸越'
                 };
                 apis.shiroApi.loginLog(loginLog);
             }
@@ -466,11 +505,12 @@ export default {
             this.status=this.statusEnum.over;
             
             this.$message({message: 'game over!吸越得分:'+this.score+'分',type: "error"});
-            var loginLog = {
-                ip: returnCitySN["cip"],
-                    city: returnCitySN["cname"] + '-' + '吸越得分'+this.score+'分'
+                var ycyScore={
+                    ip:returnCitySN["cip"],
+                    city:returnCitySN["cname"],
+                    score:this.score                
                 };
-                apis.shiroApi.loginLog(loginLog);
+                apis.shiroApi.addYcyScore(ycyScore);
         },
         //开始计时
         starttimer(){
@@ -490,6 +530,10 @@ export default {
         //清除计时
         cleartimer(){
             clearInterval(this.timer);
+        },
+        //查看榜单
+        bangdan(){
+            this.$common.OpenNewPage(this,'bangdan');
         },
         //生成随机数
         random(minNum,maxNum){
