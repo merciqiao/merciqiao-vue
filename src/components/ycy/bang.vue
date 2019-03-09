@@ -363,8 +363,9 @@ export default {
             // this.$common.OpenNewPage(this,'docinfo',param);
         },
         goBack(){
-            // this.$router.go(-1)
-            window.location.href='/ttcy';
+            //this.$router.replace({path:'/ttcy'});
+             this.$router.go(-1);
+            // window.location.href='/ttcy';
         }
     },
     computed:{
