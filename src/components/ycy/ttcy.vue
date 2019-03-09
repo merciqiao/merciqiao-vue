@@ -476,6 +476,57 @@ export default {
                                  
                     ]
                 },
+                  {
+                    index:5,
+                    itemList:[
+                         {
+                                index:0,
+                                src:'static/img/yinliao/yinliao0.jpg',
+                                isycy:true
+                            },
+                            {
+                                index:1,
+                                src:'static/img/yinliao/yinliao1.jpg',
+                                isycy:true
+                            },
+                            {
+                                index:2,
+                                src:'static/img/yinliao/yinliao2.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:3,
+                                src:'static/img/yinliao/yinliao3.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:4,
+                                src:'static/img/yinliao/yinliao4.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:5,
+                                src:'static/img/yinliao/yinliao5.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:6,
+                                src:'static/img/yinliao/yinliao6.jpg',
+                                isycy:false
+                            },  
+                             {
+                                index:7,
+                                src:'static/img/yinliao/yinliao7.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:8,
+                                src:'static/img/yinliao/yinliao8.jpg',
+                                isycy:false
+                            },
+                                 
+                    ]
+                },
             ],
             initList:[ 
                 {

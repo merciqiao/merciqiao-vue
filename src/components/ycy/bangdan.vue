@@ -1,6 +1,6 @@
 <template>
   <div class="_frontindex">
-    <div class='wrapper'>
+    <div class='wrapper' ref="wrapper">
       <div class='flexContainer'>
         <header class='head'>
             <el-row type="flex" justify="center">
@@ -65,15 +65,16 @@
 <style lang="scss">
 ._frontindex {
   .wrapper {
-    position: absolute;
-    top: 0;
-    bottom: 0;
+    // position: absolute;
+    // top: 0;
+    // bottom: 0;
+    height:100vh;
     width: 100%;
-    overflow:auto;
+    overflow: auto;
     .flexContainer {
       display: flex;
       flex-direction: column;
-      height: 100%;
+      min-height: 100vh;//页面可视区高度
       .head {
         background-color: #27ae60;
         flex: 0 0 60px;
@@ -274,6 +275,20 @@ export default {
                         if (json.status == 'SUCCESS') {
                             this.allCount= this.pageInfo.pageTotal=json.count;
                             this.tableData=json.data;
+                            try{
+                                if(!this.scroll){
+                                    this.$nextTick(() => {
+                                        this.scroll = new BScroll(this.$refs.wrapper,  {click: true});
+                                    })
+                                }
+                                else{
+                                    this.scroll.refresh()
+                                }
+                               
+                            }
+                            catch(e){
+                                console.log('初始化better-scroll失败');
+                            }
                         }
                         else if (json.message) {
                             this.$message({message: json.message,type: "error"});
