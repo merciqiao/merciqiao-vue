@@ -29,20 +29,25 @@
                     <el-table :data="tableData" @row-click="openDetail" :row-class-name="getRowClass" v-loading="listLoading" stripe  @selection-change="handleSelectionChange">
                         <el-table-column label="排名"
                         type="index"
-                        width="50">
+                        width="40">
                         </el-table-column>
-                        <el-table-column prop="city" label="城市" width="120" align="center">
+                        <el-table-column prop="city" label="城市" width="110" align="center">
                             <template slot-scope="scope">
                                 <h4 class="line-limit-length">{{scope.row.city}}</h4>
                             </template>
                         </el-table-column>
-                        <el-table-column  prop="ip" label="ip" min-width="80" align="center">
+                        <el-table-column  prop="ip" label="ip" min-width="78" align="center">
                             <template slot-scope="scope">
                                 <h4 class="line-limit-length">{{scope.row.ip|convertIp}}</h4>
                             </template>
                         </el-table-column>
                        
-                        <el-table-column  prop="score" label="分数" align="center" min-width="50">
+                        <el-table-column  prop="score" label="分数" align="center" min-width="40">
+                        </el-table-column>
+                        <el-table-column  prop="score" label="段位" align="center" min-width="59">
+                            <template slot-scope="scope">
+                                <h4 class="line-limit-length">{{scope.row.score|convertLev}}</h4>
+                            </template>
                         </el-table-column>
                         <el-table-column v-if="getContentShow"  prop="times" label="次数" align="center"  width="50">
                         </el-table-column>
@@ -226,7 +231,7 @@ export default {
             pageInfo: { //分页
                 currentPage: 1,
                 pageSize: 30,
-                pageTotal: 180
+                pageTotal: 30
             },
             tableData: [  //表单列表
                 {   
@@ -273,7 +278,8 @@ export default {
                     
                         var json = data.data;
                         if (json.status == 'SUCCESS') {
-                            this.allCount= this.pageInfo.pageTotal=json.count;
+                            this.allCount=json.count;
+                            this.pageInfo.pageTotal=30;
                             this.tableData=json.data;
                             try{
                                 if(!this.scroll){
@@ -371,11 +377,20 @@ export default {
                 var a=ip.split("."); 
                 var b=ip.replace(a[a.length-1],"*");
                 return b;
+                // var index=ip.lastIndexOf('.');
+                // ip=ip.substring(0,index);
+                // index=ip.lastIndexOf('.');
+                // ip=ip.substring(0,index);
+                // return ip+'.*.*';
             }
             else{
                 return "";
             }
             
+        },
+        convertLev:(myRank)=>{
+            var lev=Vue.prototype.$common.getYcyLev(myRank);
+            return lev;
         }
     },
 }

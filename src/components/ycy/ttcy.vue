@@ -11,7 +11,7 @@
         <div class="outer">
                 <div class="center_box">
                     <div class="nav">
-                        <div class="lev">V1萌新</div>
+                        <div class="lev">{{lev}}</div>
                         
                              <!-- <div class="logo_img">
                                 <img style="width:100%;height:100%;" src="static/img/bangdan.jpg">
@@ -577,7 +577,8 @@ export default {
     
             ],
             items: [],
-            nextNum: 10
+            nextNum: 10,
+            lev:'L1萌新',
         }
     },
     mounted(){
@@ -592,7 +593,8 @@ export default {
                 city: returnCitySN["cname"],
                 type:'进入一起来吸越'
             };
-            apis.shiroApi.loginLog(loginLog);
+        apis.shiroApi.loginLog(loginLog);
+        this.freshLev();
     },
     methods: {
         //刷新图片
@@ -701,6 +703,27 @@ export default {
                         return 0; 
                     break; 
             } 
+        },
+        freshLev(){
+             apis.shiroApi.queryRank({ip:returnCitySN["cip"]})
+            .then((data)=>{
+                // console.log(JSON.stringify(data) );
+                if (data && data.data) {
+                        var json = data.data;
+                        if (json.status == 'SUCCESS') {
+                            
+                            var myRank=json.data;
+                            this.lev=this.$common.getYcyLev(myRank);
+                        }
+                        else if (json.message) {
+                            this.$message({message: json.message,type: "error"});
+                        }
+                }
+            })
+            .catch((err)=>{
+                this.listLoading=false;
+                this.$message({message: '查询异常，请重试',type: "error"});
+            });
         }
     }
 

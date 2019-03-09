@@ -68,5 +68,37 @@ exports.install = function (Vue,options){
         else{
             _this.$message({message: '执行异常，请重试',type: "error"});
         }
+    },
+    Common.getYcyLev =function(myRank) {
+        var lev='';
+                            if(myRank<10){
+                                lev='Lv1萌新';
+                            }
+                            else if(myRank<30){
+                                lev='Lv2青铜';
+                            }
+                            else if(myRank<50){
+                                lev='Lv3白银';
+                            }
+                            else if(myRank<70){
+                                lev='Lv4黄金';
+                            }
+                            else if(myRank<100){
+                                lev='Lv5铂金';
+                            }
+                            else if(myRank<150){
+                                lev='Lv6钻石';
+                            }
+                            else if(myRank<200){
+                                lev='Lv6星耀';
+                            }
+                            else if(myRank<300){
+                                lev='Lv7王者';
+                            }
+                            else{
+                                lev='Lv8铁粉';
+                            }
+                            return lev;
     }
-}
+  }
+
