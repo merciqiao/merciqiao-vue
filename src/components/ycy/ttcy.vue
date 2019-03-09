@@ -124,8 +124,9 @@ import apis from '../../apis/apis';
 export default {
     data() {
         return {
+            initTime:5,//倒计时初始值
             score:0,
-            time:3,
+            time:0,
             timer:null,
             statusEnum:{
                 init:'init',
@@ -411,13 +412,16 @@ export default {
         restart(){
             this.status=this.statusEnum.init;
             this.score=0;
-            this.time=3;
+            this.time=this.initTime;
             this.items=this.initList;
             this.cleartimer();
         },
         //点击选择ycy
         choseYcy(item){
-            if(this.status==this.statusEnum.init&&item.index==4){//点击了开始
+            if(this.status==this.statusEnum.init&&item.index!=4){
+                this.$message({message: '请点击中间开始',type: "warn"})
+            }
+            else if(this.status==this.statusEnum.init&&item.index==4){//点击了开始
                 var items=this.choseItems();
                 this.shuffle(items);
                 this.start();
@@ -479,7 +483,7 @@ export default {
             },1000);
         },//重置计时
         resettimer(){
-            this.time=3;
+            this.time=this.initTime;
             this.cleartimer();
             this.starttimer();
         },
