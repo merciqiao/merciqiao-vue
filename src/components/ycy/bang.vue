@@ -31,12 +31,12 @@
                         type="index"
                         width="40">
                         </el-table-column>
-                        <el-table-column prop="city" label="城市" width="110" align="center">
+                        <el-table-column prop="city" label="城市" width="116" align="center">
                             <template slot-scope="scope">
-                                <h4 class="line-limit-length">{{scope.row.city}}</h4>
+                                <h4 class="line-limit-length">{{scope.row.city|convertCity}}</h4>
                             </template>
                         </el-table-column>
-                        <el-table-column  prop="ip" label="ip" min-width="78" align="center">
+                        <el-table-column  prop="ip" label="ip" min-width="92" align="center">
                             <template slot-scope="scope">
                                 <h4 class="line-limit-length">{{scope.row.ip|convertIp}}</h4>
                             </template>
@@ -44,9 +44,9 @@
                        
                         <el-table-column  prop="score" label="分数" align="center" min-width="40">
                         </el-table-column>
-                        <el-table-column  prop="score" label="段位" align="center" min-width="59">
+                        <el-table-column  prop="score" label="段位" align="center" width="48">
                             <template slot-scope="scope">
-                                <h4 class="line-limit-length">{{scope.row.score|convertLev}}</h4>
+                                <h4 class="">{{scope.row.score|convertLev}}</h4>
                             </template>
                         </el-table-column>
                         <el-table-column v-if="getContentShow"  prop="times" label="次数" align="center"  width="50">
@@ -399,14 +399,13 @@ export default {
     filters: {
         convertIp:(ip)=>{
             if(ip){
-                var a=ip.split("."); 
-                var b=ip.replace(a[a.length-1],"*");
-                return b;
-                // var index=ip.lastIndexOf('.');
-                // ip=ip.substring(0,index);
-                // index=ip.lastIndexOf('.');
-                // ip=ip.substring(0,index);
-                // return ip+'.*.*';
+                // var a=ip.split("."); 
+                // var b=ip.replace(a[a.length-1],"*");
+                // return b;
+                var index=ip.lastIndexOf('.');
+                ip=ip.substring(0,index)+'.*';
+                return ip;
+
             }
             else{
                 return "";
@@ -416,6 +415,12 @@ export default {
         convertLev:(myRank)=>{
             var lev=Vue.prototype.$common.getYcyLev(myRank);
             return lev;
+        },
+        convertCity:(city)=>{
+            if(city.length>6){
+                city=city.substring(0,6)+'...';
+            }
+            return city;
         }
     },
 }
