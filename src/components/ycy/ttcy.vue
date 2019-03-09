@@ -122,8 +122,8 @@
                 justify-content: center;
                 .item{
                     border: 1px solid green;
-                    flex:0 0 80px;//每个固定80像素
-                    height:80px;
+                    flex:0 0 98px;//每个固定80像素
+                    height:98px;
                     .img{
                         width: 100%;
                         height: 100%;
