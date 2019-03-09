@@ -11,7 +11,7 @@
                         </div>
                         <div class="rank">
                             <div>我的排名:{{myRank}}</div>
-                            <div>村民总数:{{allCount}}</div>
+                            <div>打榜总数:{{allCount}}</div>
                         </div>
                         
                         <div class='right'>
