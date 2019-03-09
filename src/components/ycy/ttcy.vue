@@ -477,7 +477,7 @@ export default {
                     ]
                 },
                   {
-                    index:5,
+                    index:6,
                     itemList:[
                          {
                                 index:0,
@@ -688,7 +688,8 @@ export default {
         },
         //查看榜单
         bangdan(){
-            this.$common.OpenNewPage(this,'bangdan');
+            window.location.href='/bang';
+            //this.$common.OpenNewPage(this,'bangdan');
         },
         //生成随机数
         random(minNum,maxNum){

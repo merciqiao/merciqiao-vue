@@ -36,8 +36,8 @@ const router = new VueRouter({
       component: resolve => require(['../components/ycy/ttcy.vue'], resolve)
     },
     {
-      path: '/bangdan',
-      component: resolve => require(['../components/ycy/bangdan.vue'], resolve)
+      path: '/bang',
+      component: resolve => require(['../components/ycy/bang.vue'], resolve)
     },
     {
       path: '/404',
@@ -49,37 +49,38 @@ const router = new VueRouter({
     },
     {
       path: '*',
-      redirect: '/404'
+      redirect: '/ttcy'
     }
   ],
   mode: 'history'
 });
 
 //不需要登录认证的路由
-var notLimitRoutes=['/ttcy','/bangdan'];
+var notLimitRoutes=['/ttcy','/bang'];
 //全局路由守卫
-router.beforeEach((to, from, next) => {
+// router.beforeEach((to, from, next) => {
   
-  console.log('跳转到:', to.fullPath);
-  if (notLimitRoutes.indexOf(to.path)!=-1) {
-    next();
-  }
-  else {
-    var token = sessionStorage.getItem('token');
-    //如果没登录,都导向登录页
-    if (!token) {
-      if (to.path !== '/login') {
-        next({ path: '/login' })
-      }
-      else {
-        next();
-      }
-    }
-    else {
-      next();
-    }
-  }
+//   console.log('跳转到:', to.fullPath);
+//   if (notLimitRoutes.indexOf(to.path)!=-1) {
+//     next();
+//   }
+//   else {
+//     next({ path: '/ttcy' })
+//     var token = sessionStorage.getItem('token');
+//     //如果没登录,都导向登录页
+//     if (!token) {
+//       if (to.path !== '/login') {
+//         next({ path: '/login' })
+//       }
+//       else {
+//         next();
+//       }
+//     }
+//     else {
+//       next();
+//     }
+//   }
 
-})
+// })
 
 export default router

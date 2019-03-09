@@ -7,7 +7,7 @@
                 <el-col :xs="22" :sm="22" :md="20" :lg="20" :xl="14">
                     <nav class='nav'>
                         <div class='left'>
-                            <a href="/ttcy">返回</a>
+                            <a @click="goBack">返回</a>
                         </div>
                         <div class="rank">
                             <div>我的排名:{{myRank}}</div>
@@ -361,6 +361,10 @@ export default {
             //     docid:row.id
             // };
             // this.$common.OpenNewPage(this,'docinfo',param);
+        },
+        goBack(){
+            // this.$router.go(-1)
+            window.location.href='/ttcy';
         }
     },
     computed:{
