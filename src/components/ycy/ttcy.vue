@@ -753,7 +753,9 @@ export default {
     methods: {
         //刷新图片
         shuffle: function(items) {
-            this.items = _.shuffle(items)
+            
+            this.randomIndex(items);//随机索引
+            this.items = _.shuffle(items);
         },
         //重新开始
         restart(){
@@ -862,6 +864,19 @@ export default {
                         return 0; 
                     break; 
             } 
+        },
+        //对items随机索引
+        randomIndex(items){
+            var indexs=[];//索引集合
+            for(var i=0;i<9;i++){
+                indexs.push(i);
+            }
+            for(var i=8;i>=0;i--){
+                var n= this.random(0,i);
+                var index=indexs[n];//随机选择一个索引
+                items[i].index=index;
+                indexs.splice(n,1);
+            }
         },
         freshLev(){
              apis.shiroApi.queryScore({ip:returnCitySN["cip"]})
