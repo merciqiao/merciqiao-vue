@@ -100,5 +100,36 @@ exports.install = function (Vue,options){
                             }
                             return lev;
     }
+    Common.getTimeLev =function(myRank) {
+        var lev='';
+                            if(myRank<10){
+                                lev=8;
+                            }
+                            else if(myRank<30){
+                                lev=7;
+                            }
+                            else if(myRank<50){
+                                lev=6;  
+                            }
+                            else if(myRank<70){
+                                lev=5;
+                            }
+                            else if(myRank<100){
+                                lev=4;
+                            }
+                            else if(myRank<150){
+                                lev=3;
+                            }
+                            else if(myRank<200){
+                                lev=2;
+                            }
+                            else if(myRank<300){
+                                lev=2;
+                            }
+                            else{
+                                lev=1;
+                            }
+                            return lev;
+    }
   }
 

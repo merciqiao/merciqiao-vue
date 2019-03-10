@@ -124,6 +124,7 @@
                     border: 1px solid green;
                     flex:0 0 98px;//每个固定80像素
                     height:98px;
+                    width:98px;
                     .img{
                         width: 100%;
                         height: 100%;
@@ -162,9 +163,11 @@ import apis from '../../apis/apis';
 export default {
     data() {
         return {
-            initTime:5,//倒计时初始值
-            score:0,
-            time:0,
+            initScore:0,//初始分数,开发用
+            score:0,//当前分数
+            initTime:8,//初始倒计时
+            lastTime:0,//上一次倒计时
+            time:0,//当前倒计时
             timer:null,
             statusEnum:{
                 init:'init',
@@ -733,9 +736,11 @@ export default {
             items: [],
             nextNum: 10,
             lev:'L1萌新',
+            lev_now:'L1萌新',//游戏时的等级
         }
     },
     mounted(){
+        this.lastTime=this.initTime;
         var formLogin= {  
                 loginName: 'admin',
                 password: '123456'
@@ -760,13 +765,14 @@ export default {
         //重新开始
         restart(){
             this.status=this.statusEnum.init;
-            this.score=0;
+            this.score=this.initScore;
             this.time=this.initTime;
             this.items=this.initList;
             this.cleartimer();
         },
         //点击选择ycy
         choseYcy(item){
+            
             if(this.status==this.statusEnum.init&&item.index!=4){
                 this.$message({message: '请点击中间开始',type: "warn"})
             }
@@ -837,7 +843,17 @@ export default {
             },1000);
         },//重置计时
         resettimer(){
-            this.time=this.initTime;
+            
+            var lev_new=this.$common.getYcyLev(this.score);//获取新的段位
+            if(lev_new!=this.lev_now){
+                //等级变化,改变时间等级
+                this.time=this.$common.getTimeLev(this.score);
+                this.lastTime=this.time;
+            }
+            else{
+                this.time=this.lastTime;
+            }
+            
             this.cleartimer();
             this.starttimer();
         },
