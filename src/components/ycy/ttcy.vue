@@ -155,6 +155,7 @@
 .list-complete-leave-active {
     position: absolute;
 }
+
 </style>
 <script>
 import apis from '../../apis/apis';
@@ -487,7 +488,7 @@ export default {
                             {
                                 index:1,
                                 src:'static/img/yinliao/yinliao1.jpg',
-                                isycy:true
+                                isycy:false
                             },
                             {
                                 index:2,
@@ -538,7 +539,7 @@ export default {
                             {
                                 index:1,
                                 src:'static/img/xingge/xingge1.jpg',
-                                isycy:true
+                                isycy:false
                             },
                             {
                                 index:2,
@@ -573,6 +574,108 @@ export default {
                             {
                                 index:8,
                                 src:'static/img/xingge/xingge8.jpg',
+                                isycy:false
+                            },
+                                 
+                    ]
+                },
+                  {
+                    index:8,
+                    itemList:[
+                         {
+                                index:0,
+                                src:'static/img/dongwu/dongwu0.jpg',
+                                isycy:true
+                            },
+                            {
+                                index:1,
+                                src:'static/img/dongwu/dongwu1.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:2,
+                                src:'static/img/dongwu/dongwu2.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:3,
+                                src:'static/img/dongwu/dongwu3.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:4,
+                                src:'static/img/dongwu/dongwu4.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:5,
+                                src:'static/img/dongwu/dongwu5.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:6,
+                                src:'static/img/dongwu/dongwu6.jpg',
+                                isycy:false
+                            },  
+                             {
+                                index:7,
+                                src:'static/img/dongwu/dongwu7.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:8,
+                                src:'static/img/dongwu/dongwu8.jpg',
+                                isycy:false
+                            },
+                                 
+                    ]
+                },
+                  {
+                    index:9,
+                    itemList:[
+                         {
+                                index:0,
+                                src:'static/img/jihua/jihua0.jpg',
+                                isycy:true
+                            },
+                            {
+                                index:1,
+                                src:'static/img/jihua/jihua1.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:2,
+                                src:'static/img/jihua/jihua2.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:3,
+                                src:'static/img/jihua/jihua3.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:4,
+                                src:'static/img/jihua/jihua4.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:5,
+                                src:'static/img/jihua/jihua5.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:6,
+                                src:'static/img/jihua/jihua6.jpg',
+                                isycy:false
+                            },  
+                             {
+                                index:7,
+                                src:'static/img/jihua/jihua7.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:8,
+                                src:'static/img/jihua/jihua8.jpg',
                                 isycy:false
                             },
                                  
@@ -716,7 +819,10 @@ export default {
                     city:returnCitySN["cname"],
                     score:this.score                
                 };
-                apis.shiroApi.addYcyScore(ycyScore);
+                apis.shiroApi.addYcyScore(ycyScore).then(()=>{
+                    this.freshLev();
+                });
+
         },
         //开始计时
         starttimer(){

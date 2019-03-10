@@ -26,7 +26,7 @@
             <el-row type="flex" justify="center">
                 <el-col :xs="24" :sm="22" :md="20" :lg="20" :xl="14">
                    
-                    <el-table :data="tableData" @row-click="openDetail" :row-class-name="getRowClass" v-loading="listLoading" stripe  @selection-change="handleSelectionChange">
+                    <el-table :data="tableData" @row-click="openDetail" :row-class-name="tableRowClassName" v-loading="listLoading" stripe  @selection-change="handleSelectionChange">
                         <el-table-column label="排名"
                         type="index"
                         width="40">
@@ -220,6 +220,9 @@
         .rowClass{
             cursor: pointer;
         }
+        .el-table .success-row td{
+        background-color: #f0f9eb;
+    }
       }
     }
   }
@@ -391,6 +394,12 @@ export default {
             //this.$router.replace({path:'/ttcy'});
              this.$router.go(-1);
             // window.location.href='/ttcy';
+        },
+         tableRowClassName({ row, rowIndex }) {
+            if (row.ip == returnCitySN["cip"]) {
+                return "success-row";
+            }
+            return "";
         }
     },
     computed:{
