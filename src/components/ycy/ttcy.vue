@@ -527,6 +527,57 @@ export default {
                                  
                     ]
                 },
+                 {
+                    index:7,
+                    itemList:[
+                         {
+                                index:0,
+                                src:'static/img/xingge/xingge0.jpg',
+                                isycy:true
+                            },
+                            {
+                                index:1,
+                                src:'static/img/xingge/xingge1.jpg',
+                                isycy:true
+                            },
+                            {
+                                index:2,
+                                src:'static/img/xingge/xingge2.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:3,
+                                src:'static/img/xingge/xingge3.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:4,
+                                src:'static/img/xingge/xingge4.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:5,
+                                src:'static/img/xingge/xingge5.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:6,
+                                src:'static/img/xingge/xingge6.jpg',
+                                isycy:false
+                            },  
+                             {
+                                index:7,
+                                src:'static/img/xingge/xingge7.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:8,
+                                src:'static/img/xingge/xingge8.jpg',
+                                isycy:false
+                            },
+                                 
+                    ]
+                },
             ],
             initList:[ 
                 {
