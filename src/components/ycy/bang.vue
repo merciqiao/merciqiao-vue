@@ -3,7 +3,7 @@
     <div class='wrapper' ref="wrapper">
       <div class='flexContainer'>
         <header class='head'>
-            <el-row type="flex" justify="center">
+            <el-row type="flex" justify="center" >
                 <el-col :xs="22" :sm="22" :md="20" :lg="20" :xl="14">
                     <nav class='nav'>
                         <div class='left'>
@@ -69,6 +69,9 @@
 </template>
 <style lang="scss">
 ._frontindex {
+    .el-row{
+            margin-bottom: 0;
+    }
   .wrapper {
     // position: absolute;
     // top: 0;
@@ -82,23 +85,22 @@
       min-height: 100vh;//页面可视区高度
       .head {
         background-color: #27ae60;
-        flex: 0 0 60px;
-        padding-top:10px;
+        flex: 0 0 80px;
+        // padding-top:10px;
+
         .nav{
             display: flex;
             justify-content:space-between;//两端对齐
             .left{
                 display: flex;
                 width:100px;
-                height:50px;
+                height:80px;
                 align-items: center;
                 justify-content: center;
                 color:white;
                 // background-color: red;
                 font-family:Microsoft YaHei;
                 font-size: 22px;
-                width:100px;
-                height:50px;
                 a{
                     color:white;
                     cursor: pointer;
@@ -109,19 +111,22 @@
             }
             .rank{
                 color:white;
+                height:80px;
+                display: flex;
+                flex-flow: column nowrap;
+                 align-items: center;
+                justify-content: center;
             }
             .right{
                 display: flex;
                 width:100px;
-                height:50px;
+                height:80px;
                 align-items: center;
                 justify-content: center;
                 color:white;
                 // background-color: red;
                 font-family:Microsoft YaHei;
                 font-size: 22px;
-                width:100px;
-                height:50px;
                 a{
                     color:white;
                     cursor: pointer;
@@ -230,8 +235,8 @@ export default {
             listLoading : false,
             pageInfo: { //分页
                 currentPage: 1,
-                pageSize: 30,
-                pageTotal: 30
+                pageSize: 50,
+                pageTotal: 50
             },
             tableData: [  //表单列表
                 {   
@@ -280,7 +285,7 @@ export default {
                         var json = data.data;
                         if (json.status == 'SUCCESS') {
                             this.allCount=json.count;
-                            this.pageInfo.pageTotal=30;
+                            // this.pageInfo.pageTotal=30;
                             this.tableData=json.data;
                             try{
                                 if(!this.scroll){
