@@ -221,7 +221,9 @@
             cursor: pointer;
         }
         .el-table .success-row td{
-        background-color: #f0f9eb;
+        //  background-color: #CFF4BA;
+         background-color: #D9EBD1;
+        
     }
       }
     }
