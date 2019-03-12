@@ -837,6 +837,108 @@ export default {
                                  
                     ]
                 },
+                  {
+                    index:13,
+                    itemList:[
+                         {
+                                index:0,
+                                src:'static/img/shengri/shengri0.jpg',
+                                isycy:true
+                            },
+                            {
+                                index:1,
+                                src:'static/img/shengri/shengri1.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:2,
+                                src:'static/img/shengri/shengri2.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:3,
+                                src:'static/img/shengri/shengri3.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:4,
+                                src:'static/img/shengri/shengri4.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:5,
+                                src:'static/img/shengri/shengri5.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:6,
+                                src:'static/img/shengri/shengri6.jpg',
+                                isycy:false
+                            },  
+                             {
+                                index:7,
+                                src:'static/img/shengri/shengri7.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:8,
+                                src:'static/img/shengri/shengri8.jpg',
+                                isycy:false
+                            },
+                                 
+                    ]
+                },
+                 {
+                    index:14,
+                    itemList:[
+                         {
+                                index:0,
+                                src:'static/img/yingyuan/yingyuan0.jpg',
+                                isycy:true
+                            },
+                            {
+                                index:1,
+                                src:'static/img/yingyuan/yingyuan1.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:2,
+                                src:'static/img/yingyuan/yingyuan2.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:3,
+                                src:'static/img/yingyuan/yingyuan3.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:4,
+                                src:'static/img/yingyuan/yingyuan4.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:5,
+                                src:'static/img/yingyuan/yingyuan5.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:6,
+                                src:'static/img/yingyuan/yingyuan6.jpg',
+                                isycy:false
+                            },  
+                             {
+                                index:7,
+                                src:'static/img/yingyuan/yingyuan7.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:8,
+                                src:'static/img/yingyuan/yingyuan8.jpg',
+                                isycy:false
+                            },
+                                 
+                    ]
+                },
             ],
             initList:[ 
                 {
@@ -961,6 +1063,7 @@ export default {
             var groupCount=this.groupList.length;
             debugger;
             var groupIndex=this.random(0,groupCount-1);
+            //groupIndex=14;
             var item=this.groupList[groupIndex];
             return item.itemList;
         },
