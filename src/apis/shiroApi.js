@@ -42,11 +42,12 @@ export default {
      /**
      * 记录吸越分数
      */ 
-    addYcyScore: function ({ip,city,score}) {
+    addYcyScore: function ({ip,city,score,mintime}) {
         var param={
             ip:ip,
             city:city,
-            score:score                
+            score:score,
+            mintime:mintime,                
         };
         return Axios.post('/api/ycyscore-api/add', param);
     },

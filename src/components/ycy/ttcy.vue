@@ -992,9 +992,14 @@ export default {
             nextNum: 10,
             lev:'L1萌新',
             lev_now:'L1萌新',//游戏时的等级
+            startTime:null,//100分开始计时
+            endTime:null,//100分结束计时
+            mintime:null,//100分比赛耗时ddddddddd
+            
         }
     },
     mounted(){
+        var count=1000;
         this.lastTime=this.initTime;
         var formLogin= {  
                 loginName: 'admin',
@@ -1032,6 +1037,7 @@ export default {
                 this.$message({message: '请点击中间开始',type: "warn"})
             }
             else if(this.status==this.statusEnum.init&&item.index==4){//点击了开始
+                this.startTime=new Date();//开始计时
                 var items=this.choseItems();
                 this.shuffle(items);
                 this.$nextTick(()=>{
@@ -1048,6 +1054,10 @@ export default {
             else if(this.status==this.statusEnum.starting){//进行中
                 if(item.isycy){//如果选中ycy
                     this.score+=1;//分数加1
+                    if(this.score==100){//如果分数达到100分
+                        this.endTime=new Date();
+                        this.mintime=this.endTime-this.startTime;
+                    }
                     var items=this.choseItems();
                     this.shuffle(items);
                     this.$nextTick(()=>{
@@ -1088,7 +1098,8 @@ export default {
                 var ycyScore={
                     ip:returnCitySN["cip"],
                     city:this.$common.getCity(),
-                    score:this.score                
+                    score:this.score ,
+                    mintime:this.mintime,               
                 };
                 apis.shiroApi.addYcyScore(ycyScore).then(()=>{
                     this.freshLev();
