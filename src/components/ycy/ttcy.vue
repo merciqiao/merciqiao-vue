@@ -1004,7 +1004,7 @@ export default {
         this.restart();
          var loginLog = {
                 ip: returnCitySN["cip"],
-                city: returnCitySN["cname"],
+                city: this.$common.getCity(),
                 type:'进入一起来吸越'
             };
         apis.shiroApi.loginLog(loginLog);
@@ -1037,7 +1037,7 @@ export default {
                 this.start();
                 var loginLog = {
                     ip: returnCitySN["cip"],
-                    city: returnCitySN["cname"],
+                    city: this.$common.getCity(),
                     type:'开始一起来吸越'
                 };
                 apis.shiroApi.loginLog(loginLog);
@@ -1081,7 +1081,7 @@ export default {
             this.$message({message: 'game over!吸越得分:'+this.score+'分',type: "error"});
                 var ycyScore={
                     ip:returnCitySN["cip"],
-                    city:returnCitySN["cname"],
+                    city:this.$common.getCity(),
                     score:this.score                
                 };
                 apis.shiroApi.addYcyScore(ycyScore).then(()=>{

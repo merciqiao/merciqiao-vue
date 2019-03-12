@@ -69,6 +69,9 @@ exports.install = function (Vue,options){
             _this.$message({message: '执行异常，请重试',type: "error"});
         }
     },
+     Common.getCity =function() {
+          return CONST_CityName!=''?CONST_CityName: returnCitySN["cname"];
+    },
     Common.getYcyLev =function(myRank) {
         var lev='';
                             if(myRank<10){

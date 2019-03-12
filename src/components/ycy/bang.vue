@@ -266,7 +266,7 @@ export default {
     mounted(){
         var loginLog = {
                     ip: returnCitySN["cip"],
-                    city: returnCitySN["cname"],
+                    city: this.$common.getCity(),
                     type:'查询吸越榜'
                 };
                 apis.shiroApi.loginLog(loginLog);
