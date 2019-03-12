@@ -93,7 +93,7 @@
             justify-content:space-between;//两端对齐
             .left{
                 display: flex;
-                width:100px;
+                width:90px;
                 height:80px;
                 align-items: center;
                 justify-content: center;
@@ -119,7 +119,7 @@
             }
             .right{
                 display: flex;
-                width:100px;
+                width:90px;
                 height:80px;
                 align-items: center;
                 justify-content: center;
@@ -240,8 +240,8 @@ export default {
             listLoading : false,
             pageInfo: { //分页
                 currentPage: 1,
-                pageSize: 50,
-                pageTotal: 50
+                pageSize: 60,//设置榜单大小
+                pageTotal: 0
             },
             tableData: [  //表单列表
                 {   

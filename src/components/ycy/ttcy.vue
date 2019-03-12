@@ -1034,20 +1034,26 @@ export default {
             else if(this.status==this.statusEnum.init&&item.index==4){//点击了开始
                 var items=this.choseItems();
                 this.shuffle(items);
-                this.start();
-                var loginLog = {
-                    ip: returnCitySN["cip"],
-                    city: this.$common.getCity(),
-                    type:'开始一起来吸越'
-                };
-                apis.shiroApi.loginLog(loginLog);
+                this.$nextTick(()=>{
+                    this.start();
+                    var loginLog = {
+                        ip: returnCitySN["cip"],
+                        city: this.$common.getCity(),
+                        type:'开始一起来吸越'
+                    };
+                    apis.shiroApi.loginLog(loginLog);
+                });
+                
             }
             else if(this.status==this.statusEnum.starting){//进行中
                 if(item.isycy){//如果选中ycy
                     this.score+=1;//分数加1
                     var items=this.choseItems();
                     this.shuffle(items);
-                    this.running();
+                    this.$nextTick(()=>{
+                        this.running();
+                    });
+                    
                 }
                 else{
                     this.over();
@@ -1061,7 +1067,7 @@ export default {
         //随机选择items
         choseItems(){
             var groupCount=this.groupList.length;
-            debugger;
+            
             var groupIndex=this.random(0,groupCount-1);
             //groupIndex=14;
             var item=this.groupList[groupIndex];
@@ -1090,14 +1096,18 @@ export default {
 
         },
         //开始计时
-        starttimer(){
+        starttimer(isTieFen){
+            var second=1000;
+            if(isTieFen){
+                second=1800;
+            }
             this.timer=setInterval(()=>{
                 this.time-=1;
                 if(this.time==0){
                     this.over();
                 }
                 
-            },1000);
+            },second);
         },//重置计时
         resettimer(){
             
@@ -1112,7 +1122,11 @@ export default {
             }
             
             this.cleartimer();
-            this.starttimer();
+            
+            var isTieFen=false;
+            lev_new && (isTieFen=true)
+            this.starttimer(isTieFen);
+            
         },
         //清除计时
         cleartimer(){
