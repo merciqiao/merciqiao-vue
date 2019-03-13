@@ -939,6 +939,57 @@ export default {
                                  
                     ]
                 },
+                  {
+                    index:15,
+                    itemList:[
+                         {
+                                index:0,
+                                src:'static/img/dongwutwo/dongwutwo0.jpg',
+                                isycy:true
+                            },
+                            {
+                                index:1,
+                                src:'static/img/dongwutwo/dongwutwo1.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:2,
+                                src:'static/img/dongwutwo/dongwutwo2.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:3,
+                                src:'static/img/dongwutwo/dongwutwo3.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:4,
+                                src:'static/img/dongwutwo/dongwutwo4.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:5,
+                                src:'static/img/dongwutwo/dongwutwo5.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:6,
+                                src:'static/img/dongwutwo/dongwutwo6.jpg',
+                                isycy:false
+                            },  
+                             {
+                                index:7,
+                                src:'static/img/dongwutwo/dongwutwo7.jpg',
+                                isycy:false
+                            },
+                            {
+                                index:8,
+                                src:'static/img/dongwutwo/dongwutwo8.jpg',
+                                isycy:false
+                            },
+                                 
+                    ]
+                },
             ],
             initList:[ 
                 {
