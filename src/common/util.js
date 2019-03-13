@@ -70,7 +70,12 @@ exports.install = function (Vue,options){
         }
     },
      Common.getCity =function() {
-          return CONST_CityName!=''?CONST_CityName: returnCitySN["cname"];
+            if(CONST_CityName!=''&&CONST_CityName!='全国'){
+                return CONST_CityName;
+            }
+            else{
+                return returnCitySN["cname"]
+            }
     },
     Common.getYcyLev =function(myRank) {
         var lev='';
