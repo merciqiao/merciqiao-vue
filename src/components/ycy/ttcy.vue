@@ -943,22 +943,22 @@ export default {
             initList:[ 
                 {
                                 index:0,
-                                src:'static/img/img.jpg',
+                                src:'static/img/home.jpg',
                                 isycy:true
                             },
                  {
                                 index:1,
-                                src:'static/img/img.jpg',
+                                src:'static/img/home.jpg',
                                 isycy:true
                             },
                             {
                                 index:2,
-                                src:'static/img/img.jpg',
+                                src:'static/img/home.jpg',
                                 isycy:true
                             },
                             {
                                 index:3,
-                                src:'static/img/img.jpg',
+                                src:'static/img/home.jpg',
                                 isycy:true
                             },
                             {
@@ -968,22 +968,22 @@ export default {
                             },
                             {
                                 index:5,
-                                src:'static/img/img.jpg',
+                                src:'static/img/home.jpg',
                                 isycy:true
                             },
                             {
                                 index:6,
-                                src:'static/img/img.jpg',
+                                src:'static/img/home.jpg',
                                 isycy:true
                             },  
                              {
                                 index:7,
-                                src:'static/img/img.jpg',
+                                src:'static/img/home.jpg',
                                 isycy:true
                             },
                             {
                                 index:8,
-                                src:'static/img/img.jpg',
+                                src:'static/img/home.jpg',
                                 isycy:true
                             },
     

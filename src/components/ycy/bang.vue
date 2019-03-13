@@ -54,6 +54,9 @@
                         
                         
                     </el-table>
+                    <div v-show='showEmail' class="email">
+                        把你们想出的素材发我邮箱:812858143@qq.com
+                    </div>
                     <el-pagination v-show="pageInfo.pageTotal>pageInfo.pageSize" layout="total,prev, pager, next" :current-page="pageInfo.currentPage" :page-size="pageInfo.pageSize" :total="pageInfo.pageTotal" :page-sizes="[5, 10, 20, 50]" @size-change="handleSizeChange" @current-change="handleCurrentChange">
                     </el-pagination>
                 </el-col>
@@ -224,7 +227,10 @@
         //  background-color: #CFF4BA;
          background-color: #D9EBD1;
         
-    }
+        }
+        .email{
+            text-align:center;
+        }
       }
     }
   }
@@ -261,6 +267,7 @@ export default {
             myRank:0,//我的排名
             myScore:0,//我的分数
             allCount:0,
+            showEmail:false//是否显示下方email
         }
     },
     mounted(){
@@ -279,6 +286,7 @@ export default {
          */
         onSearch(){
             this.listLoading=true;
+            this.showEmail=false;
 
             let param = Object.assign({}, this.formSearch,this.pageInfo);
             apis.shiroApi.queryRankList(param)
@@ -292,6 +300,7 @@ export default {
                             this.allCount=json.count;
                             // this.pageInfo.pageTotal=30;
                             this.tableData=json.data;
+                            this.showEmail=true;
                             try{
                                 if(!this.scroll){
                                     this.$nextTick(() => {
