@@ -10,8 +10,8 @@
                             <a @click="goBack">返回</a>
                         </div>
                         <div class="rank">
-                            <div>我的排名:{{myRank}}({{myScore}}秒)</div>
-                            <div>日百分速度榜:{{allCount}}</div>
+                            <div>我的排名:{{myRank}}({{myScore|convertSecend}}秒)</div>
+                            <div>日百分速度榜数:{{allCount}}</div>
                         </div>
                         
                         <div class='right'>
@@ -31,7 +31,7 @@
                         type="index"
                         width="40">
                         </el-table-column>
-                        <el-table-column prop="city" label="城市" width="116" align="center">
+                        <el-table-column prop="city" label="城市" width="100" align="center">
                             <template slot-scope="scope">
                                 <h4 class="line-limit-length">{{scope.row.city|convertCity}}</h4>
                             </template>
@@ -42,12 +42,12 @@
                             </template>
                         </el-table-column>
                        
-                        <el-table-column  prop="mintime" label="时间(秒)" align="center" min-width="40">
+                        <el-table-column  prop="mintime" label="时间(秒)" align="center" min-width="72">
                             <template slot-scope="scope">
                                 <h4 class="line-limit-length">{{scope.row.mintime|convertSecend}}</h4>
                             </template>
                         </el-table-column>
-                        <el-table-column  prop="score" label="段位" align="center" width="48">
+                        <el-table-column  prop="score" label="段位" align="center" width="55">
                             <template slot-scope="scope">
                                 <h4 class="">{{scope.row.score|convertLev}}</h4>
                             </template>

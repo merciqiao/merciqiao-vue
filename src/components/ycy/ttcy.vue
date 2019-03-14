@@ -11,7 +11,7 @@
         <div class="outer">
             <div class="center_box">
                 <div class="nav">
-                    <div class="lev"  @click="bangdan_speed">{{lev}}</div>
+                    <div class="lev" :style="{color:levcolor}" @click="bangdan_speed">{{lev}}</div>
 
                     <!-- <div class="logo_img">
                                     <img style="width:100%;height:100%;" src="static/img/bangdan.jpg">
@@ -162,6 +162,7 @@ export default {
             lastTime: 0,//上一次倒计时
             time: 0,//当前倒计时
             timer: null,
+            levcolor:'',
             statusEnum: {
                 init: 'init',
                 starting: 'starting',
@@ -1240,6 +1241,7 @@ export default {
 
                             var score = json.data;
                             this.lev = this.$common.getYcyLev(score);
+                            this.levcolor=this.$common.getLevColor(score);
                         }
                         else if (json.message) {
                             this.$message({ message: json.message, type: "error" });

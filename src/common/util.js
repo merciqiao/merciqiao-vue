@@ -139,5 +139,36 @@ exports.install = function (Vue,options){
                             }
                             return lev;
     }
+    Common.getLevColor =function(myRank) {
+        var lev='';
+                            if(myRank<10){
+                                lev='';
+                            }
+                            else if(myRank<30){
+                                lev='#A3D4F1';
+                            }
+                            else if(myRank<50){
+                                lev='#A3D4F1'; 
+                            }
+                            else if(myRank<70){
+                                lev='#2094D3';  
+                            }
+                            else if(myRank<100){
+                                lev='#72C2B3';
+                            }
+                            else if(myRank<150){
+                                lev='#F094BA';
+                            }
+                            else if(myRank<200){
+                                lev='#F7D573';
+                            }
+                            else if(myRank<300){
+                                lev='#57B7DF';
+                            }
+                            else{
+                                lev='#BDA9D0';
+                            }
+                            return lev;
+    }
   }
 
