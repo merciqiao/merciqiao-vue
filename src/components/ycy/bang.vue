@@ -54,9 +54,9 @@
                         
                         
                     </el-table>
-                    <div v-show='showEmail' class="email">
-                        把你们想出的素材发我邮箱:812858143@qq.com
-                    </div>
+                     <div @click="showLiuYan" v-show='showEmail' class="email">
+                        点击留言
+                    </div> 
                     <el-pagination v-show="pageInfo.pageTotal>pageInfo.pageSize" layout="total,prev, pager, next" :current-page="pageInfo.currentPage" :page-size="pageInfo.pageSize" :total="pageInfo.pageTotal" :page-sizes="[5, 10, 20, 50]" @size-change="handleSizeChange" @current-change="handleCurrentChange">
                     </el-pagination>
                 </el-col>
@@ -238,6 +238,7 @@
 </style>
 <script>
 import apis from '../../apis/apis';
+import BScroll from 'better-scroll'
 export default {
     data(){
         return{
@@ -405,6 +406,9 @@ export default {
             //this.$router.replace({path:'/ttcy'});
              this.$router.go(-1);
             // window.location.href='/ttcy';
+        },
+        showLiuYan(){
+            this.$router.push({ path: "/liuyan" });
         },
          tableRowClassName({ row, rowIndex }) {
             if (row.ip == returnCitySN["cip"]) {

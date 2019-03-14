@@ -39,6 +39,10 @@ const router = new VueRouter({
       path: '/bang',
       component: resolve => require(['../components/ycy/bang.vue'], resolve)
     },
+     {
+      path: '/liuyan',
+      component: resolve => require(['../components/ycy/liuyan.vue'], resolve)
+    },
     {
       path: '/404',
       component: resolve => require(['../components/common/404.vue'], resolve)
