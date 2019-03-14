@@ -963,7 +963,7 @@ export default {
                             },
                             {
                                 index:4,
-                                src:'static/img/start.jpg',
+                                src:'static/img/start.gif',//中间开始按钮
                                 isycy:true
                             },
                             {
