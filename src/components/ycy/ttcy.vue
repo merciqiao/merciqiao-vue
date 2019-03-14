@@ -1180,7 +1180,7 @@ export default {
             this.cleartimer();
 
             var isTieFen = false;
-            lev_new && (isTieFen = true)
+            lev_new=='Lv8铁粉' && (isTieFen = true)
             this.starttimer(isTieFen);
 
         },
