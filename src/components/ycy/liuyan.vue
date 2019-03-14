@@ -199,7 +199,7 @@ export default {
             if (this.mayiForm.code == "") {
                 this.$message({
                     type: "success",
-                    message: "哨口令不能为空!"
+                    message: "留言不能为空!"
                 });
                 return;
             } else {

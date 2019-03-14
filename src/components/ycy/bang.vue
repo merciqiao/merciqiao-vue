@@ -3,7 +3,7 @@
     <div class='wrapper' ref="wrapper">
       <div class='flexContainer'>
         <header class='head'>
-            <el-row type="flex" justify="center" >
+            <el-row type="flex" justify="center">
                 <el-col :xs="22" :sm="22" :md="20" :lg="20" :xl="14">
                     <nav class='nav'>
                         <div class='left'>
@@ -85,15 +85,15 @@
     .flexContainer {
       display: flex;
       flex-direction: column;
-      min-height: 100vh;//页面可视区高度
+      min-height: 100vh;//页面可视区高度     
       .head {
         background-color: #27ae60;
         flex: 0 0 80px;
         // padding-top:10px;
-
         .nav{
             display: flex;
             justify-content:space-between;//两端对齐
+            margin:0px;
             .left{
                 display: flex;
                 width:90px;
@@ -230,6 +230,7 @@
         }
         .email{
             text-align:center;
+            padding:12px;
         }
       }
     }
