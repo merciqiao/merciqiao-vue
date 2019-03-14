@@ -70,6 +70,15 @@ export default {
         return Axios.post('/api/ycyscore-api/queryScore', param);
     },
      /**
+     * 查询个人分数
+     */ 
+    queryMinTime: function ({ip}) {
+        var param={
+            ip:ip,             
+        };
+        return Axios.post('/api/ycyscore-api/queryMinTime', param);
+    },
+     /**
      * 查询总排名
      */ 
     queryRankList: function ({currentPage,pageSize}) {
@@ -78,5 +87,24 @@ export default {
             pageSize:pageSize            
         };
         return Axios.post('/api/ycyscore-api/queryList', param);
+    },
+     /**
+     * 查询个人速度排名
+     */ 
+    querySpeedRank: function ({ip}) {
+        var param={
+            ip:ip,             
+        };
+        return Axios.post('/api/ycyscore-api/querySpeedRank', param);
+    },
+     /**
+     * 查询总速度排名
+     */ 
+    querySpeedList: function ({currentPage,pageSize}) {
+        var param={
+            currentPage:currentPage,
+            pageSize:pageSize            
+        };
+        return Axios.post('/api/ycyscore-api/querySpeedList', param);
     },
 }

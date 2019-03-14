@@ -11,7 +11,7 @@
         <div class="outer">
             <div class="center_box">
                 <div class="nav">
-                    <div class="lev">{{lev}}</div>
+                    <div class="lev"  @click="bangdan_speed">{{lev}}</div>
 
                     <!-- <div class="logo_img">
                                     <img style="width:100%;height:100%;" src="static/img/bangdan.jpg">
@@ -23,7 +23,7 @@
 
                     </div>
                 </div>
-                <div class="title">大家一起来吸越</div><br/>
+                <div class="title" @click="notice">大家一起来吸越</div><br/>
 
                 <div>
                     <el-button type="success" round @click="restart">重新吸越</el-button>
@@ -1193,9 +1193,15 @@ export default {
             this.$router.push({ path: "/bang" });
             //this.$common.OpenNewPage(this,'bang');
         },
+        bangdan_speed(){
+            this.$router.push({ path: "/speedbang" });
+        },
         //查看榜单
         liuyan() {
             this.$router.push({ path: "/liuyan" });
+        },
+        notice(){
+             //this.$message({ message: '谢谢支持', type: 'success' });
         },
         //生成随机数
         random(minNum, maxNum) {
