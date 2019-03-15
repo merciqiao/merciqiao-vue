@@ -233,7 +233,9 @@
         }
         .email{
             text-align:center;
-            padding:12px;
+            // padding:12px;
+             height:40px;
+            line-height: 40px;
         }
       }
     }
