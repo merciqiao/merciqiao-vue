@@ -28,7 +28,7 @@ npm run build --report
 
 二.分支说明
 1.master:后台管理系统
-2.ycy:一起来吸越小游戏
+2.ycy:一起来吸越小游戏(ycy:主分支,发版用,ycydev:开发分支,ycytest:测试分支)
 
 三.后台接口
 我已经提供了公网的接口
