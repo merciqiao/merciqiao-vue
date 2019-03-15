@@ -29,10 +29,11 @@ npm run build --report
 二.分支说明
 1.master:后台管理系统
 2.ycy:一起来吸越小游戏
-三.后台接口
 
+三.后台接口
 我已经提供了公网的接口
-后端接口服务git: https://github.com/merciqiao/merciqiao-manage-system (single-service-removeredis是单体应用版),这个微服务项目提供了此web的接口
+后端接口服务git: https://github.com/merciqiao/merciqiao-manage-system 
+(single-service-removeredis是单体应用版),这个微服务项目提供了此web的接口
 
 四.QQ群:
 1.QQ技术交流群：73110051,有问题随时问我
