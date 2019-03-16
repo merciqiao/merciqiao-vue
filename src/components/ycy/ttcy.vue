@@ -1,30 +1,14 @@
 <template>
     <div class="_ttcy">
-        <!-- <div id="list-complete-demo" class="demo">
-                    <button v-on:click="shuffle">Shuffle</button>
-                    <transition-group name="list-complete" tag="p">
-                        <span v-for="item in items" v-bind:key="item" class="list-complete-item">
-                            {{ item }}
-                        </span>
-                    </transition-group>
-                </div> -->
         <div class="outer">
             <div class="center_box">
                 <div class="nav">
-                    <div class="lev" :style="{color:levcolor}" @click="bangdan_speed">{{lev}}</div>
-
-                    <!-- <div class="logo_img">
-                                    <img style="width:100%;height:100%;" src="static/img/bangdan.jpg">
-                                 </div> -->
-
+                    <div class="lev" :style="{color:levcolor}" >{{lev}}</div>
                     <div class="bangdan" @click="bangdan">
-
                         吸越榜
-
                     </div>
                 </div>
                 <div class="title" @click="notice">大家一起来吸越</div><br/>
-
                 <div>
                     <el-button type="success" round @click="restart">重新吸越</el-button>
                 </div><br/>
@@ -35,46 +19,12 @@
                 <div>倒计时:
                     <b style="color:blue">{{time}}</b>秒</div><br/>
                 <transition-group class="game_box" name="list-complete" tag="div">
-
                     <div v-for="(item) in items" :key="item.index" class="list-complete-item item">
-                        <!-- <img class="img" src="static/img/img.jpg" alt=""> -->
                         <img class="img" :src="item.src" @click='choseYcy(item)'>
                     </div>
                 </transition-group>
             </div>
-
-            <!-- <div class="cbox">
-                        <div class="item">
-                            <img class="img" src="static/img/img.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img class="img" src="static/img/img.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img class="img" src="static/img/img.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img class="img" src="static/img/img.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img class="img" src="static/img/img.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img class="img" src="static/img/img.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img class="img" src="static/img/img.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img class="img" src="static/img/img.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img class="img" src="static/img/img.jpg" alt="">
-                        </div>
-                    </div> -->
-
         </div>
-
     </div>
 </template>
 <style lang="scss">
@@ -102,7 +52,9 @@
                     width: 16px;
                     display: inline-block;
                 }
-                .lev {}
+                .lev {
+                    text-shadow: 2px 2px 2px rgba(252, 2, 2, 0.1);
+                }
                 .bangdan {
                     color: plum;
                     text-shadow: 2px 2px 2px rgba(252, 2, 2, 0.1);
@@ -1241,9 +1193,8 @@ export default {
         },
         //查看榜单
         bangdan() {
-            //window.location.href='/bang';
-            this.$router.push({ path: "/bang" });
-            //this.$common.OpenNewPage(this,'bang');
+        
+            this.$router.push({ path: "/bangnav" });
         },
         bangdan_speed(){
             this.$router.push({ path: "/speedbang" });

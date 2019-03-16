@@ -166,7 +166,7 @@ exports.install = function (Vue,options){
                                 lev='#57B7DF';
                             }
                             else{
-                                lev='#BDA9D0';
+                                lev='#CBA7F9';
                             }
                             return lev;
     }

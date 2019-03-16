@@ -39,6 +39,10 @@ const router = new VueRouter({
       path: '/bang',
       component: resolve => require(['../components/ycy/bang.vue'], resolve)
     },
+    {
+      path: '/bangnav',
+      component: resolve => require(['../components/ycy/bangnav.vue'], resolve)
+    },
      {
       path: '/speedbang',
       component: resolve => require(['../components/ycy/speedbang.vue'], resolve)
