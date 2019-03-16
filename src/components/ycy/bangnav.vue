@@ -150,7 +150,7 @@ export default {
                 {
                     index: 2,
                     src: 'static/img/bang/bang2.jpg',
-                    isycy: true
+                    url: 'daybang'
                 },
                 {
                     index: 3,

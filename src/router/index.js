@@ -47,6 +47,10 @@ const router = new VueRouter({
       path: '/speedbang',
       component: resolve => require(['../components/ycy/speedbang.vue'], resolve)
     },
+    {
+      path: '/daybang',
+      component: resolve => require(['../components/ycy/daybang.vue'], resolve)
+    },
      {
       path: '/liuyan',
       component: resolve => require(['../components/ycy/liuyan.vue'], resolve)
