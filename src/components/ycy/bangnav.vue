@@ -12,7 +12,7 @@
                             </div>
                             
                             <div class='right'>
-                                <a></a>
+                                <a @click="showLiuYan">留言</a>
                             </div>
                         </nav>
                     </el-col>
@@ -198,6 +198,9 @@ export default {
                 this.$router.push({ path: url });
             }
             
+        },
+         showLiuYan(){
+            this.$router.push({ path: "/liuyan" });
         }
     }
 }

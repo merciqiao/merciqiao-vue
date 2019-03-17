@@ -57,9 +57,9 @@
                         
                         
                     </el-table>
-                     <div @click="showLiuYan" v-show='showEmail' class="email">
+                     <!-- <div @click="showLiuYan" v-show='showEmail' class="email">
                         点击留言
-                    </div> 
+                    </div>  -->
                     <el-pagination v-show="pageInfo.pageTotal>pageInfo.pageSize" layout="total,prev, pager, next" :current-page="pageInfo.currentPage" :page-size="pageInfo.pageSize" :total="pageInfo.pageTotal" :page-sizes="[5, 10, 20, 50]" @size-change="handleSizeChange" @current-change="handleCurrentChange">
                     </el-pagination>
                 </el-col>
@@ -282,7 +282,7 @@ export default {
         var loginLog = {
                     ip: returnCitySN["cip"],
                     city: this.$common.getCity(),
-                    type:'查询吸越榜'
+                    type:'查询日速度榜'
                 };
                 apis.shiroApi.loginLog(loginLog);
         this.onSearch();

@@ -987,6 +987,108 @@ export default {
 
                     ]
                 },
+                  {
+                    index: 17,
+                    itemList: [
+                        {
+                            index: 0,
+                            src: 'static/img/maorong/maorong0.jpg',
+                            isycy: true
+                        },
+                        {
+                            index: 1,
+                            src: 'static/img/maorong/maorong1.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 2,
+                            src: 'static/img/maorong/maorong2.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 3,
+                            src: 'static/img/maorong/maorong3.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 4,
+                            src: 'static/img/maorong/maorong4.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 5,
+                            src: 'static/img/maorong/maorong5.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 6,
+                            src: 'static/img/maorong/maorong6.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 7,
+                            src: 'static/img/maorong/maorong7.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 8,
+                            src: 'static/img/maorong/maorong8.jpg',
+                            isycy: false
+                        },
+
+                    ]
+                },
+                  {
+                    index: 18,
+                    itemList: [
+                        {
+                            index: 0,
+                            src: 'static/img/xifashui/xifashui0.jpg',
+                            isycy: true
+                        },
+                        {
+                            index: 1,
+                            src: 'static/img/xifashui/xifashui1.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 2,
+                            src: 'static/img/xifashui/xifashui2.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 3,
+                            src: 'static/img/xifashui/xifashui3.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 4,
+                            src: 'static/img/xifashui/xifashui4.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 5,
+                            src: 'static/img/xifashui/xifashui5.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 6,
+                            src: 'static/img/xifashui/xifashui6.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 7,
+                            src: 'static/img/xifashui/xifashui7.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 8,
+                            src: 'static/img/xifashui/xifashui8.jpg',
+                            isycy: false
+                        },
+
+                    ]
+                },
             ],
             initList: [
                 {
