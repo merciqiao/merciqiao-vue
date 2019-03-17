@@ -1089,6 +1089,57 @@ export default {
 
                     ]
                 },
+                  {
+                    index: 19,
+                    itemList: [
+                        {
+                            index: 0,
+                            src: 'static/img/faxing/faxing0.jpg',
+                            isycy: true
+                        },
+                        {
+                            index: 1,
+                            src: 'static/img/faxing/faxing1.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 2,
+                            src: 'static/img/faxing/faxing2.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 3,
+                            src: 'static/img/faxing/faxing3.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 4,
+                            src: 'static/img/faxing/faxing4.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 5,
+                            src: 'static/img/faxing/faxing5.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 6,
+                            src: 'static/img/faxing/faxing6.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 7,
+                            src: 'static/img/faxing/faxing7.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 8,
+                            src: 'static/img/faxing/faxing8.jpg',
+                            isycy: false
+                        },
+
+                    ]
+                },
             ],
             initList: [
                 {
