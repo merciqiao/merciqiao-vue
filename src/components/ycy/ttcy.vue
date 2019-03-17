@@ -941,47 +941,47 @@ export default {
                     itemList: [
                         {
                             index: 0,
-                            src: 'static/img/600w/600w0.jpg',
+                            src: 'static/img/shengao/shengao0.jpg',
                             isycy: true
                         },
                         {
                             index: 1,
-                            src: 'static/img/600w/600w1.jpg',
+                            src: 'static/img/shengao/shengao1.jpg',
                             isycy: false
                         },
                         {
                             index: 2,
-                            src: 'static/img/600w/600w2.jpg',
+                            src: 'static/img/shengao/shengao2.jpg',
                             isycy: false
                         },
                         {
                             index: 3,
-                            src: 'static/img/600w/600w3.jpg',
+                            src: 'static/img/shengao/shengao3.jpg',
                             isycy: false
                         },
                         {
                             index: 4,
-                            src: 'static/img/600w/600w4.jpg',
+                            src: 'static/img/shengao/shengao4.jpg',
                             isycy: false
                         },
                         {
                             index: 5,
-                            src: 'static/img/600w/600w5.jpg',
+                            src: 'static/img/shengao/shengao5.jpg',
                             isycy: false
                         },
                         {
                             index: 6,
-                            src: 'static/img/600w/600w6.jpg',
+                            src: 'static/img/shengao/shengao6.jpg',
                             isycy: false
                         },
                         {
                             index: 7,
-                            src: 'static/img/600w/600w7.jpg',
+                            src: 'static/img/shengao/shengao7.jpg',
                             isycy: false
                         },
                         {
                             index: 8,
-                            src: 'static/img/600w/600w8.jpg',
+                            src: 'static/img/shengao/shengao8.jpg',
                             isycy: false
                         },
 
