@@ -503,7 +503,7 @@ export default {
                         {
                             index: 4,
                             src: 'static/img/xingge/xingge4.jpg',
-                            isycy: false
+                            isycy: true
                         },
                         {
                             index: 5,
@@ -707,7 +707,7 @@ export default {
                         {
                             index: 4,
                             src: 'static/img/shuiguo/shuiguo4.jpg',
-                            isycy: false
+                            isycy: true
                         },
                         {
                             index: 5,
