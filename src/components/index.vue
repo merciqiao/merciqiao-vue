@@ -21,10 +21,10 @@
 
 
      <!-- 扫码 start -->
-     <div class="hongbao_zanzhu">
+     <!-- <div class="hongbao_zanzhu">
       扫码支持一下~
       <img class='hongbao' src="static/img/hongbao.png">
-     </div>
+     </div> -->
      <!-- 扫码 end -->
   </div>
 </template>
