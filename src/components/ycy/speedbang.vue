@@ -457,7 +457,7 @@ export default {
             return city;
         },
         convertSecend:(time)=>{
-            if(time=='')return;
+            if(time=='')return '0';
             var zero='';
             var strtime=time+'';
             if(strtime.substring(strtime.length-1,strtime.length)=='0'){
