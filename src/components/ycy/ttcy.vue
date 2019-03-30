@@ -1140,6 +1140,57 @@ export default {
 
                     ]
                 },
+                  {
+                    index: 20,
+                    itemList: [
+                        {
+                            index: 0,
+                            src: 'static/img/wugong/wugong0.jpg',
+                            isycy: true
+                        },
+                        {
+                            index: 1,
+                            src: 'static/img/wugong/wugong1.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 2,
+                            src: 'static/img/wugong/wugong2.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 3,
+                            src: 'static/img/wugong/wugong3.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 4,
+                            src: 'static/img/wugong/wugong4.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 5,
+                            src: 'static/img/wugong/wugong5.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 6,
+                            src: 'static/img/wugong/wugong6.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 7,
+                            src: 'static/img/wugong/wugong7.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 8,
+                            src: 'static/img/wugong/wugong8.jpg',
+                            isycy: false
+                        },
+
+                    ]
+                },
             ],
             initList: [
                 {

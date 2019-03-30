@@ -144,13 +144,13 @@ export default {
                 },
                 {
                     index: 1,
-                    src: 'static/img/bang/bang1.jpg',
-                    url: 'speedbang'
-                },
-                {
-                    index: 2,
                     src: 'static/img/bang/bang2.jpg',
                     url: 'daybang'
+                },
+                  {
+                    index: 2,
+                    src: 'static/img/bang/bang1.jpg',
+                    url: 'speedbang'
                 },
                 {
                     index: 3,
