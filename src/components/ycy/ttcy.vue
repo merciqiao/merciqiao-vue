@@ -8,7 +8,9 @@
                         吸越榜
                     </div>
                 </div>
-                <div class="title" @click="notice">大家一起来吸越</div><br/>
+                <div class="title" @click="notice">大家一起来吸越</div>
+                <div class="ps ps_ie">(超越铁粉才会玩)</div>
+                <br/>
                 <div>
                     <el-button type="success" round @click="restart">重新吸越</el-button>
                 </div><br/>
@@ -17,7 +19,10 @@
                     <span class="over" v-if="this.status==this.statusEnum.over">(已结束)</span>
                 </div>
                 <div>倒计时:
-                    <b style="color:blue">{{time}}</b>秒</div><br/>
+                    <b style="color:blue">{{time}}</b>秒</div>
+                    
+                    <span class="tip" :style="{color:this.tipColor,visibility:this.tipShow}">点击开始,从9宫格中选择跟超越相关图片</span>
+                    
                 <transition-group class="game_box" name="list-complete" tag="div">
                     <div v-for="(item) in items" :key="item.index" class="list-complete-item item">
                         <img class="img" :src="item.src" @click='choseYcy(item)'>
@@ -61,8 +66,21 @@
                 }
             }
             .title {
+                height:auto;
                 // font-weight: 100;
                 // text-shadow: -1px 1px 0 rgba(0,0,0,.1);
+            }
+            .ps{
+                 font-size:12px; 
+                -webkit-transform-origin-x: 0;
+                -webkit-transform: scale(0.90);
+            }
+            .ps_ie{
+                font-size:10.8px; 
+            }
+            .tip{
+                font-size:12px;
+                text-shadow: 2px 2px 2px rgba(252, 2, 2, 0.1);
             }
             .game_box {
                 // border: 1px solid green;
@@ -1247,7 +1265,9 @@ export default {
             startTime: null,//100分开始计时
             endTime: null,//100分结束计时
             mintime: null,//100分比赛耗时ddddddddd
-
+            tipColors:['#e96900','#42b983','#ae81ff','#2973b7','#7f8c8d'],//提示颜色
+            tipColor:'',
+            tipShow:'visible',//显示tip
         }
     },
     mounted() {
@@ -1258,7 +1278,7 @@ export default {
             password: '123456'
         }
         apis.shiroApi.loginIn(formLogin).then((data)=>{
-            debugger;
+            
                 if (data && data.data) {
                         var json = data.data;
                         if (json.status == 'SUCCESS') {
@@ -1271,8 +1291,6 @@ export default {
                             };
                             apis.shiroApi.loginLog(loginLog);
                             this.freshLev();
-
-
                             return;
                         }
                 }
@@ -1280,7 +1298,8 @@ export default {
         }).catch(()=>{
             this.$message({ message: '认证失败,请重新刷新页面', type: "warn" });
         });
-        
+        this.changeTip();
+
     },
     methods: {
         //刷新图片
@@ -1473,6 +1492,20 @@ export default {
                     this.listLoading = false;
                     this.$message({ message: '查询异常，请重试', type: "error" });
                 });
+        },
+        changeTip(){
+             //tip颜色切换,5s后消失
+            var i=0;
+            var tipTimer = setInterval(() => {
+                if(i<this.tipColors.length){
+                    this.tipColor=this.tipColors[i];
+                    i++;
+                }
+                else{
+                    clearInterval(tipTimer);
+                    this.tipShow='hidden';
+                }
+            }, 1300);
         }
     }
 
