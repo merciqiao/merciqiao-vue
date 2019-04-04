@@ -24,7 +24,7 @@
                 <transition-group class="game_box" name="list-complete" tag="div">
 
                             <div v-for="(item) in items" :key="item.index" class="list-complete-item item">
-                                <img class="img" :src="item.src" @click="showBang(item.url)">
+                                <img class="img" :src="item.src" @click="showBang(item)">
                             </div>
                 </transition-group>
             </div>
@@ -155,7 +155,7 @@ export default {
                 {
                     index: 3,
                     src: 'static/img/bang/bang3.jpg',
-                    isycy: true
+                    tip: '此功能正在开发中...'
                 },
                 {
                     index: 4,
@@ -193,9 +193,14 @@ export default {
         goBack(){
              this.$router.go(-1);
         },
-        showBang(url){
-            if(url){
-                this.$router.push({ path: url });
+        showBang(item){
+            if(item.url){
+                this.$router.push({ path: item.url });
+                return;
+            }
+            if(item.tip){
+                this.$message({ message: item.tip, type: "warn" })
+                return;
             }
             
         },
