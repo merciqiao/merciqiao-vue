@@ -155,7 +155,7 @@ export default {
                 {
                     index: 3,
                     src: 'static/img/bang/bang3.jpg',
-                    tip: '此功能正在开发中,敬请期待...'
+                    tip: '对Lv9等级500分以上玩家开放'
                 },
                 {
                     index: 4,
