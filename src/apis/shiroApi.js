@@ -135,4 +135,32 @@ export default {
         };
         return Axios.post('/api/ycyscore-api/queryToday', param);
     },
+     /**
+     * 查询总分排名列表
+     */ 
+    queryListTotal: function ({currentPage,pageSize}) {
+        var param={
+            currentPage:currentPage,
+            pageSize:pageSize            
+        };
+        return Axios.post('/api/ycyscore-api/queryListTotal', param);
+    },
+     /**
+     * 查询个人总分排名
+     */ 
+    queryRankTotal: function ({ip}) {
+        var param={
+            ip:ip,             
+        };
+        return Axios.post('/api/ycyscore-api/queryRankTotal', param);
+    },
+     /**
+     * 查询总分个人分数
+     */ 
+    queryScoreTotal: function ({ip}) {
+        var param={
+            ip:ip,             
+        };
+        return Axios.post('/api/ycyscore-api/queryScoreTotal', param);
+    },
 }

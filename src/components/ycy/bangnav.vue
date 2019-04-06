@@ -155,12 +155,12 @@ export default {
                 {
                     index: 3,
                     src: 'static/img/bang/bang3.jpg',
-                    tip: '对Lv9等级500分以上玩家开放'
+                    url: 'bangtotal'
                 },
                 {
                     index: 4,
-                    src: 'static/img/bang/bang4.jpg',//中间开始按钮
-                    isycy: true
+                    src: 'static/img/bang/bang4.jpg',//中间
+                    tip: '总分榜Lv12等级以上玩家开放'
                 },
                 {
                     index: 5,

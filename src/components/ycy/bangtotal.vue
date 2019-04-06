@@ -10,8 +10,8 @@
                             <a @click="goBack">返回</a>
                         </div>
                         <div class="rank">
-                            <div>我的排名:{{myRank}}({{myScore|convertSecend}}秒)</div>
-                            <div>日百分速度榜人数:{{allCount}}</div>
+                            <div>我的排名:{{myRank}}({{myScore}}分)</div>
+                            <div>总分榜人数:{{allCount}}</div>
                         </div>
                         
                         <div class='right'>
@@ -31,7 +31,7 @@
                         type="index"
                         width="40">
                         </el-table-column>
-                        <el-table-column prop="city" label="城市" width="100" align="center">
+                        <el-table-column prop="city" label="城市" width="66" align="center">
                             <template slot-scope="scope">
                                 <h4 class="line-limit-length">{{scope.row.city|convertCity}}</h4>
                             </template>
@@ -42,14 +42,12 @@
                             </template>
                         </el-table-column>
                        
-                        <el-table-column  prop="mintime" label="时间(秒)" align="center" min-width="72">
-                            <template slot-scope="scope">
-                                <h4 class="line-limit-length">{{scope.row.mintime|convertSecend}}</h4>
-                            </template>
+                        <el-table-column  prop="score" label="分数" align="center" min-width="40">
                         </el-table-column>
-                        <el-table-column  prop="score" label="段位" align="center" width="55">
+                        <el-table-column  prop="score" label="段位" align="center" width="76">
                             <template slot-scope="scope">
                                 <h4 class="">{{scope.row.score|convertLev}}</h4>
+                                <h4 class="">{{scope.row.score|convertLevText}}</h4>
                             </template>
                         </el-table-column>
                         <el-table-column v-if="getContentShow"  prop="times" label="次数" align="center"  width="50">
@@ -234,7 +232,7 @@
         .email{
             text-align:center;
             // padding:12px;
-             height:40px;
+            height:40px;
             line-height: 40px;
         }
       }
@@ -264,7 +262,6 @@ export default {
                     wxname:'',
                     city:'',
                     score:0,
-                    mintime:0,
                     
                 }
             ],
@@ -282,7 +279,7 @@ export default {
         var loginLog = {
                     ip: returnCitySN["cip"],
                     city: this.$common.getCity(),
-                    type:'查询日速度榜'
+                    type:'查询吸越总分榜'
                 };
                 apis.shiroApi.loginLog(loginLog);
         this.onSearch();
@@ -297,7 +294,7 @@ export default {
             this.showEmail=false;
 
             let param = Object.assign({}, this.formSearch,this.pageInfo);
-            apis.shiroApi.querySpeedList(param)
+            apis.shiroApi.queryListTotal(param)
             .then((data)=>{
                 // console.log(JSON.stringify(data) );
                 this.listLoading=false;
@@ -333,7 +330,7 @@ export default {
                 this.listLoading=false;
                 this.$message({message: '查询异常，请重试',type: "error"});
             });
-             apis.shiroApi.querySpeedRank({ip:returnCitySN["cip"]})
+             apis.shiroApi.queryRankTotal({ip:returnCitySN["cip"]})
             .then((data)=>{
                 // console.log(JSON.stringify(data) );
                 this.listLoading=false;
@@ -352,7 +349,7 @@ export default {
                 this.listLoading=false;
                 this.$message({message: '查询异常，请重试',type: "error"});
             });
-             apis.shiroApi.queryMinTime({ip:returnCitySN["cip"]})
+             apis.shiroApi.queryScoreTotal({ip:returnCitySN["cip"]})
             .then((data)=>{
                 // console.log(JSON.stringify(data) );
                 if (data && data.data) {
@@ -410,7 +407,9 @@ export default {
             // this.$common.OpenNewPage(this,'docinfo',param);
         },
         goBack(){
+            //this.$router.replace({path:'/ttcy'});
              this.$router.go(-1);
+            // window.location.href='/ttcy';
         },
         showLiuYan(){
             this.$router.push({ path: "/liuyan" });
@@ -447,27 +446,18 @@ export default {
             
         },
         convertLev:(myRank)=>{
-            var lev=Vue.prototype.$common.getYcyLev(myRank);
+            var lev=Vue.prototype.$common.getYcyTotalLev(myRank).split('|')[0];
+            return lev;
+        },
+        convertLevText:(myRank)=>{
+            var lev=Vue.prototype.$common.getYcyTotalLev(myRank).split('|')[1];
             return lev;
         },
         convertCity:(city)=>{
-            if(city.length>6){
-                city=city.substring(0,6)+'...';
+            if(city&&city.length>3){
+                city=city.substring(0,3)+'...';
             }
             return city;
-        },
-        convertSecend:(time)=>{
-            if(time=='')return '0';
-            var zero='';
-            var strtime=time+'';
-            if(strtime.substring(strtime.length-1,strtime.length)=='0'){
-                zero='0';
-            }
-            time=time/1000;
-            time+='';
-            time=time.substring(0,time.length-1)+zero;
-            
-            return time;
         }
     },
 }

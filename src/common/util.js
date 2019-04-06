@@ -108,6 +108,63 @@ exports.install = function (Vue,options){
                             }
                             return lev;
     }
+    Common.getYcyTotalLev =function(myRank) {
+        var lev='';         if(myRank<5){
+                                lev='Lv1|初级粉丝';
+                            }
+                            else if(myRank<15){
+                                lev='Lv2|中级粉丝';
+                            }
+                            else if(myRank<30){
+                                lev='Lv3|高级粉丝';
+                            }
+                            else if(myRank<=50){
+                                lev='Lv4|进阶粉丝';
+                            }
+                            else if(myRank<100){
+                                lev='Lv5|进阶粉丝';
+                            }
+                            else if(myRank<200){
+                                lev='Lv6|活跃粉丝';
+                            }
+                            else if(myRank<500){
+                                lev='Lv7|活跃粉丝';
+                            }
+                            else if(myRank<1000){
+                                lev='Lv8|忠实粉丝';
+                            }
+                            else if(myRank<2000){
+                                lev='Lv9|忠实粉丝';
+                            }
+                            else if(myRank<3000){
+                                lev='Lv10|知名粉丝';
+                            }
+                            else if(myRank<6000){
+                                lev='Lv11|知名粉丝';
+                            }
+                            else if(myRank<10000){
+                                lev='Lv12|人气粉丝';
+                            }
+                            else if(myRank<18000){
+                                lev='Lv13|人气粉丝';
+                            }
+                            else if(myRank<30000){
+                                lev='Lv14|资深元老';
+                            }
+                            else if(myRank<60000){
+                                lev='Lv15|资深元老';
+                            }
+                            else if(myRank<100000){
+                                lev='Lv16|掌门元老';
+                            }
+                            else if(myRank<300000){
+                                lev='Lv17|荣誉元老';
+                            }
+                            else{
+                                lev='Lv18|精神领袖'
+                            }
+                            return lev;
+    }
     Common.getTimeLev =function(myRank) {
         var lev='';
                             if(myRank<10){

@@ -11,7 +11,7 @@
                         </div>
                         <div class="rank">
                             <div>我的排名:{{myRank}}({{myScore}}分)</div>
-                            <div>打榜总数:{{allCount}}</div>
+                            <div>高分榜人数:{{allCount}}</div>
                         </div>
                         
                         <div class='right'>

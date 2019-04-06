@@ -40,6 +40,10 @@ const router = new VueRouter({
       component: resolve => require(['../components/ycy/bang.vue'], resolve)
     },
     {
+      path: '/bangtotal',
+      component: resolve => require(['../components/ycy/bangtotal.vue'], resolve)
+    },
+    {
       path: '/bangnav',
       component: resolve => require(['../components/ycy/bangnav.vue'], resolve)
     },
