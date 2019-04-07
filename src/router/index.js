@@ -7,32 +7,6 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: '/ttcy'
-    },
-    {
-      path: '/login',
-      component: resolve => require(['@/components/login.vue'], resolve),
-      meta: {
-        title: '登陆'
-      }
-    },
-    {
-      path: '/tree',
-      component: resolve => require(['@/components/mayi/tree.vue'], resolve),
-      meta: {
-        title: '蚂蚁种树'
-      }
-    },
-    {
-      path: '/zanzhu',
-      component: resolve => require(['../components/zanzhu.vue'], resolve)
-    },
-    {
-      path: '/bottom',
-      component: resolve => require(['../components/flex/bottom.vue'], resolve)
-    },
-    {
-      path: '/ttcy',
       component: resolve => require(['../components/ycy/ttcy.vue'], resolve)
     },
     {
@@ -60,16 +34,8 @@ const router = new VueRouter({
       component: resolve => require(['../components/ycy/liuyan.vue'], resolve)
     },
     {
-      path: '/404',
-      component: resolve => require(['../components/common/404.vue'], resolve)
-    },
-    {
-      path: '/403',
-      component: resolve => require(['../components/common/403.vue'], resolve)
-    },
-    {
       path: '*',
-      redirect: '/ttcy'
+      redirect: '/'
     }
   ],
   mode: 'history'

@@ -199,7 +199,7 @@ export default {
                 return;
             }
             if(item.tip){
-                this.$message({ message: item.tip, type: "warn" })
+                this.$message({ message: item.tip, type: "warn" , showClose: true})
                 return;
             }
             
