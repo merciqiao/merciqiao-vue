@@ -29,12 +29,24 @@
                     </div>
                 </transition-group>
             </div>
+            <el-popover
+                ref="personInfo"
+                placement="bottom"
+                width="320"
+                trigger="click">
+                <el-table :data="personInfoList">
+                    <el-table-column width="86" property="type" label="榜单类型"></el-table-column>
+                    <el-table-column width="60" property="rank" label="名次"></el-table-column>
+                    <el-table-column width="60" property="score" label="分数"></el-table-column>
+                    <el-table-column width="110" property="lev" label="等级"></el-table-column>
+                </el-table>
+            </el-popover>
         </div>
     </div>
 </template>
 <style lang="scss">
 ._ttcy {
-
+    
     .outer {
         // border: 1px solid red;
         height: 100vh;
@@ -103,6 +115,7 @@
                 color: red;
             }
         }
+
     }
 }
 
@@ -120,6 +133,7 @@
 .list-complete-leave-active {
     position: absolute;
 }
+
 </style>
 <script>
 import apis from '../../apis/apis';
@@ -1260,57 +1274,57 @@ export default {
 
                     ]
                 },
-                  {
-                    index: 22,
-                    itemList: [
-                        {
-                            index: 0,
-                            src: 'static/img/logo/logo0.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 1,
-                            src: 'static/img/logo/logo1.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 2,
-                            src: 'static/img/logo/logo2.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 3,
-                            src: 'static/img/logo/logo3.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 4,
-                            src: 'static/img/logo/logo4.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 5,
-                            src: 'static/img/logo/logo5.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 6,
-                            src: 'static/img/logo/logo6.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 7,
-                            src: 'static/img/logo/logo7.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 8,
-                            src: 'static/img/logo/logo8.jpg',
-                            isycy: false
-                        },
+                //   {
+                //     index: 22,
+                //     itemList: [
+                //         {
+                //             index: 0,
+                //             src: 'static/img/logo/logo0.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 1,
+                //             src: 'static/img/logo/logo1.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 2,
+                //             src: 'static/img/logo/logo2.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 3,
+                //             src: 'static/img/logo/logo3.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 4,
+                //             src: 'static/img/logo/logo4.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 5,
+                //             src: 'static/img/logo/logo5.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 6,
+                //             src: 'static/img/logo/logo6.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 7,
+                //             src: 'static/img/logo/logo7.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 8,
+                //             src: 'static/img/logo/logo8.jpg',
+                //             isycy: false
+                //         },
 
-                    ]
-                },
+                //     ]
+                // },
             ],
             initList: [
                 {
@@ -1370,6 +1384,26 @@ export default {
             tipColors:['#e96900','#42b983','#ae81ff','#2973b7','#7f8c8d'],//提示颜色
             tipColor:'',
             tipShow:'visible',//显示tip
+             personInfoList: [{
+                    type: '高分榜',
+                    score: '12',
+                    rank: '89',
+                    lev:'Lv黄金',
+                }, 
+                {
+                    type: '总分榜',
+                    score: '12',
+                    rank: '89',
+                    lev:'Lv黄金',
+                }, 
+                {
+                     type: '今日打榜',
+                    score: '12220',
+                    rank: '100',
+                    lev:'Lv12进阶粉丝',
+                }
+              ],
+
         }
     },
     mounted() {
@@ -1608,7 +1642,7 @@ export default {
                     this.tipShow='hidden';
                 }
             }, 1300);
-        }
+        },
     }
 
 }
