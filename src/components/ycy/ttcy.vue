@@ -28,6 +28,7 @@
                         <img class="img" :src="item.src" @click='choseYcy(item)'>
                     </div>
                 </transition-group>
+                <!--<div class="banquan banquan_ie">素材来源于网络,如有侵权请与我联系</div> -->
             </div>
             <el-popover
                 ref="personInfo"
@@ -108,6 +109,16 @@
             .tip{
                 font-size:12px;
                 text-shadow: 2px 2px 2px rgba(252, 2, 2, 0.1);
+            }
+            .banquan{
+                 font-size:12px; 
+                -webkit-transform-origin-x: 0;
+                -webkit-transform: scale(0.90);
+                color:gray;
+            }
+            .banquan_ie{
+                font-size:10.8px; 
+                color:gray;
             }
             .game_box {
                 // border: 1px solid green;
