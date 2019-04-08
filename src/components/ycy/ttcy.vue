@@ -3,7 +3,7 @@
         <div class="outer">
             <div class="center_box">
                 <div class="nav">
-                    <div class="lev" :style="{color:levcolor}" >{{lev}}</div>
+                    <div v-popover:personInfo class="lev" :style="{color:levcolor}" @click="showPersonInfo">{{lev}}</div>
                     <div class="bangdan" @click="bangdan">
                         吸越榜
                     </div>
@@ -32,14 +32,29 @@
             <el-popover
                 ref="personInfo"
                 placement="bottom"
-                width="320"
+                width="300"
                 trigger="click">
-                <el-table :data="personInfoList">
+                <!-- <el-table :data="personInfoList">
                     <el-table-column width="86" property="type" label="榜单类型"></el-table-column>
                     <el-table-column width="60" property="rank" label="名次"></el-table-column>
                     <el-table-column width="60" property="score" label="分数"></el-table-column>
                     <el-table-column width="110" property="lev" label="等级"></el-table-column>
-                </el-table>
+                </el-table>-->
+                <table>
+                     <tr>
+                        <th style="width:77px">榜单类型</th>
+                        <th style="width:60px">名次</th>
+                        <th style="width:60px">分数</th>
+                        <th style="width:95px">等级</th>
+                    </tr>
+                    <tr v-for='item in personInfoList'>
+                        <td>{{item.type}}</td>
+                        <td>{{item.rank}}</td>
+                        <td>{{item.score}}</td>
+                        <td>{{item.lev}}</td>
+                    </tr>
+
+                </table>
             </el-popover>
         </div>
     </div>
@@ -1384,26 +1399,28 @@ export default {
             tipColors:['#e96900','#42b983','#ae81ff','#2973b7','#7f8c8d'],//提示颜色
             tipColor:'',
             tipShow:'visible',//显示tip
-             personInfoList: [{
+            personInfoList: [
+                 {
+                     type: '今日榜',
+                    score: '-',
+                    rank: '-',
+                    lev:'-',
+                }
+                ,
+                {
                     type: '高分榜',
-                    score: '12',
-                    rank: '89',
-                    lev:'Lv黄金',
+                    score: '-',
+                    rank: '-',
+                    lev:'-',
                 }, 
                 {
                     type: '总分榜',
-                    score: '12',
-                    rank: '89',
-                    lev:'Lv黄金',
-                }, 
-                {
-                     type: '今日打榜',
-                    score: '12220',
-                    rank: '100',
-                    lev:'Lv12进阶粉丝',
+                    score: '-',
+                    rank: '-',
+                    lev:'-',
                 }
+               
               ],
-
         }
     },
     mounted() {
@@ -1438,6 +1455,14 @@ export default {
 
     },
     methods: {
+        //个人信息赋值
+        setPersonInfo:function(type,item,value){
+            for(var i=0;i<this.personInfoList.length;i++){
+                if(this.personInfoList[i].type==type){
+                    this.personInfoList[i][item]=value;
+                }
+            }
+        },
         //刷新图片
         shuffle: function(items) {
 
@@ -1643,6 +1668,129 @@ export default {
                 }
             }, 1300);
         },
+        //展示个人信息
+        showPersonInfo(){
+            var loginLog = {
+                    ip: returnCitySN["cip"],
+                    city: this.$common.getCity(),
+                    type:'查询个人信息'
+                };
+                apis.shiroApi.loginLog(loginLog);
+
+            //01:查询高分榜
+              apis.shiroApi.queryRank({ip:returnCitySN["cip"]})
+            .then((data)=>{
+                this.listLoading=false;
+                if (data && data.data) {
+                        var json = data.data;
+                        if (json.status == 'SUCCESS') {
+                            var rank=json.data;
+                            this.setPersonInfo('高分榜','rank',rank+'名')
+                        }
+                        else if (json.message) {
+                            this.$message({message: json.message,type: "error"});
+                        }
+                }
+            })
+            .catch((err)=>{
+                this.listLoading=false;
+                this.$message({message: '查询异常，请重试',type: "error"});
+            });
+             apis.shiroApi.queryScore({ip:returnCitySN["cip"]})
+            .then((data)=>{
+                if (data && data.data) {
+                        var json = data.data;
+                        if (json.status == 'SUCCESS') {
+                            var score=json.data;
+                            this.setPersonInfo('高分榜','score',score+'分')
+                            var lev=Vue.prototype.$common.getYcyLev(score);
+                            this.setPersonInfo('高分榜','lev',lev+'段位')
+                        }
+                        else if (json.message) {
+                            this.$message({message: json.message,type: "error"});
+                        }
+                }
+            })
+            .catch((err)=>{
+                this.listLoading=false;
+                this.$message({message: '查询异常，请重试',type: "error"});
+            });
+            //02:查询总分榜
+              apis.shiroApi.queryRankTotal({ip:returnCitySN["cip"]})
+            .then((data)=>{
+                // console.log(JSON.stringify(data) );
+                this.listLoading=false;
+                if (data && data.data) {
+                        var json = data.data;
+                        if (json.status == 'SUCCESS') {
+                            var rank=json.data;
+                            this.setPersonInfo('总分榜','rank',rank+'名')
+                        }
+                        else if (json.message) {
+                            this.$message({message: json.message,type: "error"});
+                        }
+                }
+            })
+            .catch((err)=>{
+                this.listLoading=false;
+                this.$message({message: '查询异常，请重试',type: "error"});
+            });
+             apis.shiroApi.queryScoreTotal({ip:returnCitySN["cip"]})
+            .then((data)=>{
+                if (data && data.data) {
+                        var json = data.data;
+                        if (json.status == 'SUCCESS') {
+                            var score=json.data;
+                            this.setPersonInfo('总分榜','score',score+'分')
+                            var lev=Vue.prototype.$common.getYcyTotalLev(score).replace('|','');
+                            this.setPersonInfo('总分榜','lev',lev)
+                        }
+                        else if (json.message) {
+                            this.$message({message: json.message,type: "error"});
+                        }
+                }
+            })
+            .catch((err)=>{
+                this.listLoading=false;
+                this.$message({message: '查询异常，请重试',type: "error"});
+            });
+            //03:查询今日高分榜
+               apis.shiroApi.queryRankToday({ip:returnCitySN["cip"]})
+            .then((data)=>{
+                this.listLoading=false;
+                if (data && data.data) {
+                        var json = data.data;
+                        if (json.status == 'SUCCESS') {
+                            var rank=json.data;
+                            this.setPersonInfo('今日榜','rank',rank+'名')
+                        }
+                        else if (json.message) {
+                            this.$message({message: json.message,type: "error"});
+                        }
+                }
+            })
+            .catch((err)=>{
+                this.listLoading=false;
+                this.$message({message: '查询异常，请重试',type: "error"});
+            });
+             apis.shiroApi.queryTodayScore({ip:returnCitySN["cip"]})
+            .then((data)=>{
+                if (data && data.data) {
+                        var json = data.data;
+                        if (json.status == 'SUCCESS') {
+                            var score=json.data;
+                            this.setPersonInfo('今日榜','score',score+'分')
+                        }
+                        else if (json.message) {
+                            this.$message({message: json.message,type: "error"});
+                        }
+                }
+            })
+            .catch((err)=>{
+                this.listLoading=false;
+                this.$message({message: '查询异常，请重试',type: "error"});
+            });
+        }
     }
 
 }
