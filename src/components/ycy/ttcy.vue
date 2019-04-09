@@ -3,8 +3,8 @@
         <div class="outer">
             <div class="center_box">
                 <div class="nav">
-                    <!--<div v-popover:personInfo class="lev" :style="{color:levcolor}" @click="showPersonInfo">{{lev}}</div>-->
-                    <div class="lev" :style="{color:levcolor}">{{lev}}</div>
+                    <div v-popover:personInfo class="lev" :style="{color:levcolor}" @click="showPersonInfo">{{lev}}</div>
+                    <!-- <div class="lev" :style="{color:levcolor}">{{lev}}</div> -->
                     <div class="bangdan" @click="bangdan">
                         吸越榜
                     </div>
@@ -627,669 +627,669 @@ export default {
 
                     ]
                 },
-                {
-                    index: 9,
-                    itemList: [
-                        {
-                            index: 0,
-                            src: 'static/img/jihua/jihua0.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 1,
-                            src: 'static/img/jihua/jihua1.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 2,
-                            src: 'static/img/jihua/jihua2.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 3,
-                            src: 'static/img/jihua/jihua3.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 4,
-                            src: 'static/img/jihua/jihua4.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 5,
-                            src: 'static/img/jihua/jihua5.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 6,
-                            src: 'static/img/jihua/jihua6.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 7,
-                            src: 'static/img/jihua/jihua7.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 8,
-                            src: 'static/img/jihua/jihua8.jpg',
-                            isycy: false
-                        },
+                // {
+                //     index: 9,
+                //     itemList: [
+                //         {
+                //             index: 0,
+                //             src: 'static/img/jihua/jihua0.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 1,
+                //             src: 'static/img/jihua/jihua1.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 2,
+                //             src: 'static/img/jihua/jihua2.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 3,
+                //             src: 'static/img/jihua/jihua3.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 4,
+                //             src: 'static/img/jihua/jihua4.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 5,
+                //             src: 'static/img/jihua/jihua5.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 6,
+                //             src: 'static/img/jihua/jihua6.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 7,
+                //             src: 'static/img/jihua/jihua7.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 8,
+                //             src: 'static/img/jihua/jihua8.jpg',
+                //             isycy: false
+                //         },
 
-                    ]
-                },
-                {
-                    index: 10,
-                    itemList: [
-                        {
-                            index: 0,
-                            src: 'static/img/niuzai/niuzai0.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 1,
-                            src: 'static/img/niuzai/niuzai1.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 2,
-                            src: 'static/img/niuzai/niuzai2.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 3,
-                            src: 'static/img/niuzai/niuzai3.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 4,
-                            src: 'static/img/niuzai/niuzai4.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 5,
-                            src: 'static/img/niuzai/niuzai5.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 6,
-                            src: 'static/img/niuzai/niuzai6.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 7,
-                            src: 'static/img/niuzai/niuzai7.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 8,
-                            src: 'static/img/niuzai/niuzai8.jpg',
-                            isycy: false
-                        },
+                //     ]
+                // },
+                // {
+                //     index: 10,
+                //     itemList: [
+                //         {
+                //             index: 0,
+                //             src: 'static/img/niuzai/niuzai0.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 1,
+                //             src: 'static/img/niuzai/niuzai1.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 2,
+                //             src: 'static/img/niuzai/niuzai2.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 3,
+                //             src: 'static/img/niuzai/niuzai3.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 4,
+                //             src: 'static/img/niuzai/niuzai4.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 5,
+                //             src: 'static/img/niuzai/niuzai5.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 6,
+                //             src: 'static/img/niuzai/niuzai6.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 7,
+                //             src: 'static/img/niuzai/niuzai7.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 8,
+                //             src: 'static/img/niuzai/niuzai8.jpg',
+                //             isycy: false
+                //         },
 
-                    ]
-                },
-                {
-                    index: 11,
-                    itemList: [
-                        {
-                            index: 0,
-                            src: 'static/img/shuiguo/shuiguo0.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 1,
-                            src: 'static/img/shuiguo/shuiguo1.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 2,
-                            src: 'static/img/shuiguo/shuiguo2.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 3,
-                            src: 'static/img/shuiguo/shuiguo3.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 4,
-                            src: 'static/img/shuiguo/shuiguo4.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 5,
-                            src: 'static/img/shuiguo/shuiguo5.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 6,
-                            src: 'static/img/shuiguo/shuiguo6.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 7,
-                            src: 'static/img/shuiguo/shuiguo7.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 8,
-                            src: 'static/img/shuiguo/shuiguo8.jpg',
-                            isycy: false
-                        },
+                //     ]
+                // },
+                // {
+                //     index: 11,
+                //     itemList: [
+                //         {
+                //             index: 0,
+                //             src: 'static/img/shuiguo/shuiguo0.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 1,
+                //             src: 'static/img/shuiguo/shuiguo1.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 2,
+                //             src: 'static/img/shuiguo/shuiguo2.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 3,
+                //             src: 'static/img/shuiguo/shuiguo3.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 4,
+                //             src: 'static/img/shuiguo/shuiguo4.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 5,
+                //             src: 'static/img/shuiguo/shuiguo5.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 6,
+                //             src: 'static/img/shuiguo/shuiguo6.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 7,
+                //             src: 'static/img/shuiguo/shuiguo7.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 8,
+                //             src: 'static/img/shuiguo/shuiguo8.jpg',
+                //             isycy: false
+                //         },
 
-                    ]
-                },
-                {
-                    index: 12,
-                    itemList: [
-                        {
-                            index: 0,
-                            src: 'static/img/xiaoshuo/xiaoshuo0.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 1,
-                            src: 'static/img/xiaoshuo/xiaoshuo1.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 2,
-                            src: 'static/img/xiaoshuo/xiaoshuo2.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 3,
-                            src: 'static/img/xiaoshuo/xiaoshuo3.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 4,
-                            src: 'static/img/xiaoshuo/xiaoshuo4.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 5,
-                            src: 'static/img/xiaoshuo/xiaoshuo5.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 6,
-                            src: 'static/img/xiaoshuo/xiaoshuo6.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 7,
-                            src: 'static/img/xiaoshuo/xiaoshuo7.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 8,
-                            src: 'static/img/xiaoshuo/xiaoshuo8.jpg',
-                            isycy: false
-                        },
+                //     ]
+                // },
+                // {
+                //     index: 12,
+                //     itemList: [
+                //         {
+                //             index: 0,
+                //             src: 'static/img/xiaoshuo/xiaoshuo0.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 1,
+                //             src: 'static/img/xiaoshuo/xiaoshuo1.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 2,
+                //             src: 'static/img/xiaoshuo/xiaoshuo2.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 3,
+                //             src: 'static/img/xiaoshuo/xiaoshuo3.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 4,
+                //             src: 'static/img/xiaoshuo/xiaoshuo4.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 5,
+                //             src: 'static/img/xiaoshuo/xiaoshuo5.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 6,
+                //             src: 'static/img/xiaoshuo/xiaoshuo6.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 7,
+                //             src: 'static/img/xiaoshuo/xiaoshuo7.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 8,
+                //             src: 'static/img/xiaoshuo/xiaoshuo8.jpg',
+                //             isycy: false
+                //         },
 
-                    ]
-                },
-                {
-                    index: 13,
-                    itemList: [
-                        {
-                            index: 0,
-                            src: 'static/img/shengri/shengri0.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 1,
-                            src: 'static/img/shengri/shengri1.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 2,
-                            src: 'static/img/shengri/shengri2.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 3,
-                            src: 'static/img/shengri/shengri3.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 4,
-                            src: 'static/img/shengri/shengri4.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 5,
-                            src: 'static/img/shengri/shengri5.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 6,
-                            src: 'static/img/shengri/shengri6.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 7,
-                            src: 'static/img/shengri/shengri7.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 8,
-                            src: 'static/img/shengri/shengri8.jpg',
-                            isycy: false
-                        },
+                //     ]
+                // },
+                // {
+                //     index: 13,
+                //     itemList: [
+                //         {
+                //             index: 0,
+                //             src: 'static/img/shengri/shengri0.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 1,
+                //             src: 'static/img/shengri/shengri1.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 2,
+                //             src: 'static/img/shengri/shengri2.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 3,
+                //             src: 'static/img/shengri/shengri3.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 4,
+                //             src: 'static/img/shengri/shengri4.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 5,
+                //             src: 'static/img/shengri/shengri5.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 6,
+                //             src: 'static/img/shengri/shengri6.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 7,
+                //             src: 'static/img/shengri/shengri7.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 8,
+                //             src: 'static/img/shengri/shengri8.jpg',
+                //             isycy: false
+                //         },
 
-                    ]
-                },
-                {
-                    index: 14,
-                    itemList: [
-                        {
-                            index: 0,
-                            src: 'static/img/yingyuan/yingyuan0.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 1,
-                            src: 'static/img/yingyuan/yingyuan1.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 2,
-                            src: 'static/img/yingyuan/yingyuan2.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 3,
-                            src: 'static/img/yingyuan/yingyuan3.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 4,
-                            src: 'static/img/yingyuan/yingyuan4.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 5,
-                            src: 'static/img/yingyuan/yingyuan5.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 6,
-                            src: 'static/img/yingyuan/yingyuan6.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 7,
-                            src: 'static/img/yingyuan/yingyuan7.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 8,
-                            src: 'static/img/yingyuan/yingyuan8.jpg',
-                            isycy: false
-                        },
+                //     ]
+                // },
+                // {
+                //     index: 14,
+                //     itemList: [
+                //         {
+                //             index: 0,
+                //             src: 'static/img/yingyuan/yingyuan0.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 1,
+                //             src: 'static/img/yingyuan/yingyuan1.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 2,
+                //             src: 'static/img/yingyuan/yingyuan2.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 3,
+                //             src: 'static/img/yingyuan/yingyuan3.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 4,
+                //             src: 'static/img/yingyuan/yingyuan4.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 5,
+                //             src: 'static/img/yingyuan/yingyuan5.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 6,
+                //             src: 'static/img/yingyuan/yingyuan6.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 7,
+                //             src: 'static/img/yingyuan/yingyuan7.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 8,
+                //             src: 'static/img/yingyuan/yingyuan8.jpg',
+                //             isycy: false
+                //         },
 
-                    ]
-                },
-                {
-                    index: 15,
-                    itemList: [
-                        {
-                            index: 0,
-                            src: 'static/img/dongwutwo/dongwutwo0.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 1,
-                            src: 'static/img/dongwutwo/dongwutwo1.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 2,
-                            src: 'static/img/dongwutwo/dongwutwo2.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 3,
-                            src: 'static/img/dongwutwo/dongwutwo3.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 4,
-                            src: 'static/img/dongwutwo/dongwutwo4.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 5,
-                            src: 'static/img/dongwutwo/dongwutwo5.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 6,
-                            src: 'static/img/dongwutwo/dongwutwo6.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 7,
-                            src: 'static/img/dongwutwo/dongwutwo7.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 8,
-                            src: 'static/img/dongwutwo/dongwutwo8.jpg',
-                            isycy: false
-                        },
+                //     ]
+                // },
+                // {
+                //     index: 15,
+                //     itemList: [
+                //         {
+                //             index: 0,
+                //             src: 'static/img/dongwutwo/dongwutwo0.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 1,
+                //             src: 'static/img/dongwutwo/dongwutwo1.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 2,
+                //             src: 'static/img/dongwutwo/dongwutwo2.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 3,
+                //             src: 'static/img/dongwutwo/dongwutwo3.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 4,
+                //             src: 'static/img/dongwutwo/dongwutwo4.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 5,
+                //             src: 'static/img/dongwutwo/dongwutwo5.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 6,
+                //             src: 'static/img/dongwutwo/dongwutwo6.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 7,
+                //             src: 'static/img/dongwutwo/dongwutwo7.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 8,
+                //             src: 'static/img/dongwutwo/dongwutwo8.jpg',
+                //             isycy: false
+                //         },
 
-                    ]
-                },
-                 {
-                    index: 16,
-                    itemList: [
-                        {
-                            index: 0,
-                            src: 'static/img/shengao/shengao0.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 1,
-                            src: 'static/img/shengao/shengao1.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 2,
-                            src: 'static/img/shengao/shengao2.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 3,
-                            src: 'static/img/shengao/shengao3.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 4,
-                            src: 'static/img/shengao/shengao4.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 5,
-                            src: 'static/img/shengao/shengao5.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 6,
-                            src: 'static/img/shengao/shengao6.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 7,
-                            src: 'static/img/shengao/shengao7.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 8,
-                            src: 'static/img/shengao/shengao8.jpg',
-                            isycy: false
-                        },
+                //     ]
+                // },
+                //  {
+                //     index: 16,
+                //     itemList: [
+                //         {
+                //             index: 0,
+                //             src: 'static/img/shengao/shengao0.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 1,
+                //             src: 'static/img/shengao/shengao1.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 2,
+                //             src: 'static/img/shengao/shengao2.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 3,
+                //             src: 'static/img/shengao/shengao3.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 4,
+                //             src: 'static/img/shengao/shengao4.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 5,
+                //             src: 'static/img/shengao/shengao5.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 6,
+                //             src: 'static/img/shengao/shengao6.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 7,
+                //             src: 'static/img/shengao/shengao7.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 8,
+                //             src: 'static/img/shengao/shengao8.jpg',
+                //             isycy: false
+                //         },
 
-                    ]
-                },
-                  {
-                    index: 17,
-                    itemList: [
-                        {
-                            index: 0,
-                            src: 'static/img/maorong/maorong0.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 1,
-                            src: 'static/img/maorong/maorong1.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 2,
-                            src: 'static/img/maorong/maorong2.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 3,
-                            src: 'static/img/maorong/maorong3.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 4,
-                            src: 'static/img/maorong/maorong4.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 5,
-                            src: 'static/img/maorong/maorong5.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 6,
-                            src: 'static/img/maorong/maorong6.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 7,
-                            src: 'static/img/maorong/maorong7.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 8,
-                            src: 'static/img/maorong/maorong8.jpg',
-                            isycy: false
-                        },
+                //     ]
+                // },
+                //   {
+                //     index: 17,
+                //     itemList: [
+                //         {
+                //             index: 0,
+                //             src: 'static/img/maorong/maorong0.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 1,
+                //             src: 'static/img/maorong/maorong1.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 2,
+                //             src: 'static/img/maorong/maorong2.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 3,
+                //             src: 'static/img/maorong/maorong3.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 4,
+                //             src: 'static/img/maorong/maorong4.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 5,
+                //             src: 'static/img/maorong/maorong5.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 6,
+                //             src: 'static/img/maorong/maorong6.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 7,
+                //             src: 'static/img/maorong/maorong7.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 8,
+                //             src: 'static/img/maorong/maorong8.jpg',
+                //             isycy: false
+                //         },
 
-                    ]
-                },
-                  {
-                    index: 18,
-                    itemList: [
-                        {
-                            index: 0,
-                            src: 'static/img/xifashui/xifashui0.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 1,
-                            src: 'static/img/xifashui/xifashui1.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 2,
-                            src: 'static/img/xifashui/xifashui2.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 3,
-                            src: 'static/img/xifashui/xifashui3.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 4,
-                            src: 'static/img/xifashui/xifashui4.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 5,
-                            src: 'static/img/xifashui/xifashui5.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 6,
-                            src: 'static/img/xifashui/xifashui6.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 7,
-                            src: 'static/img/xifashui/xifashui7.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 8,
-                            src: 'static/img/xifashui/xifashui8.jpg',
-                            isycy: false
-                        },
+                //     ]
+                // },
+                //   {
+                //     index: 18,
+                //     itemList: [
+                //         {
+                //             index: 0,
+                //             src: 'static/img/xifashui/xifashui0.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 1,
+                //             src: 'static/img/xifashui/xifashui1.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 2,
+                //             src: 'static/img/xifashui/xifashui2.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 3,
+                //             src: 'static/img/xifashui/xifashui3.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 4,
+                //             src: 'static/img/xifashui/xifashui4.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 5,
+                //             src: 'static/img/xifashui/xifashui5.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 6,
+                //             src: 'static/img/xifashui/xifashui6.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 7,
+                //             src: 'static/img/xifashui/xifashui7.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 8,
+                //             src: 'static/img/xifashui/xifashui8.jpg',
+                //             isycy: false
+                //         },
 
-                    ]
-                },
-                  {
-                    index: 19,
-                    itemList: [
-                        {
-                            index: 0,
-                            src: 'static/img/faxing/faxing0.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 1,
-                            src: 'static/img/faxing/faxing1.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 2,
-                            src: 'static/img/faxing/faxing2.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 3,
-                            src: 'static/img/faxing/faxing3.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 4,
-                            src: 'static/img/faxing/faxing4.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 5,
-                            src: 'static/img/faxing/faxing5.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 6,
-                            src: 'static/img/faxing/faxing6.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 7,
-                            src: 'static/img/faxing/faxing7.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 8,
-                            src: 'static/img/faxing/faxing8.jpg',
-                            isycy: false
-                        },
+                //     ]
+                // },
+                //   {
+                //     index: 19,
+                //     itemList: [
+                //         {
+                //             index: 0,
+                //             src: 'static/img/faxing/faxing0.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 1,
+                //             src: 'static/img/faxing/faxing1.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 2,
+                //             src: 'static/img/faxing/faxing2.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 3,
+                //             src: 'static/img/faxing/faxing3.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 4,
+                //             src: 'static/img/faxing/faxing4.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 5,
+                //             src: 'static/img/faxing/faxing5.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 6,
+                //             src: 'static/img/faxing/faxing6.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 7,
+                //             src: 'static/img/faxing/faxing7.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 8,
+                //             src: 'static/img/faxing/faxing8.jpg',
+                //             isycy: false
+                //         },
 
-                    ]
-                },
-                  {
-                    index: 20,
-                    itemList: [
-                        {
-                            index: 0,
-                            src: 'static/img/wugong/wugong0.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 1,
-                            src: 'static/img/wugong/wugong1.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 2,
-                            src: 'static/img/wugong/wugong2.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 3,
-                            src: 'static/img/wugong/wugong3.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 4,
-                            src: 'static/img/wugong/wugong4.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 5,
-                            src: 'static/img/wugong/wugong5.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 6,
-                            src: 'static/img/wugong/wugong6.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 7,
-                            src: 'static/img/wugong/wugong7.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 8,
-                            src: 'static/img/wugong/wugong8.jpg',
-                            isycy: false
-                        },
+                //     ]
+                // },
+                //   {
+                //     index: 20,
+                //     itemList: [
+                //         {
+                //             index: 0,
+                //             src: 'static/img/wugong/wugong0.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 1,
+                //             src: 'static/img/wugong/wugong1.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 2,
+                //             src: 'static/img/wugong/wugong2.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 3,
+                //             src: 'static/img/wugong/wugong3.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 4,
+                //             src: 'static/img/wugong/wugong4.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 5,
+                //             src: 'static/img/wugong/wugong5.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 6,
+                //             src: 'static/img/wugong/wugong6.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 7,
+                //             src: 'static/img/wugong/wugong7.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 8,
+                //             src: 'static/img/wugong/wugong8.jpg',
+                //             isycy: false
+                //         },
 
-                    ]
-                },
-                  {
-                    index: 21,
-                    itemList: [
-                        {
-                            index: 0,
-                            src: 'static/img/cidian/cidian0.jpg',
-                            isycy: true
-                        },
-                        {
-                            index: 1,
-                            src: 'static/img/cidian/cidian1.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 2,
-                            src: 'static/img/cidian/cidian2.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 3,
-                            src: 'static/img/cidian/cidian3.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 4,
-                            src: 'static/img/cidian/cidian4.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 5,
-                            src: 'static/img/cidian/cidian5.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 6,
-                            src: 'static/img/cidian/cidian6.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 7,
-                            src: 'static/img/cidian/cidian7.jpg',
-                            isycy: false
-                        },
-                        {
-                            index: 8,
-                            src: 'static/img/cidian/cidian8.jpg',
-                            isycy: false
-                        },
+                //     ]
+                // },
+                //   {
+                //     index: 21,
+                //     itemList: [
+                //         {
+                //             index: 0,
+                //             src: 'static/img/cidian/cidian0.jpg',
+                //             isycy: true
+                //         },
+                //         {
+                //             index: 1,
+                //             src: 'static/img/cidian/cidian1.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 2,
+                //             src: 'static/img/cidian/cidian2.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 3,
+                //             src: 'static/img/cidian/cidian3.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 4,
+                //             src: 'static/img/cidian/cidian4.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 5,
+                //             src: 'static/img/cidian/cidian5.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 6,
+                //             src: 'static/img/cidian/cidian6.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 7,
+                //             src: 'static/img/cidian/cidian7.jpg',
+                //             isycy: false
+                //         },
+                //         {
+                //             index: 8,
+                //             src: 'static/img/cidian/cidian8.jpg',
+                //             isycy: false
+                //         },
 
-                    ]
-                },
+                //     ]
+                // },
                 //   {
                 //     index: 22,
                 //     itemList: [
