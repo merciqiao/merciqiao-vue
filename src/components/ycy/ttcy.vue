@@ -627,159 +627,159 @@ export default {
 
                     ]
                 },
-                // {
-                //     index: 9,
-                //     itemList: [
-                //         {
-                //             index: 0,
-                //             src: 'static/img/jihua/jihua0.jpg',
-                //             isycy: true
-                //         },
-                //         {
-                //             index: 1,
-                //             src: 'static/img/jihua/jihua1.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 2,
-                //             src: 'static/img/jihua/jihua2.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 3,
-                //             src: 'static/img/jihua/jihua3.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 4,
-                //             src: 'static/img/jihua/jihua4.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 5,
-                //             src: 'static/img/jihua/jihua5.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 6,
-                //             src: 'static/img/jihua/jihua6.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 7,
-                //             src: 'static/img/jihua/jihua7.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 8,
-                //             src: 'static/img/jihua/jihua8.jpg',
-                //             isycy: false
-                //         },
+                {
+                    index: 9,
+                    itemList: [
+                        {
+                            index: 0,
+                            src: 'static/img/jihua/jihua0.jpg',
+                            isycy: true
+                        },
+                        {
+                            index: 1,
+                            src: 'static/img/jihua/jihua1.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 2,
+                            src: 'static/img/jihua/jihua2.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 3,
+                            src: 'static/img/jihua/jihua3.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 4,
+                            src: 'static/img/jihua/jihua4.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 5,
+                            src: 'static/img/jihua/jihua5.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 6,
+                            src: 'static/img/jihua/jihua6.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 7,
+                            src: 'static/img/jihua/jihua7.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 8,
+                            src: 'static/img/jihua/jihua8.jpg',
+                            isycy: false
+                        },
 
-                //     ]
-                // },
-                // {
-                //     index: 10,
-                //     itemList: [
-                //         {
-                //             index: 0,
-                //             src: 'static/img/niuzai/niuzai0.jpg',
-                //             isycy: true
-                //         },
-                //         {
-                //             index: 1,
-                //             src: 'static/img/niuzai/niuzai1.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 2,
-                //             src: 'static/img/niuzai/niuzai2.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 3,
-                //             src: 'static/img/niuzai/niuzai3.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 4,
-                //             src: 'static/img/niuzai/niuzai4.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 5,
-                //             src: 'static/img/niuzai/niuzai5.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 6,
-                //             src: 'static/img/niuzai/niuzai6.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 7,
-                //             src: 'static/img/niuzai/niuzai7.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 8,
-                //             src: 'static/img/niuzai/niuzai8.jpg',
-                //             isycy: false
-                //         },
+                    ]
+                },
+                {
+                    index: 10,
+                    itemList: [
+                        {
+                            index: 0,
+                            src: 'static/img/niuzai/niuzai0.jpg',
+                            isycy: true
+                        },
+                        {
+                            index: 1,
+                            src: 'static/img/niuzai/niuzai1.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 2,
+                            src: 'static/img/niuzai/niuzai2.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 3,
+                            src: 'static/img/niuzai/niuzai3.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 4,
+                            src: 'static/img/niuzai/niuzai4.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 5,
+                            src: 'static/img/niuzai/niuzai5.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 6,
+                            src: 'static/img/niuzai/niuzai6.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 7,
+                            src: 'static/img/niuzai/niuzai7.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 8,
+                            src: 'static/img/niuzai/niuzai8.jpg',
+                            isycy: false
+                        },
 
-                //     ]
-                // },
-                // {
-                //     index: 11,
-                //     itemList: [
-                //         {
-                //             index: 0,
-                //             src: 'static/img/shuiguo/shuiguo0.jpg',
-                //             isycy: true
-                //         },
-                //         {
-                //             index: 1,
-                //             src: 'static/img/shuiguo/shuiguo1.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 2,
-                //             src: 'static/img/shuiguo/shuiguo2.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 3,
-                //             src: 'static/img/shuiguo/shuiguo3.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 4,
-                //             src: 'static/img/shuiguo/shuiguo4.jpg',
-                //             isycy: true
-                //         },
-                //         {
-                //             index: 5,
-                //             src: 'static/img/shuiguo/shuiguo5.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 6,
-                //             src: 'static/img/shuiguo/shuiguo6.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 7,
-                //             src: 'static/img/shuiguo/shuiguo7.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 8,
-                //             src: 'static/img/shuiguo/shuiguo8.jpg',
-                //             isycy: false
-                //         },
+                    ]
+                },
+                {
+                    index: 11,
+                    itemList: [
+                        {
+                            index: 0,
+                            src: 'static/img/shuiguo/shuiguo0.jpg',
+                            isycy: true
+                        },
+                        {
+                            index: 1,
+                            src: 'static/img/shuiguo/shuiguo1.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 2,
+                            src: 'static/img/shuiguo/shuiguo2.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 3,
+                            src: 'static/img/shuiguo/shuiguo3.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 4,
+                            src: 'static/img/shuiguo/shuiguo4.jpg',
+                            isycy: true
+                        },
+                        {
+                            index: 5,
+                            src: 'static/img/shuiguo/shuiguo5.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 6,
+                            src: 'static/img/shuiguo/shuiguo6.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 7,
+                            src: 'static/img/shuiguo/shuiguo7.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 8,
+                            src: 'static/img/shuiguo/shuiguo8.jpg',
+                            isycy: false
+                        },
 
-                //     ]
-                // },
+                    ]
+                },
                 // {
                 //     index: 12,
                 //     itemList: [
