@@ -165,7 +165,7 @@ export default {
                 {
                     index: 5,
                     src: 'static/img/bang/bang5.jpg',
-                    isycy: true
+                    outurl:'https://m.ke.qq.com/mcates/ccyy/detail.html?act_id=1&work_id=1068',
                 },
                 {
                     index: 6,
@@ -200,6 +200,10 @@ export default {
             }
             if(item.tip){
                 this.$message({ message: item.tip, type: "warn" , showClose: true})
+                return;
+            }
+            if(item.outurl){
+                window.location.href=item.outurl;
                 return;
             }
             
