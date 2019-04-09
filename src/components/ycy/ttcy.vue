@@ -3,7 +3,8 @@
         <div class="outer">
             <div class="center_box">
                 <div class="nav">
-                    <div v-popover:personInfo class="lev" :style="{color:levcolor}" @click="showPersonInfo">{{lev}}</div>
+                    <!--<div v-popover:personInfo class="lev" :style="{color:levcolor}" @click="showPersonInfo">{{lev}}</div>-->
+                    <div class="lev" :style="{color:levcolor}">{{lev}}</div>
                     <div class="bangdan" @click="bangdan">
                         吸越榜
                     </div>
@@ -47,7 +48,7 @@
                         <th style="width:60px">分数</th>
                         <th style="width:95px">等级</th>
                     </tr>
-                    <tr v-for='item in personInfoList'>
+                    <tr v-for='item in personInfoList' :style="item.style">
                         <td>{{item.type}}</td>
                         <td>{{item.rank}}</td>
                         <td>{{item.score}}</td>
@@ -1401,10 +1402,13 @@ export default {
             tipShow:'visible',//显示tip
             personInfoList: [
                  {
-                     type: '今日榜',
+                    type: '今日榜',
                     score: '-',
                     rank: '-',
                     lev:'-',
+                    style:{
+                        color:'#42b983'
+                    }
                 }
                 ,
                 {
@@ -1412,12 +1416,18 @@ export default {
                     score: '-',
                     rank: '-',
                     lev:'-',
+                     style:{
+                        color:'#ae81ff'
+                    }
                 }, 
                 {
                     type: '总分榜',
                     score: '-',
                     rank: '-',
                     lev:'-',
+                    style:{
+                        color:'#e96900'
+                    }
                 }
                
               ],
