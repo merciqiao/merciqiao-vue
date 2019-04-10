@@ -33,6 +33,10 @@ const router = new VueRouter({
       path: '/liuyan',
       component: resolve => require(['../components/ycy/liuyan.vue'], resolve)
     },
+     {
+      path: '/jiemi',
+      component: resolve => require(['../components/ycy/jiemi.vue'], resolve)
+    },
     {
       path: '*',
       redirect: '/'

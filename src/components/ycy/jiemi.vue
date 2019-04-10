@@ -8,11 +8,11 @@
                                 <a @click="goBack">返回</a>
                             </div>
                             <div class="rank">
-                                <h2>排行榜</h2>
+                                <h2>答案提示</h2>
                             </div>
                             
                             <div class='right'>
-                                <a @click="showLiuYan">交流</a>
+                                <!--<a @click="showLiuYan">交流</a>-->
                             </div>
                         </nav>
                     </el-col>
@@ -20,13 +20,27 @@
             </header>
         <div class='out'>
             <div class="center_box">
-                <div style="font-size:12px;">喜欢的话,编程大赛投票14号哈</div>
-                <transition-group class="game_box" name="list-complete" tag="div">
-
-                            <div v-for="(item) in items" :key="item.index" class="list-complete-item item">
-                                <img class="img" :src="item.src" @click="showBang(item)">
-                            </div>
-                </transition-group>
+                <div style="font-size:14px;">
+                    <div>1.公交车:超越微博搜吃鸡</div>
+                    <div>2.动画:微博搜杨超越吹牛</div>
+                    <div>3.动物:创时跳101</div>
+                    <div>4.动物二:喜欢抓的动物</div>
+                    <div>5.奖牌:2018年度影响中国人物奖和超新星运动会</div>
+                    <div>6.毛绒玩具:应援吉祥物</div>
+                    <div>7.袜子:横冲直撞20岁聚餐的一期超越着装</div>
+                    <div>8.水果:超越经常吃的水果</div>
+                    <div>9.洗发水:代言的洗发水</div>
+                    <div>10.性格:超越经常用来形容自己的性格</div>
+                    <div>11.饮料:代言的饮料</div>
+                    <div>12.综艺:参加的综艺</div>
+                    <div>13.色卡:超越的应援色</div>
+                    <div>14.武功:超越想学的武功</div>
+                    <div>15.数字:最重要的生日</div>
+                    <div>16.数字二:身高</div>
+                    <div>17.发型:大哥教你梳..</div>
+                    <div>18.牛仔裤:微博搜杨超越破洞牛仔裤</div>
+                    <div>一大波更有挑战的...</div>
+                </div>
             </div>
         </div>
          
@@ -106,7 +120,7 @@
               justify-content: center;
             .center_box {
                     width: 300px; //  border:1px solid green;
-                    margin-top:-40px;
+                    margin-top:10px;
                     display: flex;
                     flex-flow: column wrap; //横向排列,换行
                     align-items: center;
@@ -133,80 +147,23 @@
 </style>
 
 <script>
+import apis from '../../apis/apis';
 export default {
     data(){
         return {
-            items: [
-                {
-                    index: 0,
-                    src: 'static/img/bang/bang0.jpg',
-                    url: 'bang'
-                },
-                {
-                    index: 1,
-                    src: 'static/img/bang/bang2.jpg',
-                    url: 'daybang'
-                },
-                  {
-                    index: 2,
-                    src: 'static/img/bang/bang1.jpg',
-                    url: 'speedbang'
-                },
-                {
-                    index: 3,
-                    src: 'static/img/bang/bang3.jpg',
-                    url: 'bangtotal'
-                },
-                {
-                    index: 4,
-                    src: 'static/img/bang/bang4.jpg',//中间
-                    tip: '总分榜Lv12等级以上玩家开放'
-                },
-                {
-                    index: 5,
-                    src: 'static/img/bang/bang5.jpg',
-                    outurl:'https://m.ke.qq.com/mcates/ccyy/detail.html?act_id=1&work_id=1068',
-                },
-                {
-                    index: 6,
-                    src: 'static/img/bang/bang6.jpg',
-                    url: 'jiemi'
-                },
-                {
-                    index: 7,
-                    src: 'static/img/bang/bang7.jpg',
-                    isycy: true
-                },
-                {
-                    index: 8,
-                    src: 'static/img/bang/bang8.jpg',
-                    isycy: true
-                },
-
-            ],
         }
     },
     mounted(){
-        
+         var loginLog = {
+                    ip: returnCitySN["cip"],
+                    city: this.$common.getCity(),
+                    type:'查看答案提示'
+                };
+                apis.shiroApi.loginLog(loginLog);
     },
     methods:{
         goBack(){
              this.$router.go(-1);
-        },
-        showBang(item){
-            if(item.url){
-                this.$router.push({ path: item.url });
-                return;
-            }
-            if(item.tip){
-                this.$message({ message: item.tip, type: "warn" , showClose: true})
-                return;
-            }
-            if(item.outurl){
-                window.location.href=item.outurl;
-                return;
-            }
-            
         },
          showLiuYan(){
             this.$router.push({ path: "/liuyan" });
