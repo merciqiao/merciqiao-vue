@@ -12,7 +12,7 @@
                             </div>
                             
                             <div class='right'>
-                                <a @click="showLiuYan">留言</a>
+                                <a @click="showLiuYan">交流</a>
                             </div>
                         </nav>
                     </el-col>

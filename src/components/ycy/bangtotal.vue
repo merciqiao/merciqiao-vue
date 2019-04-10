@@ -44,7 +44,7 @@
                        
                         <el-table-column  prop="score" label="分数" align="center" min-width="40">
                         </el-table-column>
-                        <el-table-column  prop="score" label="段位" align="center" width="76">
+                        <el-table-column  prop="score" label="段位" align="center" min-width="78">
                             <template slot-scope="scope">
                                 <h4 class="">{{scope.row.score|convertLev}}</h4>
                                 <h4 class="">{{scope.row.score|convertLevText}}</h4>
