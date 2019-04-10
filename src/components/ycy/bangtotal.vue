@@ -36,7 +36,7 @@
                                 <h4 class="line-limit-length">{{scope.row.city|convertCity}}</h4>
                             </template>
                         </el-table-column>
-                        <el-table-column  prop="ip" label="ip" min-width="92" align="center">
+                        <el-table-column  prop="ip" label="ip" width="110" align="center">
                             <template slot-scope="scope">
                                 <h4 class="line-limit-length">{{scope.row.ip|convertIp}}</h4>
                             </template>
