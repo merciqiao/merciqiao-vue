@@ -133,6 +133,7 @@
 </style>
 
 <script>
+import apis from '../../apis/apis';
 export default {
     data(){
         return {
@@ -166,6 +167,7 @@ export default {
                     index: 5,
                     src: 'static/img/bang/bang5.jpg',
                     outurl:'https://m.ke.qq.com/mcates/ccyy/detail.html?act_id=1&work_id=1068',
+                    name:'14号投票链接'
                 },
                 {
                     index: 6,
@@ -203,6 +205,15 @@ export default {
                 return;
             }
             if(item.outurl){
+                if(item.name){
+                      var loginLog = {
+                        ip: returnCitySN["cip"],
+                        city: this.$common.getCity(),
+                        type:'打开外部链接:'+item.name
+                };
+                apis.shiroApi.loginLog(loginLog);
+                }
+               
                 window.location.href=item.outurl;
                 return;
             }
