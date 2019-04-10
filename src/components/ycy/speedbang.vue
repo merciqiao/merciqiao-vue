@@ -451,8 +451,8 @@ export default {
             return lev;
         },
         convertCity:(city)=>{
-            if(city.length>6){
-                city=city.substring(0,6)+'...';
+            if(city.length>3){
+                city=city.substring(0,3)+'...';
             }
             return city;
         },
