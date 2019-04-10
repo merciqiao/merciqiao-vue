@@ -20,7 +20,7 @@
             </header>
         <div class='out'>
             <div class="center_box">
-                
+                <div style="font-size:12px;">喜欢的话,编程大赛投票14号哈</div>
                 <transition-group class="game_box" name="list-complete" tag="div">
 
                             <div v-for="(item) in items" :key="item.index" class="list-complete-item item">

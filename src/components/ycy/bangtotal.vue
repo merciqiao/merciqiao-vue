@@ -251,7 +251,7 @@ export default {
             listLoading : false,
             pageInfo: { //分页
                 currentPage: 1,
-                pageSize: 60,//设置榜单大小
+                pageSize: 99,//设置榜单大小
                 pageTotal: 0
             },
             tableData: [  //表单列表
