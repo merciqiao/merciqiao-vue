@@ -5,7 +5,8 @@
                 <router-link :to="item.path" class="tags-li-title">
                     {{item.title}}
                 </router-link>
-                <span class="tags-li-icon" @click="closeTags(index)"><i class="el-icon-close"></i></span>
+                
+                <span v-show="item.title!='系统首页'" class="tags-li-icon" @click="closeTags(index)"><i class="el-icon-close"></i></span>
             </li>
         </ul>
         <div class="tags-close-box">
@@ -47,8 +48,12 @@
             },
             // 关闭全部标签
             closeAll(){
-                this.tagsList = [];
-                //this.$router.push('/');
+                this.tagsList = [{
+                    name: "index",
+                    path: "/index",
+                    title: "系统首页"
+                }];
+                this.$router.push('/');
             },
             // 关闭其他标签
             closeOther(){
