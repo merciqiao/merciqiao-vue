@@ -11,7 +11,7 @@
                         </div>
                         <div class="rank">
                             <div>我的排名:{{myRank}}({{myScore|convertSecend}}秒)</div>
-                            <div>日百分速度榜人数:{{allCount}}</div>
+                            <div>日50分速度榜人数:{{allCount}}</div>
                         </div>
                         
                         <div class='right'>
