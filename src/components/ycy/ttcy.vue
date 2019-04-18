@@ -1511,7 +1511,7 @@ export default {
             else if (this.status == this.statusEnum.starting) {//进行中
                 if (item.isycy) {//如果选中ycy
                     this.score += 1;//分数加1
-                    if (this.score == 100) {//如果分数达到100分
+                    if (this.score == 50) {//如果分数达到100分
                         this.endTime = new Date();
                         this.mintime = this.endTime - this.startTime;
                     }
