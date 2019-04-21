@@ -1582,7 +1582,8 @@ export default {
             var lev_new = this.$common.getYcyLev(this.score);//获取新的段位
             if (lev_new != this.lev_now) {
                 //等级变化,改变时间等级
-                this.time = this.$common.getTimeLev(this.score);
+                // this.time = this.$common.getTimeLev(this.score);
+                this.time=10;//固定10秒
                 this.lastTime = this.time;
             }
             else {
