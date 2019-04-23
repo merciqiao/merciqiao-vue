@@ -1239,57 +1239,57 @@ export default {
 
                     ]
                 },
-                //   {
-                //     index: 21,
-                //     itemList: [
-                //         {
-                //             index: 0,
-                //             src: 'static/img/cidian/cidian0.jpg',
-                //             isycy: true
-                //         },
-                //         {
-                //             index: 1,
-                //             src: 'static/img/cidian/cidian1.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 2,
-                //             src: 'static/img/cidian/cidian2.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 3,
-                //             src: 'static/img/cidian/cidian3.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 4,
-                //             src: 'static/img/cidian/cidian4.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 5,
-                //             src: 'static/img/cidian/cidian5.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 6,
-                //             src: 'static/img/cidian/cidian6.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 7,
-                //             src: 'static/img/cidian/cidian7.jpg',
-                //             isycy: false
-                //         },
-                //         {
-                //             index: 8,
-                //             src: 'static/img/cidian/cidian8.jpg',
-                //             isycy: false
-                //         },
+                  {
+                    index: 21,
+                    itemList: [
+                        {
+                            index: 0,
+                            src: 'static/img/cidian/cidian0.jpg',
+                            isycy: true
+                        },
+                        {
+                            index: 1,
+                            src: 'static/img/cidian/cidian1.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 2,
+                            src: 'static/img/cidian/cidian2.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 3,
+                            src: 'static/img/cidian/cidian3.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 4,
+                            src: 'static/img/cidian/cidian4.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 5,
+                            src: 'static/img/cidian/cidian5.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 6,
+                            src: 'static/img/cidian/cidian6.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 7,
+                            src: 'static/img/cidian/cidian7.jpg',
+                            isycy: false
+                        },
+                        {
+                            index: 8,
+                            src: 'static/img/cidian/cidian8.jpg',
+                            isycy: false
+                        },
 
-                //     ]
-                // },
+                    ]
+                },
                 //   {
                 //     index: 22,
                 //     itemList: [

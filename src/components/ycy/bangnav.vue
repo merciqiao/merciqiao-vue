@@ -161,13 +161,12 @@ export default {
                 {
                     index: 4,
                     src: 'static/img/bang/bang4.jpg',//中间
-                    tip: '总分榜Lv12等级以上玩家开放'
+                    tip: '总分榜Lv10等级以上玩家开放'
                 },
                 {
                     index: 5,
                     src: 'static/img/bang/bang5.jpg',
-                    // outurl:'https://m.ke.qq.com/mcates/ccyy/detail.html?act_id=1&work_id=1068',
-                    // name:'14号投票链接'
+                    tip: '总分榜Lv10等级以上玩家开放'
                 },
                 {
                     index: 6,
