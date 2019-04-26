@@ -158,7 +158,7 @@ export default {
         return {
             initScore: 0,//初始分数,开发用
             score: 0,//当前分数
-            initTime: 8,//初始倒计时
+            initTime: 10,//初始倒计时
             lastTime: 0,//上一次倒计时
             time: 0,//当前倒计时
             timer: null,

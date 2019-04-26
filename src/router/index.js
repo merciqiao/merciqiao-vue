@@ -37,6 +37,18 @@ const router = new VueRouter({
       path: '/jiemi',
       component: resolve => require(['../components/ycy/jiemi.vue'], resolve)
     },
+     {
+      path: '/pk',
+      component: resolve => require(['../components/ycy/pk.vue'], resolve)
+    },
+         {
+      path: '/pkhome',
+      component: resolve => require(['../components/ycy/pkhome.vue'], resolve)
+    },
+       {
+      path: '/test',
+      component: resolve => require(['../components/ycy/test.vue'], resolve)
+    },
     {
       path: '*',
       redirect: '/'
