@@ -33,9 +33,10 @@
                     <div>
                         <el-button type="success" size="small"  @click="matching">{{matchtext}}</el-button>
                     </div>
-                    <div v-show="targetUser">
-                    对手SID:{{targetUser}}
+                    <div v-show="pkResult">
+                    上局PK结果:{{pkResult}}
                     </div>
+
                 </div>
                 <div v-else>
                      <div class="gamer">
@@ -1486,6 +1487,10 @@
                 tipColor:'',
                 tipShow:'visible',//显示tip
                 startText:3,
+                pkTime:10,//设置PK倒计时数
+                isgamestart:false,//游戏是否开始
+                pkResult:'',
+                isHomer:false,//房主
                 }
            
         },
@@ -1545,6 +1550,7 @@
                     this.matchtext='游戏中...';
                     this.targetUser=data.toSID;
                     this.intoGame=true;//设置进入游戏
+                    this.isHomer=data.isHomer;
                     this.$nextTick(()=>{
                        this.gamestart();
                     });
@@ -1622,6 +1628,11 @@
                 this.$message({ message: '请点击中间开始', type: "warn" })
             }
             else if (this.status == this.statusEnum.init && item.index == 4) {//点击了开始
+                if(this.isgamestart==false){
+                    this.$message({ message: '请等待倒计时', type: "warn" })
+                    return;
+                }
+
                 this.startTime = new Date();//开始计时
                 var items = this.choseItems();
                 this.shuffle(items);
@@ -1688,20 +1699,26 @@
         },
         gamestart(){
             this.startText=3;
-            var isstart=false;
+            this.isgamestart=false;
              var timer = setInterval(() => {
           
                 var n=this.startText-1;
 
-                if(n==0){
+                if(n==0&&this.isgamestart==false){
                     this.startText='Go';
-                    isstart=true;
+                    this.isgamestart=true;
                 }
-                else if(n==0&&isstart==true){
+                else if(n==0&&this.isgamestart==true){
+                    //结束游戏
+                    clearInterval(timer);
+                    this.intoGame=false;
                     this.over();
+                    if(this.isHomer){//如果是房主,则结束游戏
+                        
+                    }
                 }
                 else if(this.startText=='Go'){
-                    this.startText=60;
+                    this.startText=this.pkTime;
                 }
                 else{
                     this.startText=n;
@@ -1717,8 +1734,20 @@
         over() {
             this.cleartimer();
             this.status = this.statusEnum.over;
-
-            this.$message({ message: 'game over!吸越得分:' + this.score + '分', type: "error" });
+            var myScore=this.score;
+            var targetScore=this.targetScore;
+            var strTip="";
+            if(myScore>targetScore){
+                strTip="恭喜你,胜利!";
+            }
+            else if(myScore<targetScore){
+                strTip="很遗憾,挑战失败!";
+            }
+            else{
+                strTip="缘分呐,打成平局!";
+            }
+            this.$message({ message: strTip+"得分 "+myScore+"："+targetScore, type: "error" });
+            this.pkResult=strTip+"得分 "+myScore+":"+targetScore;
             var ycyScore = {
                 ip: returnCitySN["cip"],
                 city: this.$common.getCity(),
@@ -1728,6 +1757,7 @@
             apis.shiroApi.addYcyScore(ycyScore).then(() => {
                 this.freshLev();
             });
+            this.isgamestart=false;
 
         },
         //开始计时
