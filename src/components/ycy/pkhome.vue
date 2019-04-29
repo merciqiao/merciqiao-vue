@@ -72,6 +72,11 @@
                 
                 
             </div>
+            <audio  id="myaudio" ref="myaudio" preload="load" src="/static/mp3/comein.mp3">
+            </audio>
+            <audio id="myaudio" ref="myaudio" preload="load">
+                <source src="/static/mp3/comein.mp3" type="audio/mp3" />
+            </audio>
     </div>
 </template>
 <style lang="scss">
@@ -1538,8 +1543,17 @@
                 data=JSON.parse(event.data);
                 //刷新总人数和在线状态
                 if(data.type=='ALL_COUNT'){
+                    if(data.data>this.allCount){
+                        this.$nextTick(()=>{
+                            this.$refs.myaudio.play();
+                        });
+                    }
+
                     this.allCount=data.data;
                     this.state="在线";
+                    
+                    
+                    
                 }
                 //刷新队列状态
                 else if(data.type=='QUEUE_STATE'){
