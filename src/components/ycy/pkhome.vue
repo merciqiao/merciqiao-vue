@@ -1489,7 +1489,7 @@
                 tipColor:'',
                 tipShow:'visible',//显示tip
                 startText:3,
-                pkTime:10,//设置PK倒计时数
+                pkTime:60,//设置PK倒计时数
                 isgamestart:false,//游戏是否开始
                 pkResult:'',
                 isHomer:false,//房主
