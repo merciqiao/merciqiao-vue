@@ -38,8 +38,8 @@ const router = new VueRouter({
       component: resolve => require(['../components/ycy/jiemi.vue'], resolve)
     },
      {
-      path: '/pk',
-      component: resolve => require(['../components/ycy/pk.vue'], resolve)
+      path: '/pklist',
+      component: resolve => require(['../components/ycy/pklist.vue'], resolve)
     },
          {
       path: '/pkhome',

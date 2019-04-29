@@ -219,13 +219,15 @@
     }
 </style>
 <script>
+    import apis from '../../apis/apis';
     export default{
+        name: 'pkhome',
         data (){
             return {
                 websocket:null,//socket对象
                 msg:'未连接',
                 text:'',
-                pid:this.$common.getGuid(),
+                pid:process.env.NODE_ENV=='development'? this.$common.getGuid():returnCitySN["cip"],
                 allCount:0,//当前房间总人数
                 intoGameCount:0,//当前游戏中队数
                 targetUser:'',//对手sid
@@ -1505,7 +1507,13 @@
 
                 //判断当前浏览器是否支持WebSocket
                 if('WebSocket' in window){
-                    this.websocket = new WebSocket("ws://localhost:8001/websocket/"+this.pid);
+                    if(process.env.NODE_ENV=='development'){
+                        this.websocket = new WebSocket("ws://localhost:8001/websocket/"+this.pid);
+                    }
+                    else{
+                        this.websocket = new WebSocket("ws://139.199.113.64:10001/websocket/"+this.pid);
+                    }
+                    
                     this.websocket.onopen  =this.onopen;
                     this.websocket.onerror =this.onerror;
                     this.websocket.onmessage =this.onmessage;
@@ -1559,6 +1567,10 @@
                 else if(data.type=='FRESH_TARGET_SCORE'){
                     this.targetScore=data.data;
                 }
+                //游戏结束更新状态
+                else if(data.type=='OUT_GAME'){
+                    this.matchtext='进入匹配';
+                }
             },
             //连接关闭的回调方法
             onclose(){
@@ -1591,17 +1603,26 @@
             },
              goBack(){
                 this.$router.go(-1);
+                var socketParam={
+                        fromSID:this.pid,
+                        toSID:'',
+                        type:'CLOSE',
+                        msg:'',
+                        data:''
+                    }
+                    this.send(socketParam);
             },
             matching(){
                 if(this.matchtext=='进入匹配'){
-                    var param={
+                    this.restart()
+                    var socketParam={
                         fromSID:this.pid,
                         toSID:'',
                         type:'INTO_MATCHING',
                         msg:'',
                         data:''
                     }
-                    this.websocket.send(JSON.stringify(param));
+                    this.send(socketParam);
                     //执行开始匹配
                     this.matchtext='匹配中...';
                 }
@@ -1641,7 +1662,7 @@
                     var loginLog = {
                         ip: returnCitySN["cip"],
                         city: this.$common.getCity(),
-                        type: '开始一起来吸越'
+                        type: '开始一起来吸越PK赛'
                     };
                     apis.shiroApi.loginLog(loginLog);
                 });
@@ -1714,7 +1735,14 @@
                     this.intoGame=false;
                     this.over();
                     if(this.isHomer){//如果是房主,则结束游戏
-                        
+                         var socketParam={
+                            fromSID:this.pid,
+                            toSID:'',
+                            type:'GAME_OVER',
+                            msg:'',
+                            data:''
+                         };
+                        this.send(socketParam);
                     }
                 }
                 else if(this.startText=='Go'){
@@ -1755,7 +1783,7 @@
                 mintime: this.mintime,
             };
             apis.shiroApi.addYcyScore(ycyScore).then(() => {
-                this.freshLev();
+                //this.freshLev();
             });
             this.isgamestart=false;
 

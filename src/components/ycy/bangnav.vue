@@ -20,7 +20,7 @@
             </header>
         <div class='out'>
             <div class="center_box">
-                <!-- <div style="font-size:12px;">喜欢的话,编程大赛投票14号哈</div> -->
+                <div style="font-size:12px;">PK模式已经开放</div>
                 <transition-group class="game_box" name="list-complete" tag="div">
 
                             <div v-for="(item) in items" :key="item.index" class="list-complete-item item">
@@ -161,7 +161,7 @@ export default {
                 {
                     index: 4,
                     src: 'static/img/bang/bang4.jpg',//中间
-                    tip: '总分榜Lv10等级以上玩家开放'
+                    url: 'pkhome'
                 },
                 {
                     index: 5,
