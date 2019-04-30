@@ -231,7 +231,7 @@
 <script>
     import apis from '../../apis/apis';
     export default{
-        name: 'pkhome',
+        // name: 'pkhome',
         data (){
             return {
                 websocket:null,//socket对象
@@ -1621,7 +1621,7 @@
                 
             },
              goBack(){
-                this.$router.go(-1);
+                // this.$router.go(-1);
                 var socketParam={
                         fromSID:this.pid,
                         toSID:'',
@@ -1630,6 +1630,7 @@
                         data:''
                     }
                     this.send(socketParam);
+                    this.$router.push({ path: "/bangnav" });
             },
             matching(){
                 if(this.matchtext=='进入匹配'){
@@ -2049,6 +2050,14 @@
             });
         },
         goHome(){
+            var socketParam={
+                        fromSID:this.pid,
+                        toSID:'',
+                        type:'CLOSE',
+                        msg:'',
+                        data:''
+                    }
+                    this.send(socketParam);
             this.$router.push({ path: "/ttcy" });
         }
         },
