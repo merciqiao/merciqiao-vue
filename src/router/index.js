@@ -5,9 +5,17 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter);
 const router = new VueRouter({
   routes: [
+    //  {
+    //   path: '/',
+    //   redirect: '/pkhome'
+    // },
+    {
+      path: '/ttcy',
+      component: resolve => require(['../components/ycy/ttcy.vue'], resolve)
+    },
     {
       path: '/',
-      component: resolve => require(['../components/ycy/ttcy.vue'], resolve)
+      component: resolve => require(['../components/ycy/pkhome.vue'], resolve)
     },
     {
       path: '/bang',
@@ -41,10 +49,7 @@ const router = new VueRouter({
       path: '/pklist',
       component: resolve => require(['../components/ycy/pklist.vue'], resolve)
     },
-         {
-      path: '/pkhome',
-      component: resolve => require(['../components/ycy/pkhome.vue'], resolve)
-    },
+
        {
       path: '/test',
       component: resolve => require(['../components/ycy/test.vue'], resolve)

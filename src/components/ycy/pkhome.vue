@@ -30,8 +30,12 @@
                         当前等待队列:{{queueState}}
                     </div>
                     <br>
-                    <div>
+                    <div style="text-align:center;">
                         <el-button type="success" size="small"  @click="matching">{{matchtext}}</el-button>
+                    </div>
+                    <br>
+                     <div style="text-align:center;">
+                        <el-button type="warning" size="small"  @click="goHome">单人游戏</el-button>
                     </div>
                     <div v-show="pkResult">
                     上局PK结果:{{pkResult}}
@@ -154,7 +158,8 @@
                 height: 100vh;
                 width: 100%;
                 display: flex;
-                align-items: center;
+                margin-top:60px;
+                // align-items: center;
                 justify-content: center; //垂直居中
                 .center_box {
                     width: 300px; //  border:1px solid green;
@@ -1689,7 +1694,7 @@
                         this.endTime = new Date();
                         this.mintime = this.endTime - this.startTime;
                     }
-                     this.$message({ message: '正确', type: "sucess" });
+                     this.$message({ message: '正确', type: 'success' });
                      //正确就刷新到对方那里的分数
                     var param={
                         fromSID:this.pid,
@@ -1702,7 +1707,7 @@
                 }
                 else {
                     //this.over();
-                    this.$message({ message: '错误', type: "warn" });
+                    this.$message({ message: '错误', type: "error" });
                 }
                 //刷新新题
                 this.freshItems();
@@ -2042,6 +2047,9 @@
                 this.listLoading=false;
                 this.$message({message: '查询异常，请重试',type: "error"});
             });
+        },
+        goHome(){
+            this.$router.push({ path: "/ttcy" });
         }
         },
     }
