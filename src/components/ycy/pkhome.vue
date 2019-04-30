@@ -1630,7 +1630,7 @@
                         data:''
                     }
                     this.send(socketParam);
-                    this.$router.push({ path: "/bangnav" });
+                    this.$router.replace({ path: "/bangnav" });
             },
             matching(){
                 if(this.matchtext=='进入匹配'){
@@ -2058,7 +2058,7 @@
                         data:''
                     }
                     this.send(socketParam);
-            this.$router.push({ path: "/ttcy" });
+            this.$router.replace({ path: "/ttcy" });
         }
         },
     }
