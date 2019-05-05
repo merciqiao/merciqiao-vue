@@ -1507,33 +1507,6 @@
            
         },
         mounted() {
-            var formLogin = {
-            loginName: 'admin',
-            password: '123456'
-        }
-        apis.shiroApi.loginIn(formLogin).then((data)=>{
-            
-                if (data && data.data) {
-                        var json = data.data;
-                        if (json.status == 'SUCCESS') {
-                            console.log('吸越游戏登录成功');
-                            this.restart();
-                            var loginLog = {
-                                ip: returnCitySN["cip"],
-                                city: this.$common.getCity(),
-                                type: '进入一起来吸越'
-                            };
-                            apis.shiroApi.loginLog(loginLog);
-                            this.freshLev();
-                            return;
-                        }
-                }
-                this.$message({ message: '认证失败,请重新刷新页面', type: "warn" });
-        }).catch(()=>{
-            this.$message({ message: '认证失败,请重新刷新页面', type: "warn" });
-        });
-
-
             this.open();
             window.onbeforeunload=onbeforeunload;
             this.restart();

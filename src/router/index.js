@@ -10,11 +10,11 @@ const router = new VueRouter({
     //   redirect: '/pkhome'
     // },
     {
-      path: '/ttcy',
+      path: '/',
       component: resolve => require(['../components/ycy/ttcy.vue'], resolve)
     },
     {
-      path: '/',
+      path: '/pkhome',
       component: resolve => require(['../components/ycy/pkhome.vue'], resolve)
     },
     {
