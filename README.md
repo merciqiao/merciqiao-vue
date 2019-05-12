@@ -33,9 +33,8 @@ npm run build --report
 三.后台接口
 我已经提供了公网的接口
 后端接口服务git: https://github.com/merciqiao/merciqiao-manage-system 
-(single-service-removeredis是单体应用版),这个微服务项目提供了此web的接口
+(single-service-removeredis分支),这个微服务项目提供了此web的接口
 
 四.QQ群:
 1.QQ技术交流群：73110051,有问题随时问我
-2.QQ交流群(一起来吸越组队):391357920
-3.个人QQ:812858143
+2.个人QQ:812858143
