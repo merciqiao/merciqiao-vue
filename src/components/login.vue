@@ -22,7 +22,7 @@
             
         </div>
         <p class="bei">京ICP备18050367号-1</p>
-        <p  class ='recover' @click="rollBackTables">点击恢复数据</p>
+        <p  class ='recover' @click="rollBackTables">如果登陆失败,点此恢复数据</p>
     </div>
 </template>
 
@@ -65,7 +65,7 @@ $input_width:300px;
     bottom:0px; 
     cursor:pointer; 
     color:#E6A23C;
-    display: none;
+    // display: none;
 }
 .bei{
     position:absolute;
