@@ -24,10 +24,11 @@ export default {
     /**
      * 记录登陆日志
      */ 
-    loginLog: function ({ip,city}) {
+    loginLog: function ({ip,city,type}) {
         var param={
             ip:ip,
-            city:city                
+            city:city,
+            type:type              
         };
         return Axios.post('/api/loginlog-api/save', param);
     },

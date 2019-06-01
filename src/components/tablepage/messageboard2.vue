@@ -490,6 +490,15 @@ export default {
          * 打开详情页
          */
         handleDetail(index,rowData){
+            if(rowData.name=='使用文档'){
+                var loginLog={
+                                ip:returnCitySN["cip"],
+                                city:returnCitySN["cname"]+'-查看使用文档',
+                                type:'查看使用文档'
+                            };
+                            
+                            apis.shiroApi.loginLog(loginLog);
+            }
             this.openEdit();
             this.$nextTick(()=>{
                 this.dialogType='show';
