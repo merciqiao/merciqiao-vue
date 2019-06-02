@@ -22,7 +22,7 @@
             
         </div>
         <p class="bei">京ICP备18050367号-1</p>
-        <p  class ='recover' @click="rollBackTables">如果登陆失败,点此恢复数据</p>
+        <p  class ='recover' @click="rollBackTables">如果登陆数据异常,点此恢复数据</p>
     </div>
 </template>
 
