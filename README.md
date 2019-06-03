@@ -17,7 +17,7 @@ npm run build
 # 分析打包详情
 npm run build --report
 ```
-##主要技术
+## 主要技术
  - vue:前端js框架
  - element-ui:跟vue搭配的前端ui框架
  - axios:调用后端接口的ajax工具
@@ -34,7 +34,7 @@ npm run build --report
  3. Mock版:101ycy.com:6005,此版本无权限,菜单在前端代码写死
  
 
-#### 二.分支说明
+### 二.分支说明
 master分支
 ###  三.后台接口
  - 我已经提供了公网的接口
