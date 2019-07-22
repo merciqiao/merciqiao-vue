@@ -5,7 +5,7 @@
     <br />
     <br />使用文档：
     <br />------------------
-    <br />百度网盘：https://pan.baidu.com/s/1pjXdHqlJOkrXXZ_RwlEoOg，提取码：pvrw
+    <br />百度网盘：<a href="https://pan.baidu.com/s/1pjXdHqlJOkrXXZ_RwlEoOg" target="_blank">https://pan.baidu.com/s/1pjXdHqlJOkrXXZ_RwlEoOg</a>，提取码：pvrw
     <br />
     <br />版本说明:
     <br />------------------
