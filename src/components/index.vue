@@ -18,9 +18,22 @@
     <br />功能版git:https://github.com/merciqiao/merciqiao-vue.git
     <br />精简版git:https://github.com/merciqiao/vuejiaoxue.git
     <br />
+     <br />
+    答疑解惑
     <br />------------------
     <br />详情可在页底加群问我
     <br />★ 赞助★ 请点击右上角admin处
+    <br />
+    <br />
+      非常感谢
+    <br />
+    ------------------
+    <br />
+    <div class="zanzhu">
+      
+      苏州-前端-离愁：赞助50元  2019-8-13
+    </div>
+    
     <br />
     <br />
 作者打卡:2019-8-9
@@ -57,6 +70,10 @@ PS:烦请修改了数据的用户,记得恢复下数据
   right: 0;
   height: 330px;
   width: 230px;
+}
+.zanzhu{
+  border:1px dashed gray;
+  display: inline-block;
 }
 </style>
 <script>
