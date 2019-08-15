@@ -29,7 +29,7 @@
     <br />
     ------------------
     <br />
-    <div class="zanzhu">
+    <div class="zanzhulist">
       
       苏州-前端-离愁：赞助50元  2019-8-13
     </div>
@@ -71,7 +71,7 @@ PS:烦请修改了数据的用户,记得恢复下数据
   height: 330px;
   width: 230px;
 }
-.zanzhu{
+.zanzhulist{
   border:1px dashed gray;
   display: inline-block;
 }
