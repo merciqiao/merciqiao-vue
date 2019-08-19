@@ -30,9 +30,12 @@
     ------------------
     <br />
     <div class="zanzhulist">
-      
-      苏州-前端-离愁：赞助50元  2019-8-13
+      <table class="zanzhutb">
+        <tr><td>苏州-前端-离愁：</td><td>赞助50元</td><td>2019-8-13</td></tr>
+        <tr><td>*商：</td><td>赞助1元</td><td>2019-8-19</td></tr>
+      </table>
     </div>
+
     
     <br />
     <br />
@@ -74,6 +77,12 @@ PS:烦请修改了数据的用户,记得恢复下数据
 .zanzhulist{
   border:1px dashed gray;
   display: inline-block;
+}
+.zanzhutb  tr td:first-child{
+  text-align: right;
+}
+.zanzhutb  tr td:nth-child(2){
+  width:80px;
 }
 </style>
 <script>

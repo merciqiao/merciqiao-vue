@@ -14,7 +14,7 @@
         <img class='zanzhu_title' src="static/img/weixin1.jpg">
         <img class='zanzhu_content' src="static/img/weixin2.jpg">
       </div>
-      
+      <div class="zuozhe">赞助者请加我QQ:812858143，备案下赞助信息</div>
   </div>
 </div>
  
@@ -41,5 +41,8 @@
     .jinli{
         width:298px;
         height:375px;
+    }
+    .zuozhe{
+        text-align: center;
     }
 </style>
