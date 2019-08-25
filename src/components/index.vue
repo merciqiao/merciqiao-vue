@@ -33,13 +33,14 @@
       <table class="zanzhutb">
         <tr><td>苏州-前端-离愁：</td><td>赞助50元</td><td>2019-8-13</td></tr>
         <tr><td>*商：</td><td>赞助1元</td><td>2019-8-19</td></tr>
+        <tr><td>顺势而为：</td><td>赞助2元</td><td>2019-8-25</td></tr>
       </table>
     </div>
 
     
     <br />
     <br />
-作者打卡:2019-8-9
+作者打卡:2019-8-25
     <br />
 
     <br />
