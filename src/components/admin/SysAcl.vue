@@ -26,6 +26,9 @@
                     <el-table :data="tableData" class="mgt20" border style="width: 100%" stripe ref="multipleTable" tooltip-effect="dark" @row-click="clickRow">
                         <!--勾选框-->
                         <el-table-column type="selection" width="55">
+                            <template slot-scope="scope">
+                                <el-radio v-model="curentroleid" :label="scope.row.id">{{null}}</el-radio>
+                            </template>
                         </el-table-column>
                         <!--索引-->
                         <el-table-column type="index" :index="indexMethod">

@@ -34,14 +34,17 @@
                     <!--表格数据及操作-->
                     <el-table :data="tableData" class="mgt20" border style="width: 100%" stripe ref="multipleTable" tooltip-effect="dark" @row-click="clickRow">
                         <!--勾选框-->
-                        <el-table-column type="selection" width="55">
+                        <el-table-column type="radio" width="50">
+                              <template slot-scope="scope">
+                                <el-radio v-model="curentroleid" :label="scope.row.id">{{null}}</el-radio>
+                            </template>
                         </el-table-column>
                         <!--索引-->
                         <el-table-column type="index" :index="indexMethod">
                         </el-table-column>
-                        <el-table-column prop="roleName" label="角色名称" width="180" sortable>
+                        <el-table-column prop="roleName" label="角色名称" width="150" sortable>
                         </el-table-column>
-                        <el-table-column prop="roleCode" label="角色编码" width="180">
+                        <el-table-column prop="roleCode" label="角色编码" width="150">
                         </el-table-column>
                         <el-table-column prop="roleType" label="角色类型">
                         </el-table-column>
@@ -318,20 +321,20 @@ export default {
                 method: "post",
                 url: "/api/sysrole-api/deleteSysRoleByid",
                 data: param
-            }).then(
-                function(resultData) {
-                    this.$message({
+            })
+            .then(()=>{
+                  this.$message({
                         message: "删除成功",
                         type: "success"
-                    });
-                },
-                function(resultData) {
-                    this.$message({
+                    });   
+            })
+            .catch(()=>{
+                this.$message({
                         message: "删除失败",
                         type: "success"
                     });
-                }
-                );
+            })
+            ;
 
         },
         getRoleUserList: function(val) {
@@ -389,14 +392,12 @@ export default {
                 method: "post",
                 url: "/api/sysrole-api/deleteSysRoleUserByid",
                 data: param
-            }).then(
-                function(resultData) {
-                    this.$message({
+            }).then(()=>{
+                 this.$message({
                         message: "删除成功",
                         type: "success"
                     });
-                }
-                );
+            });
 
         },
         userSelectionChange: function(val) {
@@ -459,7 +460,7 @@ export default {
     mounted() {
         //获取列表
         this.getResult();
-        this.getRoleType();
+        // this.getRoleType();
 
     }
 };
