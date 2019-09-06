@@ -13,13 +13,30 @@
     <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
     <script src="https://cdn.bootcss.com/element-ui/2.4.0/index.js"></script>
     <script src="https://cdn.bootcss.com/vuex/3.0.1/vuex.min.js"></script>
-    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=2tVSfiBt0a413aV5jk2BGyeT&"></script>
     <link href="/static/css/theme-green/index.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/clipboard.js/1.5.12/clipboard.min.js"></script>   
     <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/decoupled-document/ckeditor.js"></script> 
 
      <!-- <link href="https://cdn.bootcss.com/element-ui/2.4.0/theme-chalk/index.css" rel="stylesheet">  -->
     <!-- built files will be auto injected -->
+    <script type="text/javascript">
+      var returnCitySN={
+        cip:'',
+        cname:'',
+      };
+          var myCity = new BMap.LocalCity();
+          myCity.get(myFun);
+          function myFun(result){
+            returnCitySN.cname = result.name;
+          }
+          axios.get('https://httpbin.org/ip').then(res=>{
+            if(res){
+              returnCitySN.cip= res.data.origin.split(',')[0];
+            }
+          });
+      </script>
+      
      <script>
                 var _mtac = {};
                 (function() {
