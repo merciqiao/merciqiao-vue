@@ -1521,7 +1521,7 @@
                         this.websocket = new WebSocket("ws://localhost:8001/websocket/"+this.pid);
                     }
                     else{
-                        this.websocket = new WebSocket("ws://139.199.113.64:10001/websocket/"+this.pid);
+                        this.websocket = new WebSocket("ws://101ycy.com:10001/websocket/"+this.pid);
                     }
                     
                     this.websocket.onopen  =this.onopen;
@@ -1829,8 +1829,8 @@
             var lev_new = this.$common.getYcyLev(this.score);//获取新的段位
             if (lev_new != this.lev_now) {
                 //等级变化,改变时间等级
-                // this.time = this.$common.getTimeLev(this.score);
-                this.time=10;//固定10秒
+                this.time = this.$common.getTimeLev(this.score);
+                // this.time=10;//固定10秒
                 this.lastTime = this.time;
             }
             else {
