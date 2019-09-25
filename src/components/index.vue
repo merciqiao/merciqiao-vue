@@ -22,19 +22,19 @@
      <br />
     答疑解惑
     <br />------------------
-    <br />详情可在页底加群问我
+    <br /><span style="color:red;">有问题可在页底加群问我</span>
     <br />★ 赞助★ 请点击右上角admin处
     
 
     
     <br />
     <br />
-作者打卡:2019-09-06
+作者打卡:2019-09-25
     <br />
 
     <br />
     <el-button type="warning" @click="rollBackTables">如果菜单异常,点此恢复数据</el-button>
-
+    <el-button type="warning" @click="openZanZhu">赞助</el-button>
     <br />
     <br />
 PS:烦请修改了数据的用户,记得恢复下数据
@@ -53,6 +53,7 @@ PS:烦请修改了数据的用户,记得恢复下数据
     <br />
     <div class="zanzhulist">
       <table class="zanzhutb">
+        <tr><td>无忧：</td><td>赞助30元</td><td>2019-9-25</td></tr>
         <tr><td>懒是原罪：</td><td>赞助15元</td><td>2019-9-6</td></tr>
         <tr><td>河北：</td><td>赞助0.8元</td><td>2019-9-6</td></tr>
         <tr><td>武汉-后端-星空：</td><td>赞助1元</td><td>2019-9-6</td></tr>
@@ -138,6 +139,9 @@ export default {
 
         apis.shiroApi.loginLog(loginLog);
       }
+    },
+    openZanZhu(){
+      this.$common.OpenNewPage(this,'zanzhu');
     }
   }
 };

@@ -15,6 +15,7 @@
         <img class='zanzhu_content' src="static/img/weixin2.jpg">
       </div>
       <div class="zuozhe">赞助者请加我QQ:812858143，备案下赞助信息</div>
+      <div class="zuozhe">赞助者得到优先解决问题权哦</div>
   </div>
 </div>
  
