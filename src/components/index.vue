@@ -53,6 +53,7 @@ PS:烦请修改了数据的用户,记得恢复下数据
     <br />
     <div class="zanzhulist">
       <table class="zanzhutb">
+        <tr><td>Liu月：</td><td>赞助1元</td><td>2019-9-27</td></tr>
         <tr><td>无忧：</td><td>赞助30元</td><td>2019-9-25</td></tr>
         <tr><td>懒是原罪：</td><td>赞助15元</td><td>2019-9-6</td></tr>
         <tr><td>河北：</td><td>赞助0.8元</td><td>2019-9-6</td></tr>
