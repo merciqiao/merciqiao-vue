@@ -20,6 +20,9 @@ window.moment=require('moment')
 // import 'element-ui/lib/theme-chalk/index.css';
 // import '../static/css/theme-green/index.css';
 
+//引入多语言支持
+import i18n from './common/i18n'
+
 
 Vue.prototype.$ajax=axios
 Vue.config.productionTip = false
@@ -29,11 +32,13 @@ Vue.use(util);
 Vue.use(Vuex);
 // Vue.use(CKEditor);
 
+
 process.env.MOCK && require('@/apimock')
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  i18n,//挂载i18n
   router,
   store,
   components: { App },
