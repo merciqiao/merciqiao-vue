@@ -54,6 +54,12 @@ exports.install = function (Vue,options){
           }
           return moment(date).format("YYYY-MM-DD HH:mm:ss");
     },
+    Common.toDate =function(timestamp) {
+        if (timestamp == undefined) {
+           return "";
+        }
+        return moment(timestamp).format("YYYY-MM-DD");
+  },
     Common.isSuccess =function(data,callback) {
         if (data && data.data) {   
             var json = data.data;

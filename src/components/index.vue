@@ -29,7 +29,7 @@
     
     <br />
     <br />
-作者打卡:2019-10-16
+作者打卡:2019-10-31
     <br />
 
     <br />
@@ -53,6 +53,12 @@ PS:烦请修改了数据的用户,记得恢复下数据
     <br />
     <div class="zanzhulist">
       <table class="zanzhutb">
+        <tr v-for="(item,index) in zanzhu" :key="index">
+          <td>{{item.name}}：</td>
+          <td>赞助{{item.money}}元</td>
+          <td>{{getDate(item.createtime)}}</td>
+        </tr>
+        <!-- <tr><td>第九杯月亮：</td><td>赞助10元</td><td>2019-10-31</td></tr>
         <tr><td>爱丽丝的疯帽子：</td><td>赞助20元</td><td>2019-10-16</td></tr>
         <tr><td>壹克拉眼泪：</td><td>赞助20元</td><td>2019-10-06</td></tr>
         <tr><td>Liu月：</td><td>赞助1元</td><td>2019-9-27</td></tr>
@@ -69,7 +75,7 @@ PS:烦请修改了数据的用户,记得恢复下数据
         <tr><td>顺势而为：</td><td>赞助100元</td><td>2019-9-1</td></tr>
         <tr><td>顺势而为：</td><td>赞助2元</td><td>2019-8-25</td></tr>
         <tr><td>*商：</td><td>赞助1元</td><td>2019-8-19</td></tr>
-        <tr><td>苏州-前端-离愁：</td><td>赞助50元</td><td>2019-8-13</td></tr>
+        <tr><td>苏州-前端-离愁：</td><td>赞助50元</td><td>2019-8-13</td></tr> -->
       </table>
     </div>
   </div>
@@ -106,6 +112,11 @@ PS:烦请修改了数据的用户,记得恢复下数据
 <script>
 import apis from "../apis/apis";
 export default {
+  data() {
+    return {
+      zanzhu:[]
+    }
+  },
   methods: {
     rollBackTables() {
       var text = "数据还原";
@@ -145,7 +156,27 @@ export default {
     },
     openZanZhu(){
       this.$common.OpenNewPage(this,'zanzhu');
-    }
+    },
+    getZanZhu(){
+      apis.mayiApi.getZanZhu().then(res=>{
+        if(res.status=="200"){
+          if(res.data.dataList){
+            this.zanzhu=res.data.dataList;
+          }
+        }
+      }).catch(
+        
+      );
+    },
+    getDate(param){
+      return this.$common.toDate(param);
+    } 
+  },
+  mounted() {
+    this.getZanZhu();
+  },
+  computed:{
+    
   }
 };
 </script>
