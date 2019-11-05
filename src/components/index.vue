@@ -13,11 +13,13 @@
              (或https://101ycy.com:6011)
     <br />精简版:101ycy.com:6002,此版本菜单和权限在前端代码里配置
     <br />Mock版:101ycy.com:6005,此版本无权限,菜单在前端代码写死
+  
     <br />
     <br />git仓库地址
     <br />------------------
     <br />功能版git:https://github.com/merciqiao/merciqiao-vue.git
     <br />精简版git:https://github.com/merciqiao/vuejiaoxue.git
+    <br />服务端git:https://github.com/merciqiao/merciqiao-manage-system.git(基于java的spring cloud提供接口)
     <br />
      <br />
     答疑解惑

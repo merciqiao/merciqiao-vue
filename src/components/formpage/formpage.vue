@@ -54,15 +54,15 @@
                 <el-form-item label="活动时间" prop="date1">
                     <el-date-picker type="date" placeholder="选择日期" v-model="form2.date1" style="width: 100%;"></el-date-picker>
                 </el-form-item>
-                <el-form-item label="是否" prop="delivery">
+                <!-- <el-form-item label="是否" prop="delivery">
                     <el-switch v-model="form2.delivery"></el-switch>
-                </el-form-item>
+                </el-form-item> -->
 
                 <el-form-item label="多选按钮" prop="type">
                     <el-checkbox-group v-model="form2.type">
                         <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
                         <el-checkbox label="地推活动" name="type"></el-checkbox>
-                        <el-checkbox label="线下主题活动" name="type"></el-checkbox>
+                        <el-checkbox style="margin-left: 0" label="线下主题活动" name="type"></el-checkbox>
                         <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
                     </el-checkbox-group>
                 </el-form-item>
@@ -146,7 +146,10 @@
 }
 .el-checkbox-group .el-checkbox {
   margin-left: 0;
-  padding-right: 30px;
+  // padding-right: 30px;
+}
+.el-checkbox{
+  width:173px;
 }
 </style>
 <script>
@@ -172,7 +175,7 @@ export default {
         region: "",
         date1: "",
         date2: "",
-        delivery: false,
+        delivery: true,
         type: [],
         resource: "",
         desc: ""
