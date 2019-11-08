@@ -165,6 +165,9 @@ export default {
         tip = "可为空";
         this.resoureTypeTip = "折叠菜单";
       }
+      else{
+        this.resoureTypeTip="";
+      }
       return tip;
     }
   },
