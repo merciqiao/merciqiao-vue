@@ -7,11 +7,11 @@
 
       </el-form-item>
       <el-form-item class='btn'>
-        <el-button type="primary" @click="add">添加</el-button>
+        <el-button type="primary" v-permission="['liuyan_add']" @click="add" >添加</el-button>
       </el-form-item>
 
     </el-form>
-    <el-button style="width:100%;" type="warning" @click="fresh">刷新</el-button>
+    <el-button style="width:100%;" type="warning" v-permission="['liuyan_select']" @click="fresh">刷新</el-button>
     <el-table :data="tableData" border style="width: 100%" v-loading="listLoading" :row-class-name="tableRowClassName">
       <el-table-column prop="city" label="城市" min-width="25">
       </el-table-column>
@@ -84,6 +84,7 @@
 
 <script>
 import apis from "../../apis/apis";
+
 export default {
   name: "msg",
   data() {
@@ -158,7 +159,7 @@ export default {
       if (this.mayiForm.code == "") {
         this.$message({
           type: "success",
-          message: "哨口令不能为空!"
+          message: "留言不能为空!"
         });
         return;
       } else {

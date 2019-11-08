@@ -125,6 +125,9 @@ export default {
 
                              //动态设置路由
                             this.$store.dispatch("add_Routes", json.data.sysMenuVoList);
+
+                            //存储按钮权限
+                            this.$store.dispatch("add_Permissions", json.data.rolePermissionVoList);
                             this.$router.replace({ path: "/index" });
                             
                             var loginLog={
