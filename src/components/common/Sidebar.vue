@@ -20,7 +20,7 @@
 
 <script>
     import bus from './bus';
-    import { mapState } from 'vuex'
+    import { mapGetters } from 'vuex'
     export default {
         data() {
             return {
@@ -142,8 +142,8 @@
                 ]
             }
         },
-        computed:mapState({
-            menuList:state=>state.menu.menuList,
+        computed:mapGetters({
+            menuList:'getMenuList',
             onRoutes(){
                 return this.$route.path.replace('/','');
             }
