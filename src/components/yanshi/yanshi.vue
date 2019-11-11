@@ -5,8 +5,16 @@
 </template>
 
 <script>
+import apis from '../../apis/apis'
 export default {
+  mounted() {
+     var loginLog = {
+                ip: returnCitySN["cip"],
+                city: returnCitySN["cname"] + '-' + '进入演示页面'
+            };
 
+            apis.shiroApi.loginLog(loginLog);
+  },
 };
 </script>
 
