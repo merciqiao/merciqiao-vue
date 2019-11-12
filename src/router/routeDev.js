@@ -12,6 +12,7 @@ var routeDevList = [
             title: '静态菜单路由'
         }
     },
+
 ];
 //静态菜单
 var menuDevList = [

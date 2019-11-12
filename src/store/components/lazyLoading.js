@@ -153,23 +153,30 @@ const dynamicRouter = [
     }
   },
   {
-    name:'detail',
+    name: 'detail',
     path: '/detail',
     component: resolve => require(['@/components/tablepage/detail.vue'], resolve),
-    meta:{title:'详情页'}
-  }, 
-  {
-    name:'ckeditor',
-    path: '/ckeditor',
-    component: resolve => require(['@/components/ckeditor/index.vue'], resolve),
-    meta:{title:'文本编辑器'}
+    meta: { title: '详情页' }
   },
   {
-    name:'yanshi',
+    name: 'ckeditor',
+    path: '/ckeditor',
+    component: resolve => require(['@/components/ckeditor/index.vue'], resolve),
+    meta: { title: '文本编辑器' }
+  },
+  {
+    name: 'yanshi',
     path: '/yanshi',
     component: resolve => require(['@/components/yanshi/yanshi.vue'], resolve),
-    meta:{title:'使用演示'}
-  }
+    meta: { title: '使用演示' }
+  },
+  {
+    path: '/honor',
+    component: resolve => require(['@/components/other/honor'], resolve),
+    meta: {
+      title: '小荣誉'
+    }
+  },
 ]
 export { lazy }
 

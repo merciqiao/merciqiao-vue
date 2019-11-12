@@ -27,10 +27,10 @@
        display: flex;
        flex-direction: column;
        height:100%;
-    //    .content_inner{
-    //        background: #fff;
-    //        height: 100%;
-    //    }
+       .content_inner{
+        //    background: #fff;
+           height: 100%;
+       }
     }
     
 </style>
