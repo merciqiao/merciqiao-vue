@@ -47,6 +47,38 @@ const router = new VueRouter({
   mode: 'history'
 });
 
+/**
+ * 请求拦截器,添加请求头token
+ */
+axios.interceptors.request.use(
+  config => {
+    console.log('>>>请求url:', config.url);
+    var headers = config.headers;
+    if (sessionStorage.getItem("token")) {
+      headers.token = sessionStorage.getItem("token");
+    }
+    return config;
+  },
+  error => {
+    console.log('>>>请求异常:', error.message);
+    return Promise.reject(error);
+  });
+//接口请求超时设置
+axios.defaults.timeout = 5000;//毫秒
+/**
+ * 应答拦截器,添加请求头token
+ */
+axios.interceptors.response.use(function (response) {
+  // Do something with response data
+  console.log('<<<请求成功');
+  return response;
+}, error => {
+  // Do something with response error
+  console.log('<<<异常信息:', error.message);
+  return Promise.reject(error);
+});
+
+
 //全局路由守卫
 router.beforeEach((to, from, next) => {
   //debugger
