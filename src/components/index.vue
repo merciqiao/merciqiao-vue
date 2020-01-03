@@ -53,7 +53,7 @@ PS:烦请修改了数据的用户,记得恢复下数据
     <br />
     ------------------
     <br />
-    <div class="zanzhulist">
+    <div v-show='false' class="zanzhulist">
       <table class="zanzhutb">
         <tr v-for="(item,index) in zanzhu" :key="index">
           <td>{{item.name}}：</td>
