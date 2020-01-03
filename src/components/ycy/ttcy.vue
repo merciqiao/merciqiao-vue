@@ -29,6 +29,10 @@
                         <img class="img" :src="item.src" @click='choseYcy(item)'>
                     </div>
                 </transition-group>
+                
+                 <div style="margin-top:20px;">
+                    <a target="_blank" href="http://beian.miit.gov.cn">京ICP备18050367号-1</a>
+                </div>
             </div>
             <el-popover
                 ref="personInfo"
@@ -57,6 +61,7 @@
 
                 </table>
             </el-popover>
+           
         </div>
     </div>
 </template>
