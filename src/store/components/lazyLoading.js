@@ -177,6 +177,13 @@ const dynamicRouter = [
       title: '小荣誉'
     }
   },
+  {
+    path: '/shopping',
+    component: resolve => require(['@/components/goods/shopping'], resolve),
+    meta: {
+      title: '技能充电'
+    }
+  }
 ]
 export { lazy }
 
