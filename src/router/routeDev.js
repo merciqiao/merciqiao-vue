@@ -19,6 +19,13 @@ var routeDevList = [
             title:'生成图片页'
         }
     },
+    {
+        path: '/test',
+        component: resolve => require(['../components/topdf/test.vue'], resolve),
+        meta:{
+            title:'测试flex'
+        }
+    },
 
 ];
 //静态菜单
