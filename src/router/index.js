@@ -32,6 +32,10 @@ const router = new VueRouter({
       component: resolve => require(['../components/flex/bottom.vue'], resolve)
     },
     {
+      path: '/bangka',
+      component: resolve => require(['../components/test/bangka.vue'], resolve)
+    },
+    {
       path: '/404',
       component: resolve => require(['../components/common/404.vue'], resolve)
     },
@@ -83,7 +87,7 @@ axios.interceptors.response.use(function (response) {
 router.beforeEach((to, from, next) => {
   //debugger
   console.log('跳转到:', to.fullPath);
-  if (to.path == '/tree') {
+  if (to.path == '/tree'||to.path=='/bangka') {
     next();
   }
   else {
