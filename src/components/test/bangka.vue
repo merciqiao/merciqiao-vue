@@ -1,9 +1,10 @@
 <template>
+<el-scrollbar style="height:100%">
   <div class="_bangka">
     <div class="inner">
       <div class="title"><h2>根据手机号查询绑卡信息</h2></div>
       <div>
-        <el-form :inline="true">
+        <el-form :inline="false">
           <el-form-item>
             <el-input v-model.trim="bangkaForm.mobile" placeholder="手机号"></el-input>
           </el-form-item>
@@ -33,10 +34,11 @@
       </div>
     </div>
   </div>
+  </el-scrollbar>
 </template>
 <style lang="scss">
 ._bangka {
-  height: 100%;
+  overflow-y: auto;;
   width: 100%;
   display: flex;
   //   align-items: center;
@@ -45,6 +47,7 @@
     .title {
       text-align: center;
       margin:20px auto;
+      
     }
   }
 }
