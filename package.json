@@ -14,7 +14,7 @@
     "@ckeditor/ckeditor5-build-decoupled-document": "^11.2.0",
     "@ckeditor/ckeditor5-vue": "^1.0.0-beta.1",
     "ajv": "^6.5.3",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "element-ui": "^2.4.5",
     "html2canvas": "^1.0.0-rc.5",
     "mockjs": "^1.0.1-beta3",
