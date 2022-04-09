@@ -18,7 +18,7 @@
     "element-ui": "^2.4.5",
     "html2canvas": "^1.0.0-rc.5",
     "mockjs": "^1.0.1-beta3",
-    "moment": "^2.22.2",
+    "moment": "^2.29.2",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuex-persist": "^1.8.0"
